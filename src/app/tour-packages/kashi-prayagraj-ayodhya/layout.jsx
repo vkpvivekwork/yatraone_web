@@ -11,6 +11,7 @@ export const metadata = {
     'pilgrimage tour Varanasi',
     'Yatra Ke Saathi',
   ],
+  
   openGraph: {
     title: 'Kashi – Prayagraj – Ayodhya | 3N/4D Pilgrimage Tour | Yatra Ke Saathi',
     description:
