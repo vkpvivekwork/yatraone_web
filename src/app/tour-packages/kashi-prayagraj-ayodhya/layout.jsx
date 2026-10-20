@@ -21,7 +21,7 @@ export const metadata = {
     type: 'website',
   },
 }
-
+               
 export default function Layout({ children }) {
   return children
 }

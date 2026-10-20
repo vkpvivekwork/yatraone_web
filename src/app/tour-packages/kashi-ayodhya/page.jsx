@@ -817,11 +817,11 @@ export default function KashiAyodhya() {
 
               <GoldRule margin="0 0 12px" />
 
-              {/* Main title */}
+              {/* Main title — Kashi */}
               <h1 style={{
-                fontFamily:"'Fraunces',Georgia,serif", fontWeight:900,
+                fontFamily:"'Samarkan',serif", fontWeight:400,
                 fontSize:'clamp(2.8rem,9vw,5.4rem)', color:'#FFFFFF',
-                letterSpacing:'-2px', textTransform:'uppercase', lineHeight:1,
+                letterSpacing:'0.04em', lineHeight:1,
                 textShadow:'0 2px 28px rgba(0,0,0,.7)', margin:'0 0 6px',
               }}>Kashi</h1>
 
@@ -833,10 +833,11 @@ export default function KashiAyodhya() {
                 <div style={{ height:'1px', width:'clamp(28px,9vw,60px)', background:'linear-gradient(90deg,#F4A81D,transparent)' }} />
               </div>
 
+              {/* Main title — Ayodhya */}
               <div style={{
-                fontFamily:"'Fraunces',Georgia,serif", fontWeight:800,
+                fontFamily:"'Samarkan',serif", fontWeight:400,
                 fontSize:'clamp(2.4rem,8vw,5rem)', color:'#FFFFFF',
-                letterSpacing:'-0.5px', textTransform:'uppercase',
+                letterSpacing:'0.04em', lineHeight:1,
                 textShadow:'0 2px 20px rgba(0,0,0,.65)', marginBottom:'10px',
               }}>Ayodhya</div>
 
