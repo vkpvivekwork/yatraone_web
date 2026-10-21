@@ -1,4 +1,4 @@
-export const WHATSAPP_NUMBER = "910000000000"; // digits only, with country code
+export const WHATSAPP_NUMBER = "919277472279"; // digits only, with country code
 
 export const AARTI_TIMES = [
   "6:00 PM","6:15 PM","6:30 PM","6:45 PM","7:00 PM","7:15 PM",

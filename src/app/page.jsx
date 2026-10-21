@@ -18,10 +18,10 @@ const TAB_LABELS = { tour: 'Tour', cab: 'Cab', boat: 'Boat', hotel: 'Hotel' }
 const RIBBON_WORDS = ['काशी', 'गंगा', 'घाट', 'आरती']
 
 const SVC_CARDS = [
-  { svc: 'tour',  img: '1705952484283-19c31e37e0e4', alt: 'Ritual with oil lamps on the banks of the Ganga',  icon: '#i-temple', title: 'Tour Packages',  hi: 'दर्शन और भ्रमण',       desc: 'Guided darshan, aarti, heritage walks and day trips, planned around temple timings.',      tags: ['Kashi Darshan', 'Sarnath', 'Temple trail', 'Food & silk walk', 'Custom'],                  cta: 'Plan a tour →' },
-  { svc: 'cab',   img: '1443479788958-11faa35a5578', alt: 'Driver at the wheel of a car',                     icon: '#i-car',    title: 'Cab Service',    hi: 'कैब सेवा',              desc: 'Clean cars with drivers who know the city, for a quick drop or a multi-city yatra.',         tags: ['City tour', 'Intercity', 'Full day', 'One-way drop', 'Airport / Railway', 'Round trip'],    cta: 'Book a cab →' },
-  { svc: 'boat',  img: '1596097825168-c9b773f404ff', alt: 'Boat on the Ganga at sunset',                      icon: '#i-boat',   title: 'Boat Rides',     hi: 'गंगा में नौका विहार',   desc: 'Row past the ghats at sunrise, or watch the evening aarti from the water.',                  tags: ['Sunrise ride', 'Aarti boat', 'Private rowing', 'Motor boat', 'Bajra for groups'],           cta: 'Book a boat →' },
-  { svc: 'hotel', img: '1565354785692-9e7523e5a87b', alt: 'Riverside building beside ghat steps',             icon: '#i-stay',   title: 'Hotels & Stays', hi: 'ठहरने की व्यवस्था',    desc: 'Stays we have checked ourselves, from simple guesthouses to Ganga-view rooms.',              tags: ['Ganga view', 'Bed & Breakfast', 'Near Vishwanath', 'Budget to premium'],                    cta: 'Find a hotel →' },
+  { svc: 'tour',  page: '/tour-packages', img: '1705952484283-19c31e37e0e4', alt: 'Ritual with oil lamps on the banks of the Ganga',  icon: '#i-temple', title: 'Tour Packages',  hi: 'दर्शन और भ्रमण',       desc: 'Guided darshan, aarti, heritage walks and day trips, planned around temple timings.',      tags: ['Kashi Darshan', 'Sarnath', 'Temple trail', 'Food & silk walk', 'Custom'],                  cta: 'Plan a tour →' },
+  { svc: 'cab',   page: '/cab',           img: '1443479788958-11faa35a5578', alt: 'Driver at the wheel of a car',                     icon: '#i-car',    title: 'Cab Service',    hi: 'कैब सेवा',              desc: 'Clean cars with drivers who know the city, for a quick drop or a multi-city yatra.',         tags: ['City tour', 'Intercity', 'Full day', 'One-way drop', 'Airport / Railway', 'Round trip'],    cta: 'Book a cab →' },
+  { svc: 'boat',  page: '/boating',       img: '1596097825168-c9b773f404ff', alt: 'Boat on the Ganga at sunset',                      icon: '#i-boat',   title: 'Boat Rides',     hi: 'गंगा में नौका विहार',   desc: 'Row past the ghats at sunrise, or watch the evening aarti from the water.',                  tags: ['Sunrise ride', 'Aarti boat', 'Private rowing', 'Motor boat', 'Bajra for groups'],           cta: 'Book a boat →' },
+  { svc: 'hotel', page: '/hotels',        img: '1565354785692-9e7523e5a87b', alt: 'Riverside building beside ghat steps',             icon: '#i-stay',   title: 'Hotels & Stays', hi: 'ठहरने की व्यवस्था',    desc: 'Stays we have checked ourselves, from simple guesthouses to Ganga-view rooms.',              tags: ['Ganga view', 'Bed & Breakfast', 'Near Vishwanath', 'Budget to premium'],                    cta: 'Find a hotel →' },
 ]
 
 const COLLAGE = [
@@ -259,9 +259,18 @@ export default function Home() {
       <div className="topbar">
         <div className="wrap">
           <span className="hi">हर हर महादेव · अतिथि देवो भव</span>
-          <span>
-            <span className="hide-sm">Call or WhatsApp: </span>
-            <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 00000 00000</a>
+          <span style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <span className="hide-sm">Call / WhatsApp: </span>
+            <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 92774 72279</a>
+            <a
+              href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Namaste! I want to plan a Kashi yatra.')}`}
+              target="_blank" rel="noopener" aria-label="WhatsApp"
+              style={{ display: 'flex', alignItems: 'center' }}
+            >
+              <svg viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true">
+                <path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm5.9 15.1c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/>
+              </svg>
+            </a>
           </span>
         </div>
       </div>
@@ -269,20 +278,24 @@ export default function Home() {
       {/* ── Nav ── */}
       <header className="nav">
         <div className="wrap nav-inner">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <a href="#top" className="logo">
-            <svg className="mark" viewBox="0 0 48 48"><use href="#mark" /></svg>
-            <span><b>Yatra Ke Saathi</b><small>यात्रा के साथी</small></span>
+            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
           </a>
           <nav className={`nav-links${navOpen ? ' open' : ''}`} id="navLinks">
             <a href="#services" onClick={() => setNavOpen(false)}>Services</a>
-            <a href="#packages" onClick={() => setNavOpen(false)}>Packages</a>
-            <a href="#about" onClick={() => setNavOpen(false)}>About</a>
-            <a href="#ghats" onClick={() => setNavOpen(false)}>Ghats</a>
-            <a href="#stories" onClick={() => setNavOpen(false)}>Stories</a>
-            <a href="#company" onClick={() => setNavOpen(false)}>T&amp;C</a>
+            <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
+            <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
+            <a href="/boating" onClick={() => setNavOpen(false)}>Boating</a>
+            <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
+            <a href="/about" onClick={() => setNavOpen(false)}>About</a>
           </nav>
-          <a href="#book" className="btn">Plan my yatra</a>
-          <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>☰</button>
+          <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Namaste! I want to plan a Kashi yatra.')}`} target="_blank" rel="noopener" className="btn">Plan my yatra</a>
+          <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <path d="M3 6h18M3 12h18M3 18h18"/>
+            </svg>
+          </button>
         </div>
       </header>
 
@@ -486,7 +499,7 @@ export default function Home() {
               </div>
             </div>
             <div className="svc-grid">
-              {SVC_CARDS.map(({ svc, img, alt, icon, title, hi, desc, tags, cta }, idx) => (
+              {SVC_CARDS.map(({ svc, page, img, alt, icon, title, hi, desc, tags, cta }, idx) => (
                 <article key={svc} className={`scard reveal${idx % 2 === 1 ? ' d1' : ''}`}>
                   <div className="ph">
                     <img src={U(img, 700)} alt={alt} loading="lazy" />
@@ -497,7 +510,10 @@ export default function Home() {
                     <span className="hi">{hi}</span>
                     <p>{desc}</p>
                     <div className="tags">{tags.map(t => <span key={t}>{t}</span>)}</div>
-                    <button className="go" onClick={() => dispatchPick(svc)}>{cta}</button>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
+                      <button className="go" onClick={() => dispatchPick(svc)}>{cta}</button>
+                      <a href={page} style={{ fontSize: '.85rem', color: 'var(--saffron-deep)', textDecoration: 'underline' }}>See details</a>
+                    </div>
                   </div>
                 </article>
               ))}
@@ -533,6 +549,7 @@ export default function Home() {
                 <div><b data-count="4">4</b><span>services, one team</span></div>
                 <div><b>24×7</b><span>help on call</span></div>
               </div>
+              <a href="/about" style={{ display: 'inline-block', marginTop: '20px', fontSize: '.9rem', color: 'var(--saffron-deep)', textDecoration: 'underline' }}>Learn more about us →</a>
             </div>
           </div>
         </section>
@@ -544,7 +561,7 @@ export default function Home() {
               <div className="hi">एक कॉल, पूरी यात्रा।</div>
               <p>One call and we take care of the station pickup, a room near the ghats, the boat for aarti and a guide for darshan.</p>
               <div className="acts">
-                <a href="#book" className="btn">Plan my yatra</a>
+                <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Namaste! I want to plan a Kashi yatra.')}`} target="_blank" rel="noopener" className="btn">Plan my yatra</a>
                 <a href={`tel:+${WHATSAPP_NUMBER}`} className="btn line">Call us</a>
               </div>
             </div>
@@ -563,9 +580,12 @@ export default function Home() {
                 <h2 className="sec-title">Tour <em>packages</em></h2>
                 <p className="sec-lead">Cab, boat, stay and a local guide are included, and every package can be changed to suit you.</p>
               </div>
-              <button className="btn line" onClick={() => dispatchPick('tour', 'Custom package')}>
-                Build a custom trip
-              </button>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end' }}>
+                <button className="btn line" onClick={() => dispatchPick('tour', 'Custom package')}>
+                  Build a custom trip
+                </button>
+                <a href="/tour-packages" style={{ fontSize: '.88rem', color: 'var(--saffron-deep)', textDecoration: 'underline' }}>See all packages →</a>
+              </div>
             </div>
             <div className="pkgs">
               {PACKAGES.map(({ days, title, img, imgAlt, price, features, pkg, popular }, idx) => (
@@ -693,17 +713,19 @@ export default function Home() {
                 <span className="eyebrow">Yatri stories</span>
                 <h2 className="sec-title">Words from our <em>yatris</em></h2>
               </div>
-              <div className="t-nav">
-                <button aria-label="Previous" onClick={() => { goT(tIdxRef.current - 1); startAuto() }}>←</button>
-                <button aria-label="Next" onClick={() => { goT(tIdxRef.current + 1); startAuto() }}>→</button>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '10px' }}>
+                <div className="t-nav">
+                  <button aria-label="Previous" onClick={() => { goT(tIdxRef.current - 1); startAuto() }}>←</button>
+                  <button aria-label="Next" onClick={() => { goT(tIdxRef.current + 1); startAuto() }}>→</button>
+                </div>
+                <a href="/testimonials" style={{ fontSize: '.88rem', color: 'var(--saffron-deep)', textDecoration: 'underline' }}>See all reviews →</a>
               </div>
             </div>
             <div className="reveal d1" style={{ overflow: 'hidden', padding: '16px 4px 10px' }}>
               <div className="t-track" ref={trackRef} onTouchStart={handleTTouchStart} onTouchEnd={handleTTouchEnd}>
                 {TESTIMONIALS.map((t, i) => (
                   <div key={i} className="t-card">
-                    {t.sample && <span className="sample">Sample</span>}
-                    <div className="q">&ldquo;</div>
+                      <div className="q">&ldquo;</div>
                     <div className="stars">★★★★★</div>
                     <blockquote>{t.text}</blockquote>
                     <div className="who">
@@ -755,15 +777,15 @@ export default function Home() {
               <ul className="info">
                 <li>
                   <svg viewBox="0 0 40 40"><use href="#i-pin" /></svg>
-                  <div><b>Office</b>Your address, near Dashashwamedh Ghat, Varanasi, UP</div>
+                  <div><b>Office</b>near Dashashwamedh Ghat, Varanasi, UP</div>
                 </li>
                 <li>
                   <svg viewBox="0 0 40 40"><use href="#i-phone" /></svg>
-                  <div><b>Phone / WhatsApp</b>+91 00000 00000</div>
+                  <div><b>Phone / WhatsApp</b>+91 92774 72279</div>
                 </li>
                 <li>
                   <svg viewBox="0 0 40 40"><use href="#i-mail" /></svg>
-                  <div><b>Email</b>hello@yatrakesaathi.com</div>
+                  <div><b>Email</b>info@yatraksathi.com</div>
                 </li>
                 <li>
                   <svg viewBox="0 0 40 40"><use href="#i-clock" /></svg>
@@ -771,7 +793,7 @@ export default function Home() {
                 </li>
                 <li>
                   <svg viewBox="0 0 40 40"><use href="#i-doc" /></svg>
-                  <div><b>GSTIN</b>Your registration number</div>
+                  <div><b>GSTIN</b>—</div>
                 </li>
               </ul>
             </div>
@@ -830,14 +852,9 @@ export default function Home() {
         <div className="wrap">
           <div className="foot">
             <div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <a href="#top" className="logo" style={{ marginBottom: '14px' }}>
-                <svg className="mark" viewBox="0 0 48 48" style={{ width: '42px', height: '42px' }}>
-                  <use href="#mark" />
-                </svg>
-                <span>
-                  <b>Yatra Ke Saathi</b>
-                  <small style={{ color: 'var(--marigold)' }}>यात्रा के साथी</small>
-                </span>
+                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
               </a>
               <p style={{ fontSize: '.95rem', maxWidth: '22rem', color: '#cdb892' }}>
                 Tours, cabs, boats and hotels in Kashi, arranged by people who live here.
@@ -855,24 +872,33 @@ export default function Home() {
             <div>
               <h4>Explore</h4>
               <ul>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#ghats">Ghats</a></li>
-                <li><a href="#stories">Yatri stories</a></li>
-                <li><a href="#company">Terms</a></li>
+                <li><a href="/about">About us</a></li>
+                <li><a href="/sightseeing">Sightseeing</a></li>
+                <li><a href="/testimonials">Yatri stories</a></li>
+                <li><a href="/contact">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="/legal/privacy-policy">Privacy Policy</a></li>
+                <li><a href="/legal/terms-and-conditions">Terms &amp; Conditions</a></li>
+                <li><a href="/legal/cancellation-policy">Cancellation Policy</a></li>
+                <li><a href="/legal/disclaimer">Disclaimer</a></li>
               </ul>
             </div>
             <div>
               <h4>Contact</h4>
               <ul>
                 <li>Varanasi, Uttar Pradesh</li>
-                <li>+91 00000 00000</li>
-                <li>hello@yatrakesaathi.com</li>
+                <li>+91 92774 72279</li>
+                <li>info@yatraksathi.com</li>
               </ul>
             </div>
           </div>
           <div className="copy">
             <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
-            <span>Photos: Unsplash (replace with your own)</span>
+            <span>Varanasi, Uttar Pradesh</span>
           </div>
         </div>
       </footer>

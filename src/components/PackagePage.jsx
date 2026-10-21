@@ -61,7 +61,7 @@ export default function PackagePage({ pkg }) {
           <span className="hi">हर हर महादेव · अतिथि देवो भव</span>
           <span>
             <span className="hide-sm">Call or WhatsApp: </span>
-            <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 00000 00000</a>
+            <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 92774 72279</a>
           </span>
         </div>
       </div>
@@ -435,8 +435,8 @@ export default function PackagePage({ pkg }) {
               <h4>Contact</h4>
               <ul>
                 <li>Varanasi, Uttar Pradesh</li>
-                <li>+91 00000 00000</li>
-                <li>hello@yatrakesaathi.com</li>
+                <li>+91 92774 72279</li>
+                <li>info@yatraksathi.com</li>
               </ul>
             </div>
           </div>
