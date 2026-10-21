@@ -14,7 +14,7 @@ const QUICK = [
 ]
 
 const FAQS = [
-  { q: 'How quickly do you reply?', a: 'Usually within 10–15 minutes on WhatsApp, day or night. For calls, we're reachable 24×7.' },
+  { q: 'How quickly do you reply?', a: "Usually within 10–15 minutes on WhatsApp, day or night. For calls, we're reachable 24×7." },
   { q: 'Can I book same-day cabs or boat rides?', a: 'Yes, for most services we can arrange same-day bookings subject to availability. WhatsApp us as early as possible.' },
   { q: 'Do you take advance payment?', a: 'For most bookings, payment is made in Varanasi itself. We only take advance for packages that include hotel bookings.' },
   { q: 'Are your prices fixed or negotiable?', a: 'Our prices are fixed and transparent. What we quote is what you pay — no hidden charges at the end.' },
