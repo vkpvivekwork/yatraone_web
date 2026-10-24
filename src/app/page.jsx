@@ -289,7 +289,13 @@ export default function Home() {
             <a href="/boating" onClick={() => setNavOpen(false)}>Boating</a>
             <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
             <a href="/about" onClick={() => setNavOpen(false)}>About</a>
+            <a href="/travel-itinerary" className="nav-itin" onClick={() => setNavOpen(false)}>
+              Download Custom Itinerary
+            </a>
           </nav>
+          <a href="/travel-itinerary" className="btn line dl-itin">
+            <span>Download Custom<br />Itinerary</span>
+          </a>
           <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Namaste! I want to plan a Kashi yatra.')}`} target="_blank" rel="noopener" className="btn">Plan my yatra</a>
           <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
