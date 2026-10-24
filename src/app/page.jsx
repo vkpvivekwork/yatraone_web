@@ -286,7 +286,7 @@ export default function Home() {
             <a href="#services" onClick={() => setNavOpen(false)}>Services</a>
             <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
             <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
-            <a href="/boating" onClick={() => setNavOpen(false)}>Boating</a>
+            <a href="/boat-rides" onClick={() => setNavOpen(false)}>Boating</a>
             <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
             <a href="/about" onClick={() => setNavOpen(false)}>About</a>
             <a href="/travel-itinerary" className="nav-itin" onClick={() => setNavOpen(false)}>

@@ -739,7 +739,7 @@ export default function GoldenTrianglePage() {
             <a href="/" onClick={() => setNavOpen(false)}>Home</a>
             <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
             <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
-            <a href="/boating" onClick={() => setNavOpen(false)}>Boating</a>
+            <a href="/boat-rides" onClick={() => setNavOpen(false)}>Boating</a>
             <a href="/contact" onClick={() => setNavOpen(false)}>Contact</a>
           </nav>
           <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>☰</button>
@@ -1487,7 +1487,7 @@ export default function GoldenTrianglePage() {
               <ul>
                 <li><a href="/tour-packages">Tour Packages</a></li>
                 <li><a href="/cab">Cab Booking</a></li>
-                <li><a href="/boating">Boat Rides</a></li>
+                <li><a href="/boat-rides">Boat Rides</a></li>
                 <li><a href="/hotels">Hotels</a></li>
               </ul>
             </div>

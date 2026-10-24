@@ -41,7 +41,7 @@ function Nav({ navOpen, setNavOpen }) {
         <nav className={`nav-links${navOpen ? ' open' : ''}`}>
           <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
           <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
-          <a href="/boating" onClick={() => setNavOpen(false)}>Boating</a>
+          <a href="/boat-rides" onClick={() => setNavOpen(false)}>Boating</a>
           <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
           <a href="/about" onClick={() => setNavOpen(false)} style={{ borderBottom: '2px solid var(--saffron)' }}>About</a>
           <a href="/contact" onClick={() => setNavOpen(false)}>Contact</a>
@@ -67,7 +67,7 @@ function Footer() {
           <div><h4>Services</h4><ul>
             <li><a href="/tour-packages">Tour Packages</a></li>
             <li><a href="/cab">Cab Booking</a></li>
-            <li><a href="/boating">Boat Rides</a></li>
+            <li><a href="/boat-rides">Boat Rides</a></li>
             <li><a href="/hotels">Hotels</a></li>
           </ul></div>
           <div><h4>Explore</h4><ul>

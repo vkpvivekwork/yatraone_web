@@ -97,7 +97,7 @@ function Nav({ navOpen, setNavOpen }) {
         <nav className={`nav-links${navOpen ? ' open' : ''}`}>
           <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
           <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
-          <a href="/boating" onClick={() => setNavOpen(false)} style={{ borderBottom: '2px solid var(--saffron)' }}>Boating</a>
+          <a href="/boat-rides" onClick={() => setNavOpen(false)} style={{ borderBottom: '2px solid var(--saffron)' }}>Boating</a>
           <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
           <a href="/about" onClick={() => setNavOpen(false)}>About</a>
           <a href="/contact" onClick={() => setNavOpen(false)}>Contact</a>
@@ -123,7 +123,7 @@ function Footer() {
           <div><h4>Services</h4><ul>
             <li><a href="/tour-packages">Tour Packages</a></li>
             <li><a href="/cab">Cab Booking</a></li>
-            <li><a href="/boating">Boat Rides</a></li>
+            <li><a href="/boat-rides">Boat Rides</a></li>
             <li><a href="/hotels">Hotels</a></li>
           </ul></div>
           <div><h4>Explore</h4><ul>
@@ -171,7 +171,7 @@ export default function BoatingPage() {
               Watch the city of Kashi from the water — there is no better way to experience Varanasi.
             </p>
             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-              <a href={`${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book a Ganga boat ride. Please share options and pricing.')}`} target="_blank" rel="noopener" className="btn">Book a Boat</a>
+              <a href="/boat-rides" className="btn">See packages &amp; book</a>
               <a href="tel:+919277472279" className="btn line">📞 Call Now</a>
             </div>
           </div>
@@ -203,9 +203,9 @@ export default function BoatingPage() {
                     </div>
                     <p style={{ fontSize: '.9rem', color: 'var(--ink-soft)', marginBottom: '12px', lineHeight: 1.5 }}>{b.desc}</p>
                     <div className="tags" style={{ marginBottom: '14px' }}>{b.tags.map(t => <span key={t}>{t}</span>)}</div>
-                    <a href={`${WA_BASE}?text=${encodeURIComponent(b.msg)}`} target="_blank" rel="noopener" className="btn"
+                    <a href="/boat-rides" className="btn"
                       style={{ background: 'var(--saffron-deep)', fontSize: '.88rem', padding: '9px 18px', width: '100%', justifyContent: 'center' }}>
-                      Book this boat
+                      See packages &amp; book
                     </a>
                   </div>
                 </div>
@@ -267,9 +267,8 @@ export default function BoatingPage() {
             <div className="hi deva">जय माँ गंगे</div>
             <h2>Ready to sail on the Ganga?</h2>
             <p>Tell us your preferred time, group size and boat type — we'll handle the rest.</p>
-            <a href={`${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book a Ganga boat ride in Varanasi. Please guide me.')}`} target="_blank" rel="noopener" className="pkg-wa-btn">
-              <svg viewBox="0 0 32 32"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm5.9 15.1c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
-              Book a Boat Ride on WhatsApp
+            <a href="/boat-rides" className="pkg-wa-btn">
+              View packages &amp; book →
             </a>
           </div>
         </section>
@@ -277,7 +276,7 @@ export default function BoatingPage() {
 
       <Footer />
 
-      <a href={`${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book a Ganga boat ride.')}`} target="_blank" rel="noopener" className="fab" aria-label="WhatsApp">
+      <a href="/boat-rides" className="fab" aria-label="Book a boat ride">
         <svg viewBox="0 0 32 32" fill="#fff"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.4.7 4.7 1.9 6.7L3 29l6.9-2.2c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm5.9 15.1c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
       </a>
     </div>
