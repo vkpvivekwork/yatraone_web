@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import Navbar from '@/app/components/Navbar'
 
 const WA = '919277472279'
 const WA_BASE = `https://wa.me/${WA}`
@@ -87,27 +87,6 @@ const GHATS = [
   { name: 'Scindia Ghat',       hi: 'सिंधिया घाट',       note: 'Partially submerged temple' },
 ]
 
-function Nav({ navOpen, setNavOpen }) {
-  const wa = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to plan a yatra.')}`
-  return (
-    <header className="nav">
-      <div className="wrap nav-inner">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <a href="/" className="logo"><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} /></a>
-        <nav className={`nav-links${navOpen ? ' open' : ''}`}>
-          <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
-          <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
-          <a href="/boat-rides" onClick={() => setNavOpen(false)} style={{ borderBottom: '2px solid var(--saffron)' }}>Boating</a>
-          <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
-          <a href="/about" onClick={() => setNavOpen(false)}>About</a>
-          <a href="/contact" onClick={() => setNavOpen(false)}>Contact</a>
-        </nav>
-        <a href={wa} target="_blank" rel="noopener" className="btn">Plan my yatra</a>
-        <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>☰</button>
-      </div>
-    </header>
-  )
-}
 
 function Footer() {
   return (
@@ -148,7 +127,6 @@ function Footer() {
 }
 
 export default function BoatingPage() {
-  const [navOpen, setNavOpen] = useState(false)
 
   return (
     <div>
@@ -157,7 +135,7 @@ export default function BoatingPage() {
         <span><span className="hide-sm">Call / WhatsApp: </span><a href="tel:+919277472279">+91 92774 72279</a></span>
       </div></div>
       <div className="toran" aria-hidden="true">{Array.from({ length: TORAN }, (_, i) => <i key={i} />)}</div>
-      <Nav navOpen={navOpen} setNavOpen={setNavOpen} />
+      <Navbar />
 
       <main>
         {/* ── Hero ── */}

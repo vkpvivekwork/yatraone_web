@@ -1,7 +1,44 @@
 'use client'
 import { useState, useEffect, useRef, useCallback, cloneElement } from 'react'
 import { WHATSAPP_NUMBER, AARTI_TIMES, U } from '@/lib/constants'
-import { SERVICES, GHATS, PHOTOS, TESTIMONIALS, PACKAGES, FESTIVALS } from '@/lib/data'
+import { GHATS, PHOTOS, TESTIMONIALS, PACKAGES, FESTIVALS } from '@/lib/data'
+import Navbar from '@/app/components/Navbar'
+
+// ─── simplified booking form config (home page only) ──────────────────────────
+const SERVICES = {
+  tour: {
+    title: "Plan a tour",
+    fields: [
+      { id: "Package", type: "select", w: 2, req: true, options: ["Kashi Darshan (1 Day)","Kashi + Sarnath (2 Days)","Kashi Spiritual Retreat (3 Days)","Kashi–Prayagraj–Ayodhya (5 Days)","Festival trip (Dev Deepawali etc.)","Custom package"] },
+      { id: "Travel date", type: "date", req: true },
+      { id: "People", type: "number", min: 1, value: 2, req: true },
+    ],
+  },
+  cab: {
+    title: "Book a cab",
+    fields: [
+      { id: "Trip type", type: "select", w: 2, req: true, options: ["City Tour","Intercity","Full Day (8 hr / 80 km)","One-way Drop","Airport / Railway Pickup","Round Trip"] },
+      { id: "Date", type: "date", req: true },
+      { id: "People", type: "number", min: 1, value: 1, req: true },
+    ],
+  },
+  boat: {
+    title: "Book a boat",
+    fields: [
+      { id: "Time slot", type: "select", w: 2, req: true, options: ["Sunrise (5:30–7:30 AM)","Morning","Evening Ganga Aarti","Custom time"] },
+      { id: "Date", type: "date", req: true },
+      { id: "People", type: "number", min: 1, value: 2, req: true },
+    ],
+  },
+  hotel: {
+    title: "Find a hotel",
+    fields: [
+      { id: "Check-in",  type: "date", req: true },
+      { id: "Check-out", type: "date", req: true },
+      { id: "Guests",    type: "number", min: 1, value: 2, req: true },
+    ],
+  },
+}
 
 // ─── inline data ───────────────────────────────────────────────────────────────
 
@@ -18,10 +55,10 @@ const TAB_LABELS = { tour: 'Tour', cab: 'Cab', boat: 'Boat', hotel: 'Hotel' }
 const RIBBON_WORDS = ['काशी', 'गंगा', 'घाट', 'आरती']
 
 const SVC_CARDS = [
-  { svc: 'tour',  page: '/tour-packages', img: '1705952484283-19c31e37e0e4', alt: 'Ritual with oil lamps on the banks of the Ganga',  icon: '#i-temple', title: 'Tour Packages',  hi: 'दर्शन और भ्रमण',       desc: 'Guided darshan, aarti, heritage walks and day trips, planned around temple timings.',      tags: ['Kashi Darshan', 'Sarnath', 'Temple trail', 'Food & silk walk', 'Custom'],                  cta: 'Plan a tour →' },
-  { svc: 'cab',   page: '/cab',           img: '1443479788958-11faa35a5578', alt: 'Driver at the wheel of a car',                     icon: '#i-car',    title: 'Cab Service',    hi: 'कैब सेवा',              desc: 'Clean cars with drivers who know the city, for a quick drop or a multi-city yatra.',         tags: ['City tour', 'Intercity', 'Full day', 'One-way drop', 'Airport / Railway', 'Round trip'],    cta: 'Book a cab →' },
-  { svc: 'boat',  page: '/boating',       img: '1596097825168-c9b773f404ff', alt: 'Boat on the Ganga at sunset',                      icon: '#i-boat',   title: 'Boat Rides',     hi: 'गंगा में नौका विहार',   desc: 'Row past the ghats at sunrise, or watch the evening aarti from the water.',                  tags: ['Sunrise ride', 'Aarti boat', 'Private rowing', 'Motor boat', 'Bajra for groups'],           cta: 'Book a boat →' },
-  { svc: 'hotel', page: '/hotels',        img: '1565354785692-9e7523e5a87b', alt: 'Riverside building beside ghat steps',             icon: '#i-stay',   title: 'Hotels & Stays', hi: 'ठहरने की व्यवस्था',    desc: 'Stays we have checked ourselves, from simple guesthouses to Ganga-view rooms.',              tags: ['Ganga view', 'Bed & Breakfast', 'Near Vishwanath', 'Budget to premium'],                    cta: 'Find a hotel →' },
+  { svc: 'tour',  page: '/services/tour',  img: '1705952484283-19c31e37e0e4', alt: 'Ritual with oil lamps on the banks of the Ganga',  icon: '#i-temple', title: 'Tour Packages',  hi: 'दर्शन और भ्रमण',       desc: 'Guided darshan, aarti, heritage walks and day trips, planned around temple timings.',      tags: ['Kashi Darshan', 'Sarnath', 'Temple trail', 'Food & silk walk', 'Custom'],                  cta: 'Plan a tour →' },
+  { svc: 'cab',   page: '/services/cab',   img: '1443479788958-11faa35a5578', alt: 'Driver at the wheel of a car',                     icon: '#i-car',    title: 'Cab Service',    hi: 'कैब सेवा',              desc: 'Clean cars with drivers who know the city, for a quick drop or a multi-city yatra.',         tags: ['City tour', 'Intercity', 'Full day', 'One-way drop', 'Airport / Railway', 'Round trip'],    cta: 'Book a cab →' },
+  { svc: 'boat',  page: '/services/boat',  img: '1596097825168-c9b773f404ff', alt: 'Boat on the Ganga at sunset',                      icon: '#i-boat',   title: 'Boat Rides',     hi: 'गंगा में नौका विहार',   desc: 'Row past the ghats at sunrise, or watch the evening aarti from the water.',                  tags: ['Sunrise ride', 'Aarti boat', 'Private rowing', 'Motor boat', 'Bajra for groups'],           cta: 'Book a boat →' },
+  { svc: 'hotel', page: '/services/hotel', img: '1565354785692-9e7523e5a87b', alt: 'Riverside building beside ghat steps',             icon: '#i-stay',   title: 'Hotels & Stays', hi: 'ठहरने की व्यवस्था',    desc: 'Stays we have checked ourselves, from simple guesthouses to Ganga-view rooms.',              tags: ['Ganga view', 'Bed & Breakfast', 'Near Vishwanath', 'Budget to premium'],                    cta: 'Find a hotel →' },
 ]
 
 const COLLAGE = [
@@ -30,6 +67,7 @@ const COLLAGE = [
   { id: '1608412525537-662195e817c5', cap: 'Along the ghats',     alt: 'People walking along the ghats' },
   { id: '1634920540678-df0e179c5243', cap: 'Colours of the galis', alt: 'Woman in red in front of a colourful wall' },
 ]
+
 
 const GALLERY_PHOTOS = PHOTOS.slice(2, 10)
 const STRIP_PHOTOS   = PHOTOS.slice(6, 12)
@@ -56,7 +94,6 @@ function getPer() {
 
 export default function Home() {
   // Nav
-  const [navOpen, setNavOpen] = useState(false)
   // Hero
   const [activeSvc, setActiveSvc] = useState('tour')
   const [aartiTime, setAartiTime] = useState('')
@@ -258,7 +295,7 @@ export default function Home() {
       {/* ── Topbar ── */}
       <div className="topbar">
         <div className="wrap">
-          <span className="hi">हर हर महादेव · अतिथि देवो भव</span>
+          <span className="hi">हर यात्रा के भरोसेमंद साथी</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
             <span className="hide-sm">Call / WhatsApp: </span>
             <a href={`tel:+${WHATSAPP_NUMBER}`}>+91 92774 72279</a>
@@ -276,34 +313,7 @@ export default function Home() {
       </div>
 
       {/* ── Nav ── */}
-      <header className="nav">
-        <div className="wrap nav-inner">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <a href="#top" className="logo">
-            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
-          </a>
-          <nav className={`nav-links${navOpen ? ' open' : ''}`} id="navLinks">
-            <a href="#services" onClick={() => setNavOpen(false)}>Services</a>
-            <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
-            <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
-            <a href="/boat-rides" onClick={() => setNavOpen(false)}>Boating</a>
-            <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
-            <a href="/about" onClick={() => setNavOpen(false)}>About</a>
-            <a href="/travel-itinerary" className="nav-itin" onClick={() => setNavOpen(false)}>
-              Download Custom Itinerary
-            </a>
-          </nav>
-          <a href="/travel-itinerary" className="btn line dl-itin">
-            <span>Download Custom<br />Itinerary</span>
-          </a>
-          <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Namaste! I want to plan a Kashi yatra.')}`} target="_blank" rel="noopener" className="btn">Plan my yatra</a>
-          <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-              <path d="M3 6h18M3 12h18M3 18h18"/>
-            </svg>
-          </button>
-        </div>
-      </header>
+      <Navbar showItin ctaLabel="Plan my yatra" ctaHref={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Namaste! I want to plan a Kashi yatra.')}`} />
 
       {/* ── Toran ── */}
       <div className="toran" aria-hidden="true">
@@ -517,7 +527,7 @@ export default function Home() {
                     <p>{desc}</p>
                     <div className="tags">{tags.map(t => <span key={t}>{t}</span>)}</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
-                      <button className="go" onClick={() => dispatchPick(svc)}>{cta}</button>
+                      <a href={page} className="go">{cta}</a>
                       <a href={page} style={{ fontSize: '.85rem', color: 'var(--saffron-deep)', textDecoration: 'underline' }}>See details</a>
                     </div>
                   </div>
@@ -582,8 +592,8 @@ export default function Home() {
           <div className="wrap">
             <div className="sec-head reveal">
               <div>
-                <span className="eyebrow">Popular yatras</span>
-                <h2 className="sec-title">Tour <em>packages</em></h2>
+                <span className="eyebrow">Handpicked for you</span>
+                <h2 className="sec-title">Start your <em>yatra</em></h2>
                 <p className="sec-lead">Cab, boat, stay and a local guide are included, and every package can be changed to suit you.</p>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', alignItems: 'flex-end' }}>
@@ -594,7 +604,7 @@ export default function Home() {
               </div>
             </div>
             <div className="pkgs">
-              {PACKAGES.map(({ days, title, img, imgAlt, price, features, pkg, popular }, idx) => (
+              {PACKAGES.map(({ days, title, sub, desc, href, img, imgAlt, features, pkg, popular }, idx) => (
                 <article key={pkg} className={`pkg reveal${idx > 0 ? ` d${Math.min(idx, 3)}` : ''}`}>
                   <div className="img ph">
                     <img src={U(img, 700)} alt={imgAlt} loading="lazy" />
@@ -603,10 +613,10 @@ export default function Home() {
                   </div>
                   <div className="body">
                     <h3>{title}</h3>
+                    {sub && <p className="pkg-sub">{sub}</p>}
                     <ul>{features.map(f => <li key={f}>{f}</li>)}</ul>
                     <div className="row">
-                      <span className="price">{price} <small>/ person</small></span>
-                      <button onClick={() => dispatchPick('tour', pkg)}>Enquire</button>
+                      <a href={href} className="pkg-book-btn">See details →</a>
                     </div>
                   </div>
                 </article>
@@ -862,6 +872,9 @@ export default function Home() {
               <a href="#top" className="logo" style={{ marginBottom: '14px' }}>
                 <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
               </a>
+              <p style={{ fontSize: '1.05rem', fontFamily: "'Noto Sans Devanagari', sans-serif", color: '#e8c97a', marginBottom: '8px', letterSpacing: '.01em' }}>
+                हर यात्रा के भरोसेमंद साथी
+              </p>
               <p style={{ fontSize: '.95rem', maxWidth: '22rem', color: '#cdb892' }}>
                 Tours, cabs, boats and hotels in Kashi, arranged by people who live here.
               </p>
@@ -869,10 +882,10 @@ export default function Home() {
             <div>
               <h4>Services</h4>
               <ul>
-                <li><a href="#book" onClick={(e) => { e.preventDefault(); dispatchPick('tour') }}>Tour packages</a></li>
-                <li><a href="#book" onClick={(e) => { e.preventDefault(); dispatchPick('cab') }}>Cab booking</a></li>
-                <li><a href="#book" onClick={(e) => { e.preventDefault(); dispatchPick('boat') }}>Boat rides</a></li>
-                <li><a href="#book" onClick={(e) => { e.preventDefault(); dispatchPick('hotel') }}>Hotels</a></li>
+                <li><a href="/services/tour">Tour packages</a></li>
+                <li><a href="/services/cab">Cab booking</a></li>
+                <li><a href="/services/boat">Boat rides</a></li>
+                <li><a href="/services/hotel">Hotels</a></li>
               </ul>
             </div>
             <div>

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
+import Navbar from '@/app/components/Navbar'
 import './page.css'
 import { U } from '@/lib/constants'
 
@@ -58,28 +59,6 @@ const REVIEWS = [
   { text: 'Got the Ghat Ride + Reel package for our honeymoon. The photos they delivered same evening were beautiful. Worth every rupee.', name: 'Anjali & Vivek, Pune', stars: '★★★★★', pkg: 'Ghat Ride + Reel' },
 ]
 
-function Nav({ navOpen, setNavOpen }) {
-  const wa = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to plan a yatra.')}`
-  return (
-    <header className="nav">
-      <div className="wrap nav-inner">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <a href="/" className="logo">
-          <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
-        </a>
-        <nav className={`nav-links${navOpen ? ' open' : ''}`}>
-          <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
-          <a href="/cab" onClick={() => setNavOpen(false)}>Cab</a>
-          <a href="/boat-rides" onClick={() => setNavOpen(false)}>Boating</a>
-          <a href="/sightseeing" onClick={() => setNavOpen(false)}>Sightseeing</a>
-          <a href="/about" onClick={() => setNavOpen(false)}>About</a>
-        </nav>
-        <a href={wa} target="_blank" rel="noopener" className="btn">Plan my yatra</a>
-        <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>☰</button>
-      </div>
-    </header>
-  )
-}
 
 function Footer() {
   return (
@@ -122,7 +101,6 @@ function Footer() {
 }
 
 export default function BoatRidesPage() {
-  const [navOpen, setNavOpen] = useState(false)
   const [chosen, setChosen] = useState(null)
   const [form, setForm] = useState({ pkg: '', date: '', pax: '2', name: '', phone: '', msg: '' })
   const formRef = useRef(null)
@@ -168,7 +146,7 @@ export default function BoatRidesPage() {
         {Array.from({ length: TORAN }, (_, i) => <i key={i} />)}
       </div>
 
-      <Nav navOpen={navOpen} setNavOpen={setNavOpen} />
+      <Navbar />
 
       <main>
         {/* ── Hero ── */}
