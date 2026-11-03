@@ -191,12 +191,12 @@ const INCLUSIONS = [
 ]
 
 const TRIP_DIARIES = [
-  { name: 'Ganga Aarti · Dashashwamedh', photo: '1627894483216-2138af692e32', stars: 5 },
-  { name: 'Ram Mandir · Ayodhya',         photo: '1613445607898-f46e51645acf', stars: 5 },
-  { name: 'Triveni Sangam · Prayagraj',   photo: '1596097825168-c9b773f404ff', stars: 5 },
-  { name: 'Sarnath · Dhamek Stupa',       photo: '1649876674933-a5b3b39b4da1', stars: 5 },
-  { name: 'Sunrise Boat Ride · Ganga',    photo: '1571536802807-30451e3955d8', stars: 5 },
-  { name: 'Kashi Vishwanath Temple',      photo: '1665413791167-6718dcf36773', stars: 5 },
+  { place: 'Ganga Aarti · Dashashwamedh', photo: '1627894483216-2138af692e32', stars: 5, reviewer: 'Priya Verma',    city: 'Mumbai' },
+  { place: 'Ram Mandir · Ayodhya',        photo: '1613445607898-f46e51645acf', stars: 5, reviewer: 'Ramesh Agarwal', city: 'Jaipur' },
+  { place: 'Triveni Sangam · Prayagraj',  photo: '1596097825168-c9b773f404ff', stars: 5, reviewer: 'Sunita Devi',    city: 'Delhi' },
+  { place: 'Sarnath · Dhamek Stupa',      photo: '1649876674933-a5b3b39b4da1', stars: 5, reviewer: 'Vikram Singh',   city: 'Lucknow' },
+  { place: 'Sunrise Boat Ride · Ganga',   photo: '1571536802807-30451e3955d8', stars: 5, reviewer: 'Anita Sharma',   city: 'Ahmedabad' },
+  { place: 'Kashi Vishwanath Temple',     photo: '1665413791167-6718dcf36773', stars: 5, reviewer: 'Meera Gupta',    city: 'Pune' },
 ]
 
 const REVIEWS = [
@@ -655,7 +655,7 @@ export default function GoldenTrianglePage() {
 
         .gt-act-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; }
         @media (max-width: 900px) { .gt-act-grid { grid-template-columns: repeat(3,1fr); } }
-        @media (max-width: 560px) { .gt-act-grid { grid-template-columns: repeat(2,1fr); gap: 10px; } }
+        @media (max-width: 560px) { .gt-act-grid { grid-template-columns: repeat(3,1fr); gap: 8px; } }
 
         .gt-inc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
         @media (max-width: 860px) { .gt-inc-grid { grid-template-columns: repeat(2,1fr); } }
@@ -1308,28 +1308,28 @@ export default function GoldenTrianglePage() {
             </div>
             <div className="gt-diary-grid">
               {TRIP_DIARIES.map(t => (
-                <div key={t.name} className="gt-diary-card" style={{
+                <div key={t.place} className="gt-diary-card" style={{
                   borderRadius: '5px', overflow: 'hidden',
                   border: '1.5px solid rgba(196,146,37,.35)',
                   boxShadow: '0 8px 28px rgba(0,0,0,.25)',
                 }}>
-                  <div className="gt-diary-img" style={{ aspectRatio: '4/3', overflow: 'hidden', background: '#E8D8A0' }}>
+                  <div className="gt-diary-img" style={{ aspectRatio: '4/3', overflow: 'hidden', background: '#E8D8A0', position: 'relative' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={U(t.photo, 600)} alt={t.name} loading="lazy"
+                    <img src={U(t.photo, 600)} alt={t.place} loading="lazy"
                       style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <div style={{ position: 'absolute', bottom: '8px', left: '8px', display: 'flex', gap: '1px', background: 'rgba(0,0,0,.45)', backdropFilter: 'blur(4px)', borderRadius: '3px', padding: '3px 7px' }}>
+                      {Array.from({ length: t.stars }).map((_, i) => (
+                        <span key={i} style={{ color: '#F4C87A', fontSize: '.78rem' }}>★</span>
+                      ))}
+                    </div>
                   </div>
                   <div style={{
                     background: '#FAF0CC', backgroundImage: GRAIN,
                     padding: '10px 14px',
-                    display: 'flex', alignItems: 'center', justifyContent: 'space-between',
                     borderTop: '1px solid rgba(196,146,37,.35)',
                   }}>
-                    <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 700, fontSize: '.88rem', color: '#6B2509' }}>{t.name}</div>
-                    <div style={{ display: 'flex', gap: '1px', flexShrink: 0 }}>
-                      {Array.from({ length: t.stars }).map((_, i) => (
-                        <span key={i} style={{ color: '#C49225', fontSize: '.82rem' }}>★</span>
-                      ))}
-                    </div>
+                    <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 700, fontSize: '.85rem', color: '#3A1408' }}>{t.reviewer}</div>
+                    <div style={{ fontSize: '.72rem', color: '#8B5E1A' }}>{t.city}</div>
                   </div>
                 </div>
               ))}
