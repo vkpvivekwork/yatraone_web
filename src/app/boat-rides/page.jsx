@@ -76,7 +76,6 @@ function Footer() {
           <div><h4>Services</h4><ul>
             <li><a href="/tour-packages">Tour Packages</a></li>
             <li><a href="/cab">Cab Booking</a></li>
-            <li><a href="/boat-rides">Boating</a></li>
             <li><a href="/boat-rides">Boat Rides</a></li>
           </ul></div>
           <div><h4>Explore</h4><ul>
@@ -93,7 +92,7 @@ function Footer() {
         </div>
         <div className="copy">
           <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
-          <span>Photos: Pexels</span>
+          <span>Photos: Unsplash</span>
         </div>
       </div>
     </footer>
@@ -333,7 +332,7 @@ export default function BoatRidesPage() {
                   </div>
                 ))}
                 <div style={{ marginTop:'22px', padding:'16px 20px', background:'var(--cream)', border:'1px solid var(--line)', borderRadius:'12px' }}>
-                  <div style={{ fontFamily:"'Fraunces',serif", fontWeight:700, marginBottom:'4px' }}>600+ yatras planned</div>
+                  <div style={{ fontFamily:"'Fraunces',serif", fontWeight:700, marginBottom:'4px' }}>500+ yatras planned</div>
                   <div style={{ fontSize:'.88rem', color:'var(--ink-soft)' }}>4.9 ★ average · No planning fees · Reply in &lt; 2 hrs</div>
                 </div>
               </div>

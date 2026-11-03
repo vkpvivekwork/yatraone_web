@@ -67,6 +67,76 @@ const TESTIMONIALS = [
   { name: 'Kavita R., Hyderabad',  stars: 5, text: 'They booked a heritage haveli for our group of 10. Rooftop Ganga view, great service, and it was within our budget. Couldn\'t have found this on our own.' },
 ]
 
+// TODO: replace with API / CMS data when listings go live
+const HOTELS = [
+  {
+    id: 'h1',
+    name: 'Assi Ghat Guest House',
+    tier: 'Budget',
+    area: 'Assi Ghat',
+    priceFrom: '₹650',
+    img: '1608412525537-662195e817c5',
+    features: ['5 min walk to ghats', 'Vegetarian meals', 'Hot water 24×7'],
+    badge: null,
+    msg: 'Namaste! I am interested in a budget stay near Assi Ghat. Please share availability and rates.',
+  },
+  {
+    id: 'h2',
+    name: 'Ram Niwas Lodge',
+    tier: 'Budget',
+    area: 'Godowlia',
+    priceFrom: '₹800',
+    img: '1561359313-0639aad49ca6',
+    features: ['Central location', 'Rooftop sitting area', 'Luggage storage'],
+    badge: null,
+    msg: 'Namaste! I am looking for a budget stay near Godowlia in Varanasi. Please share options.',
+  },
+  {
+    id: 'h3',
+    name: 'Hotel Kashi View',
+    tier: 'Mid-Range',
+    area: 'Assi Ghat Area',
+    priceFrom: '₹1,800',
+    img: '1596097825168-c9b773f404ff',
+    features: ['AC rooms', 'Ganga view available', 'Breakfast included', 'Free WiFi'],
+    badge: 'Popular',
+    msg: 'Namaste! I am interested in a mid-range hotel near Assi Ghat with Ganga view. Please assist.',
+  },
+  {
+    id: 'h4',
+    name: 'The Ghat Inn',
+    tier: 'Mid-Range',
+    area: 'Near Dashashwamedh',
+    priceFrom: '₹2,200',
+    img: '1565354785692-9e7523e5a87b',
+    features: ['Rooftop restaurant', 'River view rooms', 'AC rooms', 'Free WiFi'],
+    badge: null,
+    msg: 'Namaste! I am looking for a mid-range hotel near Dashashwamedh Ghat. Please share details.',
+  },
+  {
+    id: 'h5',
+    name: 'Haveli on the Ganga',
+    tier: 'Premium',
+    area: 'On the Ghats',
+    priceFrom: '₹8,500',
+    img: '1599831069477-b2acdc0bcb91',
+    features: ['Heritage haveli on the ghats', 'Ganga-view suites', 'Fine dining', 'Spa & wellness'],
+    badge: 'Top Pick',
+    msg: 'Namaste! I am interested in a premium heritage haveli on the ghats in Varanasi. Please share options.',
+  },
+  {
+    id: 'h6',
+    name: 'The Heritage Retreat',
+    tier: 'Premium',
+    area: 'Near Assi / Tulsi Ghat',
+    priceFrom: '₹12,000',
+    img: '1627894483216-2138af692e32',
+    features: ['Heritage palace property', 'Pool & spa', 'Fine dining', 'Airport transfers'],
+    badge: null,
+    msg: 'Namaste! I am looking for a premium hotel stay in Varanasi. Please share your best options.',
+  },
+]
+
 /* ─── Sub-components ─────────────────────────────────────── */
 
 function WaIcon({ size = 20, color = 'currentColor' }) {
@@ -228,6 +298,75 @@ export default function HotelsPage() {
                     style={{ background: 'var(--saffron-deep)', width: '100%', justifyContent: 'center' }}>
                     Ask for {c.tier} Hotels
                   </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Featured Stays ───────────────────────────────────── */}
+        <section style={{ padding: '80px 0' }}>
+          <div className="wrap">
+            <div className="sec-head center" style={{ marginBottom: '44px' }}>
+              <div>
+                <div className="eyebrow">Featured Properties</div>
+                <h2 className="sec-title">Stays We Recommend</h2>
+                <p className="sec-lead">Handpicked across all budgets — personally vetted, near the ghats.</p>
+              </div>
+            </div>
+            <style>{`.htl-hotel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}@media(max-width:900px){.htl-hotel-grid{grid-template-columns:1fr 1fr}}@media(max-width:560px){.htl-hotel-grid{grid-template-columns:1fr}}`}</style>
+            <div className="htl-hotel-grid">
+              {HOTELS.map(h => (
+                <div key={h.id} style={{ background: 'var(--cream)', border: '1px solid var(--line)', borderRadius: '14px', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: '0 4px 16px rgba(43,26,14,.08)' }}>
+                  {/* Image */}
+                  <div style={{ position: 'relative', height: '180px', overflow: 'hidden', flexShrink: 0 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={U(h.img)} alt={h.name} loading="lazy" style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }} />
+                    <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, transparent 50%, rgba(43,26,14,.55) 100%)', pointerEvents: 'none' }} />
+                    <span style={{
+                      position: 'absolute', top: '10px', left: '10px',
+                      background: h.tier === 'Premium' ? 'var(--kumkum)' : h.tier === 'Mid-Range' ? 'var(--saffron)' : 'var(--saffron-deep)',
+                      color: '#fff', fontSize: '.68rem', fontWeight: 700,
+                      padding: '3px 10px', borderRadius: '3px', letterSpacing: '.08em', textTransform: 'uppercase',
+                    }}>{h.tier}</span>
+                    {h.badge && (
+                      <span style={{
+                        position: 'absolute', top: '10px', right: '10px',
+                        background: 'rgba(10,5,0,.72)', backdropFilter: 'blur(4px)',
+                        color: '#FAF5E0', fontSize: '.68rem', fontWeight: 700,
+                        padding: '3px 10px', borderRadius: '3px', letterSpacing: '.06em',
+                      }}>★ {h.badge}</span>
+                    )}
+                  </div>
+                  {/* Body */}
+                  <div style={{ padding: '18px 18px 16px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                    <div style={{ fontFamily: "'Fraunces',serif", fontWeight: 700, fontSize: '1.05rem', color: 'var(--ink)', marginBottom: '4px', lineHeight: 1.2 }}>{h.name}</div>
+                    <div style={{ fontSize: '.8rem', color: 'var(--saffron-deep)', fontWeight: 600, marginBottom: '10px' }}>📍 {h.area}</div>
+                    <div style={{ marginBottom: '12px' }}>
+                      <span style={{ fontSize: '.76rem', color: 'var(--ink-soft)', textTransform: 'uppercase', letterSpacing: '.06em', fontWeight: 600 }}>From </span>
+                      <span style={{ fontFamily: "'Fraunces',serif", fontWeight: 700, fontSize: '1.15rem', color: 'var(--saffron-deep)' }}>{h.priceFrom}</span>
+                      <span style={{ fontSize: '.75rem', color: 'var(--ink-soft)' }}> /night</span>
+                    </div>
+                    <ul style={{ listStyle: 'none', display: 'grid', gap: '5px', marginBottom: '16px', flex: 1 }}>
+                      {h.features.map(f => (
+                        <li key={f} style={{ fontSize: '.84rem', color: 'var(--ink-soft)', paddingLeft: '16px', position: 'relative', lineHeight: 1.4 }}>
+                          <span style={{ position: 'absolute', left: 0, color: 'var(--saffron)', fontWeight: 700 }}>✓</span> {f}
+                        </li>
+                      ))}
+                    </ul>
+                    <a
+                      href={`${WA_BASE}?text=${encodeURIComponent(h.msg)}`}
+                      target="_blank" rel="noopener"
+                      style={{
+                        display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '7px',
+                        background: 'var(--saffron-deep)', color: '#fff',
+                        borderRadius: '8px', padding: '10px 14px',
+                        fontSize: '.88rem', fontWeight: 700, textDecoration: 'none',
+                      }}
+                    >
+                      <WaIcon size={16} color="#fff" /> Ask About This Stay
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>

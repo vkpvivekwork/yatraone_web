@@ -7,8 +7,8 @@ const TEL       = `tel:+${WA_NUMBER}`
 const GRAIN     = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .28 0 0 0 0 .16 0 0 0 0 .04 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
 const U = (id, w = 600) => `https://images.unsplash.com/photo-${id}?w=${w}&q=75&auto=format&fit=crop`
 const WA_QUOTE  = `${WA_BASE}?text=${encodeURIComponent('Namaste! I am interested in the Golden Triangle Tour (Varanasi · Prayagraj · Ayodhya) — 5 Days / 4 Nights. Please share the itinerary and pricing.')}`
-const WA_STD    = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package (₹6,999/person) for the Golden Triangle Tour — 5D/4N Varanasi · Prayagraj · Ayodhya.')}`
-const WA_PRE    = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package (₹11,999/person) for the Golden Triangle Tour — 5D/4N Varanasi · Prayagraj · Ayodhya.')}`
+const WA_STD    = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package for the Golden Triangle Tour — 5D/4N Varanasi · Prayagraj · Ayodhya. Please share details.')}`
+const WA_PRE    = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package for the Golden Triangle Tour — 5D/4N Varanasi · Prayagraj · Ayodhya. Please share details.')}`
 
 /* ══ DATA ══════════════════════════════════════════════════ */
 
@@ -96,19 +96,32 @@ const DAYS = [
     ],
   },
   {
-    day: 4, city: 'Ayodhya', title: 'Morning Temples & Departure',
+    day: 4, city: 'Ayodhya', title: 'Morning Temples & Saryu Walk',
     activities: [
       'Morning darshan at Nageshwarnath Temple',
       "Guptar Ghat — Lord Ram's final journey site",
       'Ram Ki Paidi ghats walk at sunrise',
       "Taste Ayodhya's famous pedas & jalebi for breakfast",
-      'Drive back to Varanasi or direct departure',
-      'Tour concludes — carry blessings & memories',
+      'Ramkatha Museum & local bazaar walk',
+      'Overnight stay in Ayodhya',
     ],
     photos: [
       { id: '1599831069477-b2acdc0bcb91', alt: 'Saryu Ghats · morning' },
       { id: '1613445607898-f46e51645acf', alt: 'Ram Mandir spire' },
-      { id: '1561359313-0639aad49ca6', alt: 'Departure · Ayodhya' },
+      { id: '1634920540678-df0e179c5243', alt: 'Kanak Bhawan · Ayodhya' },
+    ],
+  },
+  {
+    day: 5, city: 'Ayodhya → Departure', title: 'Farewell & Departure',
+    activities: [
+      'Morning checkout & final blessings',
+      'Drive to Varanasi railway station / airport (or direct departure)',
+      'Tour concludes — carry blessings & memories home',
+    ],
+    photos: [
+      { id: '1561359313-0639aad49ca6', alt: 'Departure day' },
+      { id: '1571536802807-30451e3955d8', alt: 'Ganga sunrise · Varanasi' },
+      { id: '1608412525537-662195e817c5', alt: 'Varanasi Ghats at dawn' },
     ],
   },
 ]
@@ -514,8 +527,6 @@ function PkgCard({ data, waLink }) {
       }}>{isPremium ? 'BEST VALUE' : 'STANDARD'}</div>
       <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 700, fontSize: '1.3rem', color: '#2B1A0E', marginBottom: '4px' }}>{data.label} Package</div>
       <GoldRule margin="10px 0 12px" />
-      <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontSize: '2.4rem', fontWeight: 900, color: '#B5421A', lineHeight: 1, marginBottom: '4px' }}>{data.price}/-</div>
-      <div style={{ fontSize: '.85rem', color: '#8B5E1A', marginBottom: '22px' }}>{data.note}</div>
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontWeight: 700, color: '#3A6B2E', fontSize: '.88rem', marginBottom: '8px' }}>✔ What&apos;s Included</div>
         {data.inclusions.map(item => (
@@ -552,6 +563,9 @@ export default function GoldenTrianglePage() {
   const [navOpen, setNavOpen]     = useState(false)
   const [pastHero, setPastHero]   = useState(false)
   const [showToast, setShowToast] = useState(false)
+  const [videoMuted, setVideoMuted] = useState(true)
+  const videoRef = useRef(null)
+  const userToggledSound = useRef(false)
   const [enquiry, setEnquiry]     = useState({ name: '', phone: '', people: '', pkg: '', date: '' })
   const [sent, setSent]           = useState(false)
   const [videoPlaying, setVideoPlaying] = useState(false)
@@ -570,6 +584,13 @@ export default function GoldenTrianglePage() {
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  useEffect(() => {
+    if (pastHero && !userToggledSound.current && videoRef.current) {
+      videoRef.current.muted = false
+      setVideoMuted(false)
+    }
+  }, [pastHero])
 
   const handleEnquiry = (e) => {
     e.preventDefault()
@@ -598,22 +619,30 @@ export default function GoldenTrianglePage() {
         .gt-sm-hide { display: inline; }
         @media (max-width: 480px) { .gt-sm-hide { display: none; } }
 
+        @keyframes gt-kenburns {
+          from { transform: scale(1);    transform-origin: 60% 50%; }
+          to   { transform: scale(1.08); transform-origin: 40% 55%; }
+        }
         .gt-hero {
           position: relative; overflow: hidden; min-height: 92vh;
-          display: flex; align-items: flex-end;
-          background: url('/images/background-theme1.jpg') center / cover no-repeat;
+          display: flex; align-items: center;
+        }
+        .gt-hero-video {
+          position: absolute; inset: 0; z-index: 0;
+          width: 100%; height: 100%; object-fit: cover;
+          pointer-events: none;
         }
         .gt-hoverlay {
           position: absolute; inset: 0; pointer-events: none; z-index: 1;
           background: linear-gradient(to top,
-            rgba(12,3,0,.92) 0%, rgba(12,3,0,.55) 45%,
-            rgba(12,3,0,.18) 80%, rgba(12,3,0,.12) 100%);
+            rgba(12,3,0,.95) 0%, rgba(12,3,0,.6) 40%,
+            rgba(12,3,0,.2) 75%, rgba(12,3,0,.08) 100%);
         }
         .gt-hinner {
           position: relative; z-index: 2; width: 100%;
           max-width: 1200px; margin: 0 auto;
           padding: clamp(24px,5vw,48px);
-          padding-top: 120px;
+          padding-top: clamp(80px,10vw,120px);
           padding-bottom: clamp(48px,6vw,80px);
         }
 
@@ -742,6 +771,11 @@ export default function GoldenTrianglePage() {
             <a href="/boat-rides" onClick={() => setNavOpen(false)}>Boating</a>
             <a href="/contact" onClick={() => setNavOpen(false)}>Contact</a>
           </nav>
+          <a href={WA_QUOTE} target="_blank" rel="noopener" className="btn gt-sm-hide" style={{
+            background: '#B5421A', color: '#FAF5E0', borderRadius: '4px',
+            padding: '8px 18px', fontSize: '.82rem', fontWeight: 700,
+            textDecoration: 'none', whiteSpace: 'nowrap', letterSpacing: '.03em',
+          }}>Plan my yatra</a>
           <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>☰</button>
         </div>
       </header>
@@ -756,10 +790,44 @@ export default function GoldenTrianglePage() {
 
         {/* ══ HERO ══════════════════════════════════════════ */}
         <section className="gt-hero">
+          <video
+            ref={videoRef}
+            className="gt-hero-video"
+            src="/videos/Ganga-Aarti-Varanasi-SnapYT.App.mp4"
+            // src="https://www.varanasiguru.com/wp-content/uploads/2026/09/compressed_540.mp4"
+            autoPlay muted loop playsInline
+            poster="/images/background-theme1.jpg"
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+          />
+          <button
+            onClick={() => {
+              if (videoRef.current) {
+                userToggledSound.current = true
+                videoRef.current.muted = !videoRef.current.muted
+                setVideoMuted(videoRef.current.muted)
+              }
+            }}
+            aria-label={videoMuted ? 'Unmute video' : 'Mute video'}
+            style={{
+              position: 'absolute', bottom: '24px', right: '24px', zIndex: 4,
+              background: 'rgba(0,0,0,.45)', backdropFilter: 'blur(8px)',
+              border: '1px solid rgba(255,255,255,.2)', borderRadius: '50%',
+              width: '40px', height: '40px', cursor: 'pointer',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '1.1rem', color: '#fff', transition: 'background .2s',
+            }}
+          >
+            {videoMuted ? '🔇' : '🔊'}
+          </button>
           <div className="gt-hoverlay" />
           <div className="gt-hinner">
 
-            <nav style={{ fontSize: '.76rem', color: 'rgba(255,255,255,.7)', marginBottom: '20px', display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+            <nav style={{
+              position: 'absolute', top: 'clamp(10px,2vw,18px)', left: 'clamp(24px,5vw,48px)',
+              fontSize: '.76rem', color: 'rgba(255,255,255,.7)',
+              display: 'flex', gap: '5px', flexWrap: 'wrap', zIndex: 3,
+            }}>
               <a href="/" style={{ color: '#fff', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Home</a>
               <span>›</span>
               <a href="/tour-packages" style={{ color: '#fff', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Packages</a>
@@ -767,87 +835,87 @@ export default function GoldenTrianglePage() {
               <span>Golden Triangle</span>
             </nav>
 
-                <div style={{ fontFamily: "'Tiro Devanagari Hindi',serif", fontSize: 'clamp(1.1rem,2.5vw,1.5rem)', color: '#FF9933', fontWeight: 700, textShadow: '0 1px 6px rgba(0,0,0,.5)', marginBottom: '10px' }}>
-                  काशी · प्रयागराज · अयोध्या
+                {/* Eyebrow — single compact line */}
+                <div style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '10px',
+                  fontSize: '.78rem', fontWeight: 700, letterSpacing: '.14em',
+                  textTransform: 'uppercase', color: '#F4A81D',
+                  textShadow: '0 1px 8px rgba(0,0,0,.6)', marginBottom: '14px',
+                }}>
+                  <span>Triveni Yatra</span>
+                  <span style={{ color: 'rgba(244,168,29,.45)', fontSize: '.9em' }}>|</span>
+                  <span style={{ color: 'rgba(255,255,255,.6)', fontWeight: 400, letterSpacing: '.08em' }}>5 Days · 4 Nights · 3 Cities</span>
                 </div>
-
-                <GoldRule margin="0 0 14px" />
 
                 <h1 style={{
                   fontFamily: "'Fraunces',Georgia,serif", fontWeight: 900,
-                  fontSize: 'clamp(2.6rem,7vw,5rem)', color: '#FFFFFF',
-                  textShadow: '0 3px 24px rgba(0,0,0,.7)',
-                  lineHeight: 1, marginBottom: '8px', letterSpacing: '-.01em',
+                  fontSize: 'clamp(2.8rem,7.5vw,5.4rem)', color: '#FFFFFF',
+                  textShadow: '0 3px 28px rgba(0,0,0,.75)',
+                  lineHeight: .95, marginBottom: '12px', letterSpacing: '-.02em',
                 }}>
                   Golden Triangle
                 </h1>
                 <h2 style={{
                   fontFamily: "'Fraunces',Georgia,serif", fontWeight: 400, fontStyle: 'italic',
-                  fontSize: 'clamp(1.1rem,2.5vw,1.8rem)', color: 'rgba(255,255,255,.78)', marginBottom: '16px',
+                  fontSize: 'clamp(1.1rem,2.5vw,1.7rem)', color: 'rgba(255,255,255,.72)',
+                  marginBottom: '28px', letterSpacing: '.01em',
                 }}>
                   Varanasi · Prayagraj · Ayodhya
                 </h2>
 
-                {/* Route pill */}
-                <div style={{
-                  display: 'inline-flex', alignItems: 'center', gap: '8px',
-                  background: 'rgba(10,3,0,.5)', backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(244,168,29,.3)',
-                  borderRadius: '40px', padding: '7px 18px',
-                  marginBottom: '20px', flexWrap: 'wrap', justifyContent: 'center',
-                }}>
-                  {['काशी', 'प्रयागराज', 'अयोध्या'].map((c, i) => (
-                    <span key={c} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                      <span style={{ fontFamily: "'Tiro Devanagari Hindi',serif", fontSize: '.88rem', color: '#FAF5E0' }}>{c}</span>
-                      {i < 2 && <span style={{ color: '#F4A81D', fontSize: '.75rem' }}>›</span>}
-                    </span>
-                  ))}
-                  <span style={{ color: 'rgba(244,200,128,.6)', fontSize: '.74rem', marginLeft: '4px' }}>· 5 Days / 4 Nights</span>
-                </div>
-
-                {/* Stats strip */}
-                <div style={{
-                  display: 'inline-flex', alignItems: 'center',
-                  background: 'rgba(10,3,0,.55)', backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(244,168,29,.35)', borderRadius: '40px',
-                  overflow: 'hidden', flexWrap: 'wrap', justifyContent: 'center',
-                  marginBottom: '18px',
-                }}>
-                  {[
-                    { num: '5',      label: 'Days' },
-                    { num: '4',      label: 'Nights' },
-                    { num: '3',      label: 'Cities' },
-                    { num: '₹6,999', label: 'Per Person' },
-                  ].map((s, i) => (
-                    <div key={s.label} style={{ display: 'flex', alignItems: 'center' }}>
-                      {i > 0 && <div style={{ width: '1px', height: '44px', background: 'rgba(244,168,29,.25)' }} />}
-                      <div style={{ textAlign: 'center', padding: '10px 20px' }}>
-                        <div style={{ fontFamily: "'Fraunces',serif", fontWeight: 900, fontSize: 'clamp(1.1rem,2.5vw,1.6rem)', color: '#F4C87A', lineHeight: 1 }}>{s.num}</div>
-                        <div style={{ fontSize: '.65rem', color: 'rgba(255,255,255,.6)', letterSpacing: '.1em', textTransform: 'uppercase', marginTop: '2px' }}>{s.label}</div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Urgency */}
-                <div style={{ marginBottom: '22px', fontSize: '.82rem', color: 'rgba(255,200,80,.9)', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                  <span>⚠️</span> Book early for weekends &amp; festival departures — slots fill fast
-                </div>
-
                 {/* CTAs */}
-                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '28px' }}>
                   <a href={WA_QUOTE} target="_blank" rel="noopener" style={{
                     display: 'inline-flex', alignItems: 'center', gap: '10px',
                     background: '#25D366', color: '#fff',
                     borderRadius: '4px', padding: '14px 28px', fontWeight: 700, fontSize: '1rem',
                     textDecoration: 'none', boxShadow: '0 4px 20px rgba(37,211,102,.45)',
-                  }}><WaIcon size={20} color="#fff" /> WhatsApp करें — Free Quote</a>
-                  <a href={TEL} style={{
+                  }}><WaIcon size={20} color="#fff" /> WhatsApp Us</a>
+                  <a href="#gt-enquiry-form" style={{
                     display: 'inline-flex', alignItems: 'center', gap: '10px',
                     background: 'rgba(255,255,255,.1)', border: '1.5px solid rgba(255,255,255,.35)',
                     color: '#FAF5E0', borderRadius: '4px', padding: '14px 24px',
                     fontWeight: 700, fontSize: '1rem', textDecoration: 'none',
-                  }}>📞 Call Now</a>
+                  }}>📋 Book Now</a>
+                </div>
+
+                {/* Stats strip */}
+                <div style={{
+                  display: 'flex', gap: '0', flexWrap: 'wrap',
+                  borderTop: '1px solid rgba(244,168,29,.18)', paddingTop: '20px', marginTop: '4px',
+                }}>
+                  {[
+                    { num: '5',    label: 'Days' },
+                    { num: '3',    label: 'Cities' },
+                    { num: '8',    label: 'Highlights' },
+                    { num: '500+', label: 'Pilgrims' },
+                  ].map((s, i) => (
+                    <div key={s.label} style={{ display: 'flex', alignItems: 'center' }}>
+                      {i > 0 && <div style={{ width: '1px', height: '32px', background: 'rgba(244,168,29,.2)', margin: '0 4px' }} />}
+                      <div style={{ textAlign: 'center', padding: '0 18px' }}>
+                        <div style={{ fontFamily: "'Fraunces',serif", fontWeight: 900, fontSize: 'clamp(1rem,2.2vw,1.3rem)', color: '#F4C87A', lineHeight: 1 }}>{s.num}</div>
+                        <div style={{ fontSize: '.6rem', color: 'rgba(255,255,255,.5)', letterSpacing: '.1em', textTransform: 'uppercase', marginTop: '3px' }}>{s.label}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Who is this for — inline below stats */}
+                <div style={{
+                  display: 'flex', alignItems: 'center', justifyContent: 'flex-start',
+                  flexWrap: 'wrap', gap: '8px 20px', marginTop: '16px',
+                }}>
+                  {[
+                    { icon: '🙏', title: 'Solo Pilgrims' },
+                    { icon: '👨‍👩‍👧‍👦', title: 'Families & Groups' },
+                    { icon: '🧓', title: 'Senior Citizens' },
+                    { icon: '🤝', title: 'With Friends' },
+                  ].map(w => (
+                    <div key={w.title} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <span style={{ fontSize: '1rem', lineHeight: 1 }}>{w.icon}</span>
+                      <span style={{ fontSize: '.75rem', color: 'rgba(255,255,255,.5)', fontWeight: 500, whiteSpace: 'nowrap' }}>{w.title}</span>
+                    </div>
+                  ))}
                 </div>
 
           </div>
@@ -899,24 +967,6 @@ export default function GoldenTrianglePage() {
           </div>
         </div>
 
-        {/* ══ WHO IS THIS FOR ════════════════════════════════ */}
-        <div style={{ padding: 'clamp(24px,3vw,36px) 0', background: '#FAF0CC', backgroundImage: GRAIN, borderBottom: '1px solid rgba(196,146,37,.2)' }}>
-          <div className="wrap">
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', gap: 'clamp(28px,8vw,80px)', flexWrap: 'wrap' }}>
-              {[
-                { icon: '🙏', title: 'Solo Pilgrims' },
-                { icon: '👨‍👩‍👧‍👦', title: 'Families & Groups' },
-                { icon: '🧓', title: 'Senior Citizens' },
-                { icon: '🤝', title: 'With Friends' },
-              ].map(w => (
-                <div key={w.title} style={{ textAlign: 'center', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span style={{ fontSize: '1.5rem', lineHeight: 1 }}>{w.icon}</span>
-                  <span style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 700, fontSize: '.95rem', color: '#6B2509', whiteSpace: 'nowrap' }}>{w.title}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* ══ VIDEO ═════════════════════════════════════════ */}
         <section style={{ padding: 'clamp(36px,5vw,56px) 0', background: '#2B1A0E' }}>
@@ -1062,8 +1112,8 @@ export default function GoldenTrianglePage() {
                     <label htmlFor="gt-pkg">Package Preference</label>
                     <select id="gt-pkg" value={enquiry.pkg} onChange={e => setEnquiry(p => ({ ...p, pkg: e.target.value }))}>
                       <option value="">Not decided yet</option>
-                      <option value="Standard (₹6,999/person)">Standard — ₹6,999/person</option>
-                      <option value="Premium (₹11,999/person)">Premium — ₹11,999/person</option>
+                      <option value="Standard">Standard Package</option>
+                      <option value="Premium">Premium Package</option>
                     </select>
                   </div>
 
@@ -1080,20 +1130,6 @@ export default function GoldenTrianglePage() {
                     </button>
                   </div>
 
-                  {/* Micro-testimonials */}
-                  <div className="gt-vfield-full" style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap', paddingTop: '18px', borderTop: '1px dashed rgba(139,94,26,0.3)', marginTop: '6px' }}>
-                    {[
-                      { name: 'Priya V.', city: 'Mumbai', text: 'Ganga Aarti arrangements were flawless.' },
-                      { name: 'Ramesh A.', city: 'Jaipur', text: 'My parents did Ram Mandir darshan comfortably.' },
-                      { name: 'Sunita D.', city: 'Delhi', text: 'Triveni Sangam boat ride — highlight of my life.' },
-                    ].map(r => (
-                      <div key={r.name} style={{ textAlign: 'center', maxWidth: '160px', flex: '1 1 120px' }}>
-                        <div style={{ color: '#C49225', fontSize: '.75rem', letterSpacing: '2px' }}>★★★★★</div>
-                        <div style={{ fontFamily: 'Georgia,serif', fontStyle: 'italic', fontSize: '.78rem', color: '#4A2E12', margin: '3px 0' }}>"{r.text}"</div>
-                        <div style={{ fontSize: '.72rem', color: '#8B5E1A', fontWeight: 700 }}>— {r.name}, {r.city}</div>
-                      </div>
-                    ))}
-                  </div>
 
                 </div>
               </form>
@@ -1196,29 +1232,31 @@ export default function GoldenTrianglePage() {
         </section>
 
         {/* ══ MID-PAGE CTA ══════════════════════════════════ */}
-        <section id="enquire" style={{ padding: 'clamp(48px,6vw,72px) 0', background: 'linear-gradient(135deg,#3A1408 0%,#6B2509 100%)', backgroundImage: GRAIN }}>
+        <section id="enquire" style={{ padding: 'clamp(48px,6vw,72px) 0', background: 'linear-gradient(135deg,#F5E8AE 0%,#EDD690 100%)', backgroundImage: GRAIN }}>
           <div className="wrap" style={{ textAlign: 'center' }}>
-            <div style={{ fontFamily: "'Tiro Devanagari Hindi',serif", fontSize: '1rem', color: '#C49225', marginBottom: '8px' }}>अभी बात करें</div>
-            <h2 style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 900, fontSize: 'clamp(1.8rem,4vw,2.6rem)', color: '#FAF5E0', letterSpacing: '-1px', marginBottom: '10px' }}>
+            <div style={{ fontFamily: "'Tiro Devanagari Hindi',serif", fontSize: '1rem', color: '#B5421A', marginBottom: '8px' }}>अभी बात करें</div>
+            <h2 style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 900, fontSize: 'clamp(1.8rem,4vw,2.6rem)', color: '#6B2509', letterSpacing: '-1px', marginBottom: '10px' }}>
               Ready to Plan Your Yatra?
             </h2>
-            <p style={{ color: 'rgba(255,255,255,.6)', fontSize: '1rem', maxWidth: '34rem', margin: '0 auto 28px' }}>
+            <p style={{ color: '#8B5E1A', fontSize: '1rem', maxWidth: '34rem', margin: '0 auto 28px' }}>
               No payment needed. Send your dates &amp; group size — we reply within 2–4 hours.
             </p>
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '14px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
               <a href={WA_QUOTE} target="_blank" rel="noopener" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px',
                 background: '#25D366', color: '#fff', borderRadius: '4px',
                 padding: '14px 28px', fontWeight: 700, fontSize: '1rem',
                 textDecoration: 'none', boxShadow: '0 4px 20px rgba(37,211,102,.35)',
+                flex: '1 1 200px', justifyContent: 'center', maxWidth: '280px',
               }}>
-                <WaIcon size={20} color="#fff" /> WhatsApp करें — Free Quote पाएं
+                <WaIcon size={20} color="#fff" /> WhatsApp Us
               </a>
               <a href={TEL} style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px',
-                background: 'rgba(255,255,255,.1)', border: '1.5px solid rgba(255,255,255,.3)',
-                color: '#FAF5E0', borderRadius: '4px', padding: '14px 24px',
+                background: 'rgba(107,37,9,.08)', border: '1.5px solid rgba(107,37,9,.3)',
+                color: '#6B2509', borderRadius: '4px', padding: '14px 24px',
                 fontWeight: 700, fontSize: '1rem', textDecoration: 'none',
+                flex: '1 1 160px', justifyContent: 'center', maxWidth: '200px',
               }}>📞 Call Now</a>
             </div>
           </div>
@@ -1348,8 +1386,8 @@ export default function GoldenTrianglePage() {
         <section style={{ padding: 'clamp(48px,6vw,72px) 0', background: 'linear-gradient(180deg,#F5E8AE,#EDD690)', backgroundImage: GRAIN }}>
           <div className="wrap">
             <div style={{
-              background: 'linear-gradient(135deg,#6B2509 0%,#3A1408 100%)',
-              backgroundImage: GRAIN, borderRadius: '8px',
+              backgroundImage: `${GRAIN}, linear-gradient(135deg,#6B2509 0%,#3A1408 100%)`,
+              borderRadius: '8px',
               padding: 'clamp(36px,6vw,64px) clamp(24px,6vw,80px)',
               border: '1.5px solid rgba(196,146,37,.3)',
               boxShadow: '0 16px 48px rgba(43,26,14,.35)',
@@ -1519,18 +1557,18 @@ export default function GoldenTrianglePage() {
       {/* ── Sticky Mobile Booking Bar ── */}
       <div className="gt-sticky-bar">
         <div style={{ color: '#FAF5E0' }}>
-          <strong style={{ fontFamily: "'Fraunces',serif", fontSize: '1.3rem', display: 'block', lineHeight: 1 }}>From ₹6,999</strong>
-          <span style={{ fontSize: '.72rem', color: 'rgba(250,245,224,.7)' }}>per person · 5D / 4N</span>
+          <strong style={{ fontFamily: "'Fraunces',serif", fontSize: '1.1rem', display: 'block', lineHeight: 1 }}>Triveni Yatra · 5D / 4N</strong>
+          <span style={{ fontSize: '.72rem', color: 'rgba(250,245,224,.7)' }}>Varanasi · Prayagraj · Ayodhya</span>
         </div>
-        <a href={WA_QUOTE} target="_blank" rel="noopener" style={{
+        <a href="#gt-enquiry-form" style={{
           display: 'flex', alignItems: 'center', gap: '8px',
-          background: '#25D366', color: '#fff',
+          background: '#FAF0CC', color: '#6B2509',
           padding: '10px 18px', borderRadius: '4px',
           fontWeight: 700, fontSize: '.95rem',
           textDecoration: 'none', whiteSpace: 'nowrap',
           boxShadow: '0 3px 12px rgba(0,0,0,.3)', flexShrink: 0,
         }}>
-          <WaIcon size={18} color="#fff" /> Book Now
+          📋 Book Now
         </a>
       </div>
 

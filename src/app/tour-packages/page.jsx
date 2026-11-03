@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 const WA_NUMBER = '919277472279'
 const WA_BASE   = `https://wa.me/${WA_NUMBER}`
@@ -31,7 +31,7 @@ const PACKAGES = [
   {
     slug: 'kashi-prayagraj-ayodhya',
     title: 'Kashi · Prayagraj · Ayodhya',
-    subtitle: 'Triveni Sangam · Ram Mandir · Ganga Aarti',
+    subtitle: 'Triveni Sangam · VIP Darshan · Mangala Aarti',
     duration: '3 Nights / 4 Days',
     nights: 3,
     price: '₹14,499',
@@ -41,13 +41,13 @@ const PACKAGES = [
     tagColor: '#3A6B2E',
     category: 'multi',
     photo: '1596097825168-c9b773f404ff',
-    desc: 'The ultimate Uttar Pradesh pilgrimage — Kashi Vishwanath darshan, snan at Triveni Sangam, and Ram Mandir VIP passes included.',
-    highlights: ['Triveni Sangam snan', 'VIP darshan passes', 'Ganga Aarti', 'Saryu Aarti'],
+    desc: 'Premium 4-day UP pilgrimage — Kashi Vishwanath Mangala Aarti, VIP darshan passes at Ram Mandir, Triveni Sangam snan, and Saryu Aarti. Meals & pickup included.',
+    highlights: ['VIP darshan passes', 'Mangala / Shayan Aarti', 'Triveni Sangam snan', 'Saryu Aarti'],
   },
   {
     slug: 'golden-triangle-varanasi-ayodhya-prayagraj',
     title: 'Golden Triangle',
-    subtitle: 'Varanasi · Prayagraj · Ayodhya',
+    subtitle: 'Sightseeing Focus · Flexible Itinerary · Min 2 Pax',
     duration: '3 Nights / 4 Days',
     nights: 3,
     price: '₹8,999',
@@ -57,8 +57,8 @@ const PACKAGES = [
     tagColor: '#6B2509',
     category: 'multi',
     photo: '1613445607898-f46e51645acf',
-    desc: 'Three of UP\'s holiest cities in one seamless yatra — Ganga ghats, Sangam sunrise, and the sacred Ram Janmabhoomi.',
-    highlights: ['Sangam boat ride', 'Akshayavat darshan', 'Ram Janmabhoomi', 'Sarnath visit'],
+    desc: 'Explore all three cities at your own pace — Ganga ghats, Sangam boat ride, Akshayavat, Sarnath Stupa, and Ram Janmabhoomi. Best for flexible travellers who want a relaxed sightseeing yatra.',
+    highlights: ['Sangam boat ride', 'Akshayavat darshan', 'Sarnath Stupa', 'Ram Janmabhoomi'],
   },
   {
     slug: 'divya-dham-yatra',
@@ -111,7 +111,7 @@ const PACKAGES = [
   {
     slug: 'varanasi-2-days',
     title: 'Varanasi 2 Days',
-    subtitle: 'Ghats · Aarti · Sarnath',
+    subtitle: 'Ghats · Aarti · Sarnath Included · Breakfast',
     duration: '1 Night / 2 Days',
     nights: 1,
     price: '₹5,999',
@@ -121,13 +121,13 @@ const PACKAGES = [
     tagColor: '',
     category: 'varanasi',
     photo: '1561359313-0639aad49ca6',
-    desc: 'The essential Kashi experience — sunrise boat ride, Ganga Aarti, Kashi Vishwanath darshan, and a Sarnath afternoon.',
-    highlights: ['Sunrise boat ride', 'Ganga Aarti', 'Kashi Vishwanath', 'Sarnath Stupa'],
+    desc: 'Complete Kashi package — sunrise boat, Kashi Vishwanath darshan, evening Ganga Aarti, and a full Sarnath afternoon (Dhamek Stupa, deer park). Includes daily breakfast.',
+    highlights: ['Sunrise boat ride', 'Ganga Aarti', 'Kashi Vishwanath', 'Sarnath day trip'],
   },
   {
     slug: 'varanasi-tour-2-days-1-night',
     title: 'Varanasi 2D / 1N',
-    subtitle: 'Budget · Ghats · Temples',
+    subtitle: 'Budget · Ghats · Temples · Ganga Aarti',
     duration: '1 Night / 2 Days',
     nights: 1,
     price: '₹4,999',
@@ -137,7 +137,7 @@ const PACKAGES = [
     tagColor: '#5A3F28',
     category: 'varanasi',
     photo: '1571536802807-30451e3955d8',
-    desc: 'The most affordable way to experience Kashi — temple darshans, boat ride, Ganga Aarti, all covered in 2 days.',
+    desc: 'The most affordable Kashi visit — essential temple darshans, Ganga boat ride, and evening Aarti. Ideal for pilgrims on a tight schedule or budget.',
     highlights: ['Boat ride', 'Ganga Aarti', 'Temple darshans', 'Ghats walk'],
   },
   {
@@ -332,57 +332,42 @@ function PackageCard({ pkg, index }) {
         {/* Divider */}
         <div style={{ borderTop: '1px dashed rgba(196,146,37,.4)', marginBottom: '14px' }} />
 
-        {/* Price + actions row */}
-        <div className="lcard-price-row" style={{ display: 'flex', alignItems: 'center', gap: '14px', flexWrap: 'wrap' }}>
-
-          {/* Price block */}
-          <div style={{ minWidth: '100px' }}>
-            <div className="lcard-from-label" style={{ fontSize: '.66rem', color: '#8B5E1A', fontWeight: 600, letterSpacing: '.06em', textTransform: 'uppercase', marginBottom: '1px' }}>Starting from</div>
-            <div className="lcard-price-num" style={{
-              fontFamily: "'Fraunces',Georgia,serif", fontWeight: 900,
-              fontSize: 'clamp(1.25rem,3vw,1.8rem)', color: '#B5421A', lineHeight: 1,
-            }}>{pkg.price}</div>
-            <div style={{ fontSize: '.68rem', color: '#8B5E1A', marginTop: '2px' }}>{pkg.priceNote}</div>
-          </div>
-
-          {/* CTA buttons */}
-          <div className="lcard-ctas" style={{ display: 'flex', gap: '8px', flex: 1, flexWrap: 'wrap' }}>
-            <a
-              href={`/tour-packages/${pkg.slug}`}
-              className="lcard-view-btn"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '6px',
-                background: 'linear-gradient(135deg,#7A5018,#4A3010)',
-                color: '#FAF5E0', borderRadius: '3px',
-                padding: '9px 16px', fontSize: '.87rem', fontWeight: 700,
-                textDecoration: 'none', letterSpacing: '.02em',
-                boxShadow: '0 3px 10px rgba(0,0,0,.2)',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              View Details
-              <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="#FAF5E0" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </a>
-            <a
-              href={waMsg}
-              target="_blank" rel="noopener"
-              className="lcard-enquire"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '5px',
-                background: 'linear-gradient(135deg,#B5421A,#7A2E0E)',
-                color: '#FAF5E0', borderRadius: '3px',
-                padding: '9px 16px', fontSize: '.87rem', fontWeight: 700,
-                textDecoration: 'none', letterSpacing: '.02em',
-                boxShadow: '0 3px 10px rgba(181,66,26,.25)',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              <WaIcon size={15} color="#FAF5E0" /> Enquire
-            </a>
-          </div>
-
+        {/* CTA row */}
+        <div className="lcard-price-row" style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+          <a
+            href={`/tour-packages/${pkg.slug}`}
+            className="lcard-view-btn"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '6px',
+              background: 'transparent',
+              border: '1.5px solid rgba(181,66,26,.45)',
+              color: '#B5421A', borderRadius: '3px',
+              padding: '10px 18px', fontSize: '.87rem', fontWeight: 700,
+              textDecoration: 'none', letterSpacing: '.02em',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            View Itinerary
+            <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="#B5421A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </a>
+          <a
+            href={waMsg}
+            target="_blank" rel="noopener"
+            className="lcard-enquire"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '5px', flex: 1, justifyContent: 'center',
+              background: 'linear-gradient(135deg,#B5421A,#7A2E0E)',
+              color: '#FAF5E0', borderRadius: '3px',
+              padding: '10px 18px', fontSize: '.87rem', fontWeight: 700,
+              textDecoration: 'none', letterSpacing: '.02em',
+              boxShadow: '0 3px 10px rgba(181,66,26,.25)',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            <WaIcon size={15} color="#FAF5E0" /> Book Now
+          </a>
         </div>
       </div>
     </article>
@@ -495,17 +480,13 @@ export default function TourPackagesPage() {
         @media (max-width: 600px) {
           .lcard-highlights { display: none; }
           .lcard-desc { display: none !important; }
-          .lcard-price-row { flex-wrap: nowrap !important; align-items: center !important; gap: 8px !important; }
-          .lcard-price-num { font-size: 1.15rem !important; }
-          .lcard-ctas { flex: 0 !important; }
-          .lcard-view-btn { padding: 8px 10px !important; font-size: 0 !important; border-radius: 4px !important; }
-          .lcard-view-btn svg { width: 16px !important; height: 16px !important; }
-          .lcard-enquire { display: none !important; }
+          .lcard-price-row { flex-direction: column !important; gap: 6px !important; }
+          .lcard-view-btn { width: 100% !important; justify-content: center !important; font-size: .78rem !important; padding: 9px 10px !important; box-sizing: border-box; }
+          .lcard-enquire { width: 100% !important; justify-content: center !important; font-size: .78rem !important; padding: 9px 10px !important; box-sizing: border-box; }
           .lcard-city-trail { display: none !important; }
           .lcard-cities-text { display: block !important; }
           .lcard-title { font-size: 1rem !important; }
           .lcard-subtitle { font-size: .74rem !important; }
-          .lcard-from-label { display: none; }
         }
 
         /* Why grid */
@@ -613,13 +594,13 @@ export default function TourPackagesPage() {
                 { num: '5',    label: 'Cities' },
                 { num: '500+', label: 'Pilgrims' },
               ].map((s, i) => (
-                <>
-                  {i > 0 && <div key={`d${i}`} style={{ width:'1px', height:'44px', background:'rgba(244,168,29,.25)' }} />}
-                  <div key={s.label} style={{ textAlign:'center', padding:'10px 22px' }}>
+                <React.Fragment key={s.label}>
+                  {i > 0 && <div style={{ width:'1px', height:'44px', background:'rgba(244,168,29,.25)' }} />}
+                  <div style={{ textAlign:'center', padding:'10px 22px' }}>
                     <div style={{ fontFamily:"'Fraunces',serif", fontWeight:900, fontSize:'clamp(1.3rem,3vw,1.7rem)', color:'#F4C87A', lineHeight:1 }}>{s.num}</div>
                     <div style={{ fontSize:'.68rem', color:'rgba(255,255,255,.7)', letterSpacing:'.1em', textTransform:'uppercase', marginTop:'2px' }}>{s.label}</div>
                   </div>
-                </>
+                </React.Fragment>
               ))}
             </div>
 

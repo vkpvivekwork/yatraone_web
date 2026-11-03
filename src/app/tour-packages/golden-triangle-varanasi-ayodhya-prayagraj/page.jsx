@@ -538,9 +538,6 @@ function PkgCard({ data, waLink }) {
       </div>
       <GoldRule margin="10px 0 12px" />
       <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontSize: '2.4rem', fontWeight: 900, color: '#B5421A', lineHeight: 1, marginBottom: '4px' }}>
-        {data.price}/-
-      </div>
-      <div style={{ fontSize: '.85rem', color: '#8B5E1A', marginBottom: '22px' }}>{data.note}</div>
 
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontWeight: 700, color: '#3A6B2E', fontSize: '.88rem', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
@@ -726,8 +723,8 @@ export default function GoldenTriangle() {
   }
 
   const waEnquire = `${WA_BASE}?text=${encodeURIComponent('Namaste! I am interested in the Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya (3N/4D). Please share details.')}`
-  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package (₹8,999/person) for the Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya.')}`
-  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package (₹12,999/person) for the Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya.')}`
+  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package for the Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya. Please share details.')}`
+  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package for the Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya. Please share details.')}`
 
   return (
     <div style={{
@@ -1035,8 +1032,8 @@ export default function GoldenTriangle() {
                   <label htmlFor="ka-pkg">Package Preference</label>
                   <select id="ka-pkg" name="pkg" value={form.pkg} onChange={handleChange}>
                     <option value="">Not decided yet</option>
-                    <option value="Standard (₹8,999/person)">Standard — ₹8,999/person</option>
-                    <option value="Premium (₹12,999/person)">Premium — ₹12,999/person</option>
+                    <option value="Standard">Standard Package</option>
+                    <option value="Premium">Premium Package</option>
                   </select>
                 </div>
                 <div className="ka-field-full">

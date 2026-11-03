@@ -10,7 +10,7 @@ const U = (id, w = 700) => `https://images.unsplash.com/photo-${id}?w=${w}&q=75&
 const STATS = [
   { n: '500+', label: 'Happy Pilgrims' },
   { n: '9+',   label: 'Tour Packages' },
-  { n: '4',    label: 'Sacred Cities' },
+  { n: '5',    label: 'Sacred Cities' },
   { n: '24/7', label: 'Support' },
 ]
 

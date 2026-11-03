@@ -279,8 +279,6 @@ function PkgCard({ data, waLink }) {
       <div style={{ position: 'absolute', top: '-14px', left: '24px', background: isPremium ? '#B5421A' : '#7A5018', color: '#FAF5E0', borderRadius: '3px', padding: '3px 16px', fontSize: '.76rem', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' }}>{isPremium ? 'BEST VALUE' : 'STANDARD'}</div>
       <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 700, fontSize: '1.3rem', color: '#2B1A0E', marginBottom: '4px' }}>{data.label} Package</div>
       <GoldRule margin="10px 0 12px" />
-      <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontSize: '2.4rem', fontWeight: 900, color: '#B5421A', lineHeight: 1, marginBottom: '4px' }}>{data.price}/-</div>
-      <div style={{ fontSize: '.85rem', color: '#8B5E1A', marginBottom: '22px' }}>{data.note}</div>
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontWeight: 700, color: '#3A6B2E', fontSize: '.88rem', marginBottom: '8px' }}>✔ What&apos;s Included</div>
         {data.inclusions.map(item => <div key={item} style={{ display: 'flex', gap: '8px', padding: '5px 0', borderBottom: '1px dashed rgba(58,107,46,.2)', fontSize: '.9rem' }}><span style={{ color: '#3A6B2E', flexShrink: 0, marginTop: '2px' }}>✔</span><span>{item}</span></div>)}
@@ -378,8 +376,8 @@ export default function Varanasi2Days() {
   }
 
   const waEnquire = `${WA_BASE}?text=${encodeURIComponent('Namaste! I am interested in the Varanasi 2 Days Tour. Please share details.')}`
-  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package (₹5,999/person) for the Varanasi 2 Days Tour.')}`
-  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package (₹8,999/person) for the Varanasi 2 Days Tour.')}`
+  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package for the Varanasi 2 Days Tour. Please share details.')}`
+  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package for the Varanasi 2 Days Tour. Please share details.')}`
 
   return (
     <div style={{ background: '#F5E8AE', backgroundImage: GRAIN, minHeight: '100vh', color: '#2B1A0E', fontFamily: "'Mukta',system-ui,sans-serif" }}>
@@ -503,8 +501,8 @@ export default function Varanasi2Days() {
                   <div className="ka-field"><label htmlFor="v2-pkg">Package Preference</label>
                     <select id="v2-pkg" name="pkg" value={form.pkg} onChange={handleChange}>
                       <option value="">Not decided yet</option>
-                      <option value="Standard (₹5,999/person)">Standard — ₹5,999/person</option>
-                      <option value="Premium (₹8,999/person)">Premium — ₹8,999/person</option>
+                      <option value="Standard">Standard Package</option>
+                      <option value="Premium">Premium Package</option>
                     </select>
                   </div>
                   <div className="ka-field-full"><button type="submit" className="ka-submit-btn" disabled={sent}><WaIcon size={20} color="#FAF5E0" />{sent ? 'Opening WhatsApp...' : 'Submit'}</button></div>

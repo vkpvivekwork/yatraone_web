@@ -7,8 +7,8 @@ const U = (id, w = 600) => `https://images.unsplash.com/photo-${id}?w=${w}&q=75&
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .28 0 0 0 0 .16 0 0 0 0 .04 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
 
 const WA_ENQUIRE = `${WA_BASE}?text=${encodeURIComponent('Namaste! I am interested in the Kashi Darshan (1 Day Temple Circuit). Please share details and pricing.')}`
-const WA_STD     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Kashi Darshan package (₹1,999/person). Please confirm availability.')}`
-const WA_PRE     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Kashi Darshan package (₹3,499/person) with VIP darshan. Please confirm.')}`
+const WA_STD     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Kashi Darshan package. Please confirm availability.')}`
+const WA_PRE     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Kashi Darshan package with VIP darshan. Please confirm.')}`
 
 const ITINERARY = [
   { time: 'Morning', title: 'Sunrise Boat Ride & Ghats', items: ['Pickup from hotel / station', 'Sunrise boat ride — see all 84 ghats from the Ganga', 'Assi Ghat morning aarti', 'Walk along the ghats with local guide'] },
@@ -74,8 +74,6 @@ function PkgCard({ data, waLink }) {
       <div style={{ position: 'absolute', top: '-14px', left: '24px', background: isPremium ? '#B5421A' : '#7A5018', color: '#FAF5E0', borderRadius: '3px', padding: '3px 16px', fontSize: '.76rem', fontWeight: 700, letterSpacing: '.1em', textTransform: 'uppercase' }}>{isPremium ? 'BEST VALUE' : 'STANDARD'}</div>
       <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 700, fontSize: '1.3rem', color: '#2B1A0E', marginBottom: '4px' }}>{data.label} Package</div>
       <GoldRule margin="10px 0 12px" />
-      <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontSize: '2.4rem', fontWeight: 900, color: '#B5421A', lineHeight: 1, marginBottom: '4px' }}>{data.price}/-</div>
-      <div style={{ fontSize: '.85rem', color: '#8B5E1A', marginBottom: '22px' }}>{data.note}</div>
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontWeight: 700, color: '#3A6B2E', fontSize: '.88rem', marginBottom: '8px' }}>What&apos;s Included</div>
         {data.inclusions.map(item => <div key={item} style={{ display: 'flex', gap: '8px', padding: '5px 0', borderBottom: '1px dashed rgba(58,107,46,.2)', fontSize: '.9rem' }}><span style={{ color: '#3A6B2E', flexShrink: 0, marginTop: '2px' }}>✔</span><span>{item}</span></div>)}
@@ -287,8 +285,8 @@ export default function KashiDarshanPage() {
                   <div className="kd-field"><label htmlFor="kd-pkg">Package</label>
                     <select id="kd-pkg" name="pkg" value={form.pkg} onChange={handleChange}>
                       <option value="">Not decided</option>
-                      <option value="Standard (₹1,999/person)">Standard — ₹1,999/person</option>
-                      <option value="Premium (₹3,499/person)">Premium — ₹3,499/person</option>
+                      <option value="Standard">Standard Package</option>
+                      <option value="Premium">Premium Package</option>
                     </select>
                   </div>
                   <div className="kd-full"><button type="submit" className="kd-submit" disabled={sent}><WaIcon size={20} color="#FAF5E0" />{sent ? 'Opening WhatsApp...' : 'Send Enquiry on WhatsApp'}</button></div>

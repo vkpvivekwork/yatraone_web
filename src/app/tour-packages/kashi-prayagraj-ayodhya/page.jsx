@@ -583,11 +583,6 @@ function PkgCard({ data, waLink }) {
         {data.label} Package
       </div>
       <GoldRule margin="10px 0 12px" />
-      <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontSize: '2.4rem', fontWeight: 900, color: '#B5421A', lineHeight: 1, marginBottom: '4px' }}>
-        {data.price}/-
-      </div>
-      <div style={{ fontSize: '.85rem', color: '#8B5E1A', marginBottom: '22px' }}>{data.note}</div>
-
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontWeight: 700, color: '#3A6B2E', fontSize: '.88rem', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <span>✔</span> What&apos;s Included
@@ -633,8 +628,8 @@ function PkgCard({ data, waLink }) {
 export default function KashiPrayagrajAyodhya() {
   const [navOpen, setNavOpen] = useState(false)
   const waEnquire = `${WA_BASE}?text=${encodeURIComponent('Namaste! I am interested in the Kashi–Prayagraj–Ayodhya 3N/4D package. Please share details.')}`
-  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package (₹14,499/person) for Kashi–Prayagraj–Ayodhya 3N/4D tour.')}`
-  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package (₹21,499/person) for Kashi–Prayagraj–Ayodhya 3N/4D tour.')}`
+  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package for Kashi–Prayagraj–Ayodhya 3N/4D tour. Please share details.')}`
+  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package for Kashi–Prayagraj–Ayodhya 3N/4D tour. Please share details.')}`
 
   return (
     <div style={{
@@ -1199,11 +1194,10 @@ export default function KashiPrayagrajAyodhya() {
         }
       `}</style>
       <div className="kpa-sticky-bar">
-        <div className="kpa-sticky-price">
-          <strong>₹14,499/-</strong>
-          <span>per person · Min 4 Pax</span>
-        </div>
-        <a href={waStd} target="_blank" rel="noopener" className="kpa-sticky-btn">
+        <a href={waEnquire} target="_blank" rel="noopener" className="kpa-sticky-btn" style={{ background: 'rgba(255,255,255,.15)', border: '1px solid rgba(255,255,255,.2)' }}>
+          <WaIcon size={18} color="#fff" /> Enquire Now
+        </a>
+        <a href={waPre} target="_blank" rel="noopener" className="kpa-sticky-btn">
           <WaIcon size={18} color="#fff" /> Book Now
         </a>
       </div>

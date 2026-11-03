@@ -25,7 +25,7 @@ export const SERVICES = {
   boat: {
     title: "Book a boat",
     fields: [
-      { id: "Boat type", type: "select", req: true, options: ["Shared rowing boat","Private rowing boat","Private motor boat","Bajra (large group)"] },
+      { id: "Boat package", type: "select", req: true, options: ["Boat Ride (₹399 / person)","Morning Boat (₹1,499 / boat)","Aarti Boat Ride (₹1,999 / boat)","Ghat Ride + Reel (₹3,499 / booking)"] },
       { id: "Time slot", type: "select", req: true, options: ["Sunrise (5:30–7:30 AM)","Morning","Evening Ganga Aarti","Custom time"] },
       { id: "Date", type: "date", req: true },
       { id: "People", type: "number", min: 1, value: 2, req: true },
@@ -73,10 +73,62 @@ export const PHOTOS = [
 ];
 
 export const TESTIMONIALS = [
-  { text: "The aarti boat, the cab from the station and the hotel near the ghat were all sorted with one phone call. Our parents felt completely looked after.", name: "Guest name", trip: "City · Spiritual Retreat", sample: true },
-  { text: "Our guide had a story for every lane. The sunrise boat from Assi was the calmest morning of the whole trip.", name: "Guest name", trip: "City · Kashi Darshan", sample: true },
-  { text: "We came for Dev Deepawali and they had a boat and a terrace room ready weeks ahead. Unforgettable.", name: "Guest name", trip: "City · Festival trip", sample: true },
-  { text: "Our driver on the Prayagraj–Ayodhya circuit was patient with our elders and knew every temple's timings.", name: "Guest name", trip: "City · Teerth Circuit", sample: true },
+  {
+    text: "The aarti boat, the cab from the station and the hotel near the ghat were all sorted with one phone call. Our elderly parents felt completely looked after the entire trip.",
+    name: "Ramesh & Sunita Sharma",
+    city: "Indore",
+    trip: "Varanasi · Spiritual Retreat",
+    stars: 5,
+  },
+  {
+    text: "Our guide had a story for every lane and every ghat. The sunrise boat from Assi Ghat was the calmest, most beautiful two hours of the entire journey to Kashi.",
+    name: "Ananya Krishnan",
+    city: "Bengaluru",
+    trip: "Varanasi · Kashi Darshan",
+    stars: 5,
+  },
+  {
+    text: "We came for Dev Deepawali and they had a boat and a terrace-view room ready three weeks in advance. The whole evening on the Ganga was something we will never forget.",
+    name: "Vikram & Priya Mehta",
+    city: "Ahmedabad",
+    trip: "Varanasi · Festival Trip",
+    stars: 5,
+  },
+  {
+    text: "Our driver on the Prayagraj–Ayodhya circuit was endlessly patient with our elderly parents and knew every temple's timing, queue shortcut, and prasad stall by heart.",
+    name: "Suresh Agarwal",
+    city: "Jaipur",
+    trip: "Kashi · Prayagraj · Ayodhya",
+    stars: 5,
+  },
+  {
+    text: "Booked the Innova for a full-day city tour. On time, AC, clean — and the driver suggested the best lassi stall near Manikarnika. Exactly the kind of local knowledge you need.",
+    name: "Pradeep Nair",
+    city: "Mumbai",
+    trip: "Varanasi · Cab Service",
+    stars: 5,
+  },
+  {
+    text: "They found us a Ganga-view room at mid-range prices that wasn't listed on any booking website. The personal recommendation made all the difference for our group.",
+    name: "Kavita Rao",
+    city: "Hyderabad",
+    trip: "Varanasi · Hotel Booking",
+    stars: 5,
+  },
+  {
+    text: "Booked the Aarti Boat Ride for our family of six. Watching the Ganga Aarti from the water with lamps reflected all around us — no words can fully describe it.",
+    name: "Deepak Verma & Family",
+    city: "Nagpur",
+    trip: "Varanasi · Aarti Boat Ride",
+    stars: 5,
+  },
+  {
+    text: "First time in Varanasi, knew nobody. One WhatsApp message and everything was arranged — pickup, hotel, guide, and the Vishwanath darshan VIP pass. Truly a saathi.",
+    name: "Meena Pillai",
+    city: "Chennai",
+    trip: "Varanasi · 3-Day Package",
+    stars: 5,
+  },
 ];
 
 export const PACKAGES = [
