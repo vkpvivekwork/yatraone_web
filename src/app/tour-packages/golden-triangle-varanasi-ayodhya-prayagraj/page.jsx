@@ -537,8 +537,6 @@ function PkgCard({ data, waLink }) {
         {data.label} Package
       </div>
       <GoldRule margin="10px 0 12px" />
-      <div style={{ fontFamily: "'Fraunces',Georgia,serif", fontSize: '2.4rem', fontWeight: 900, color: '#B5421A', lineHeight: 1, marginBottom: '4px' }}>
-
       <div style={{ marginBottom: '16px' }}>
         <div style={{ fontWeight: 700, color: '#3A6B2E', fontSize: '.88rem', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
           <span>✔</span> What&apos;s Included
