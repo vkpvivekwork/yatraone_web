@@ -113,6 +113,36 @@ textarea.py-textarea {
   cursor: pointer;
 }
 
+/* Pills — multi-select toggle buttons */
+.py-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.py-pill {
+  font: inherit;
+  font-size: .9rem;
+  font-weight: 500;
+  padding: 7px 16px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: border-color .15s, background .15s, color .15s;
+  white-space: nowrap;
+}
+.py-pill:hover {
+  border-color: var(--saffron);
+  color: var(--ink);
+}
+.py-pill.active {
+  background: var(--saffron);
+  border-color: var(--saffron);
+  color: #fff;
+  font-weight: 600;
+}
+
 /* Two-column row (date + persons) */
 .py-row-2 {
   display: grid;

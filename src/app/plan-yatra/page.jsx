@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import BookingForm from './BookingForm'
 
 export const metadata = {
@@ -7,5 +8,9 @@ export const metadata = {
 }
 
 export default function PlanYatraPage() {
-  return <BookingForm />
+  return (
+    <Suspense fallback={null}>
+      <BookingForm />
+    </Suspense>
+  )
 }

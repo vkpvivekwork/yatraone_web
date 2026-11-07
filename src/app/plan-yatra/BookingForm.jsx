@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
 import Navbar from '@/app/components/Navbar'
 import './page.css'
 
@@ -7,16 +8,46 @@ const API_URL = 'http://yatra.pythonanywhere.com/api/bookings/'
 const WA      = '919277472279'
 const WA_BASE = `https://wa.me/${WA}`
 
-const SERVICES = [
-  { value: 'tour',        label: 'Tour Package'     },
-  { value: 'boat',        label: 'Ganga Boat Ride'  },
-  { value: 'cab',         label: 'Cab Booking'      },
-  { value: 'hotel',       label: 'Hotel Stay'       },
-  { value: 'sightseeing', label: 'Sightseeing'      },
-  { value: 'other',       label: 'Other / Not sure' },
+/* ── Options matching the Django model ── */
+
+const SERVICE_OPTIONS = [
+  { value: 'tour',        label: 'Tour Package'    },
+  { value: 'boat',        label: 'Ganga Boat Ride' },
+  { value: 'cab',         label: 'Cab'             },
+  { value: 'hotel',       label: 'Hotel Stay'      },
+  { value: 'sightseeing', label: 'Sightseeing'     },
 ]
 
-const PERSONS = ['1','2','3','4','5','6','7','8','9','10','11–15','16–20','20+']
+const CITY_OPTIONS = [
+  { value: 'kashi',      label: 'Kashi (Varanasi)' },
+  { value: 'ayodhya',    label: 'Ayodhya'          },
+  { value: 'prayagraj',  label: 'Prayagraj'        },
+  { value: 'chitrakoot', label: 'Chitrakoot'       },
+  { value: 'vindhyachal',label: 'Vindhyachal'      },
+]
+
+const GROUP_TYPES = [
+  { value: '',            label: '— Select —'   },
+  { value: 'solo',        label: 'Solo'         },
+  { value: 'couple',      label: 'Couple'       },
+  { value: 'family',      label: 'Family'       },
+  { value: 'group',       label: 'Group'        },
+  { value: 'pilgrimage',  label: 'Pilgrimage'   },
+  { value: 'honeymoon',   label: 'Honeymoon'    },
+  { value: 'corporate',   label: 'Corporate'    },
+]
+
+const BUDGETS = [
+  { value: '',               label: '— Select —'        },
+  { value: 'Under ₹5,000',  label: 'Under ₹5,000'      },
+  { value: '₹5k–15k',       label: '₹5,000 – ₹15,000'  },
+  { value: '₹15k–30k',      label: '₹15,000 – ₹30,000' },
+  { value: '₹30k+',         label: '₹30,000+'           },
+  { value: 'flexible',       label: 'Flexible / Not sure'},
+]
+
+const NUM_DAYS = ['1','2','3','4','5','6–7','8–10','10+']
+const NUM_PEOPLE = ['1','2','3','4','5','6','7','8','9','10','11–15','16–20','20+']
 
 const TRUST = [
   { icon: '🙏', stat: '500+', label: 'Yatras planned' },
@@ -25,29 +56,68 @@ const TRUST = [
   { icon: '🆓', stat: '₹0',  label: 'No booking fee' },
 ]
 
+/* ── WhatsApp fallback message ── */
 function buildWaMsg(f) {
-  const svc = SERVICES.find(s => s.value === f.service)
   const lines = ['Namaste! I want to plan a Kashi yatra. 🙏']
-  if (svc)      lines.push(`Service: ${svc.label}`)
-  if (f.date)   lines.push(`Travel date: ${new Date(f.date + 'T00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}`)
-  if (f.persons) lines.push(`Yatris: ${f.persons}`)
-  if (f.name)   lines.push(`Name: ${f.name}`)
-  if (f.phone)  lines.push(`Phone: ${f.phone}`)
-  if (f.message) lines.push(`Note: ${f.message}`)
+  if (f.services.length)   lines.push(`Services: ${f.services.join(', ')}`)
+  if (f.cities.length)     lines.push(`Cities: ${f.cities.join(', ')}`)
+  if (f.start_date)        lines.push(`Start date: ${new Date(f.start_date + 'T00:00').toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}`)
+  if (f.num_days)          lines.push(`Duration: ${f.num_days} days`)
+  if (f.num_people)        lines.push(`People: ${f.num_people}`)
+  if (f.group_type)        lines.push(`Group: ${f.group_type}`)
+  if (f.name)              lines.push(`Name: ${f.name}`)
+  if (f.phone)             lines.push(`Phone: ${f.phone}`)
+  if (f.arriving_from)     lines.push(`Arriving from: ${f.arriving_from}`)
+  if (f.customer_budget)   lines.push(`Budget: ${f.customer_budget}`)
+  if (f.customer_notes)    lines.push(`Notes: ${f.customer_notes}`)
   return lines.join('\n')
 }
 
+/* ── Component ── */
 export default function BookingForm() {
-  const today = new Date().toISOString().slice(0, 10)
+  const today        = new Date().toISOString().slice(0, 10)
+  const searchParams = useSearchParams()
 
-  const [form, setForm] = useState({
-    name: '', phone: '', email: '',
-    service: '', date: '', persons: '2', message: '',
+  // ── Pre-fill from URL ─────────────────────────────────────────────────────
+  // Visible : ?service=boat  ?people=4  ?date=2024-12-25
+  // Hidden  : ?utm_source=  ?utm_campaign=  ?ref=  ?from=  ?package=
+  const [form, setForm] = useState(() => {
+    const sp          = searchParams
+    const svcParam    = sp.get('service') ?? ''
+    const validSvc    = SERVICE_OPTIONS.some(s => s.value === svcParam)
+    const peopleParam = sp.get('people') ?? '2'
+
+    return {
+      // visible form fields
+      name: '', phone: '',
+      services:        validSvc ? [svcParam] : [],
+      cities:          [],
+      start_date:      sp.get('date')    ?? '',
+      num_days:        '',
+      num_people:      NUM_PEOPLE.includes(peopleParam) ? peopleParam : '2',
+      group_type:      '',
+      arriving_from:   '',
+      customer_budget: '',
+      customer_notes:  '',
+      // attribution — hidden, never shown, always sent to backend
+      _package_name:  sp.get('package')      ?? '',
+      _source:        sp.get('utm_source')   ?? '',
+      _utm_campaign:  sp.get('utm_campaign') ?? '',
+      _referrer_name: sp.get('ref')          ?? '',
+      _page_source:   sp.get('from')         ?? 'plan-yatra',
+    }
   })
   const [status, setStatus]     = useState('idle') // idle | submitting | success | error
   const [errorMsg, setErrorMsg] = useState('')
 
   function setF(k, v) { setForm(f => ({ ...f, [k]: v })) }
+
+  function toggleArr(key, value) {
+    setForm(f => {
+      const arr = f[key]
+      return { ...f, [key]: arr.includes(value) ? arr.filter(x => x !== value) : [...arr, value] }
+    })
+  }
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -57,14 +127,27 @@ export default function BookingForm() {
 
     try {
       const payload = {
-        name:         form.name.trim(),
-        phone:        form.phone.trim(),
-        email:        form.email.trim() || undefined,
-        service_type: form.service || 'other',
-        travel_date:  form.date || undefined,
-        num_persons:  form.persons,
-        message:      form.message.trim() || undefined,
+        // contact
+        name:  form.name.trim(),
+        phone: form.phone.trim(),
+        // yatra details
+        services:        form.services.length ? form.services : [],
+        cities:          form.cities.length   ? form.cities   : ['kashi'],
+        start_date:      form.start_date      || undefined,
+        num_days:        form.num_days         || undefined,
+        num_people:      parseInt(form.num_people, 10) || 2,
+        group_type:      form.group_type       || undefined,
+        arriving_from:   form.arriving_from.trim() || undefined,
+        customer_budget: form.customer_budget  || undefined,
+        customer_notes:  form.customer_notes.trim() || undefined,
+        // attribution (from URL params — user never sees these)
+        package_name:   form._package_name  || undefined,
+        source:         form._source        || undefined,
+        utm_campaign:   form._utm_campaign  || undefined,
+        referrer_name:  form._referrer_name || undefined,
+        page_source:    form._page_source,
       }
+      // strip undefined keys
       Object.keys(payload).forEach(k => payload[k] === undefined && delete payload[k])
 
       const res = await fetch(API_URL, {
@@ -99,9 +182,7 @@ export default function BookingForm() {
         <section className="py-hero">
           <div className="wrap">
             <p className="py-namaste">नमस्ते 🙏</p>
-            <h1 className="py-h1">
-              Plan Your <em>Kashi Yatra</em>
-            </h1>
+            <h1 className="py-h1">Plan Your <em>Kashi Yatra</em></h1>
             <p className="py-lead">
               Fill the short form below. A local Yatra Ke Saathi representative will confirm your booking on WhatsApp within 2&nbsp;hours — no advance payment needed.
             </p>
@@ -148,106 +229,133 @@ export default function BookingForm() {
                   <p className="py-form-sub">Free to enquire · No advance payment · Confirmed on WhatsApp</p>
                 </div>
 
-                {/* Service */}
+                {/* ── Services (pill multi-select) ── */}
                 <div className="py-field">
-                  <label className="py-label">
-                    Service <span className="py-req">*</span>
-                  </label>
-                  <select
-                    className="py-select"
-                    value={form.service}
-                    onChange={e => setF('service', e.target.value)}
-                    required
-                  >
-                    <option value="">— What are you looking for? —</option>
-                    {SERVICES.map(s => (
-                      <option key={s.value} value={s.value}>{s.label}</option>
+                  <label className="py-label">What do you need?</label>
+                  <div className="py-pills">
+                    {SERVICE_OPTIONS.map(s => (
+                      <button
+                        key={s.value}
+                        type="button"
+                        className={`py-pill${form.services.includes(s.value) ? ' active' : ''}`}
+                        onClick={() => toggleArr('services', s.value)}
+                      >
+                        {s.label}
+                      </button>
                     ))}
-                  </select>
+                  </div>
                 </div>
 
-                {/* Date + Persons (2-col → 1-col on mobile via CSS) */}
+                {/* ── Cities (pill multi-select) ── */}
+                <div className="py-field">
+                  <label className="py-label">Which cities?</label>
+                  <div className="py-pills">
+                    {CITY_OPTIONS.map(c => (
+                      <button
+                        key={c.value}
+                        type="button"
+                        className={`py-pill${form.cities.includes(c.value) ? ' active' : ''}`}
+                        onClick={() => toggleArr('cities', c.value)}
+                      >
+                        {c.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* ── When & Duration ── */}
                 <div className="py-row-2">
                   <div className="py-field">
-                    <label className="py-label">Travel date</label>
+                    <label className="py-label">Start date</label>
                     <input
                       className="py-input"
                       type="date"
                       min={today}
-                      value={form.date}
-                      onChange={e => setF('date', e.target.value)}
+                      value={form.start_date}
+                      onChange={e => setF('start_date', e.target.value)}
                     />
                   </div>
                   <div className="py-field">
-                    <label className="py-label">Yatris</label>
-                    <select
-                      className="py-select"
-                      value={form.persons}
-                      onChange={e => setF('persons', e.target.value)}
-                    >
-                      {PERSONS.map(n => <option key={n} value={n}>{n}</option>)}
+                    <label className="py-label">No. of days</label>
+                    <select className="py-select" value={form.num_days} onChange={e => setF('num_days', e.target.value)}>
+                      <option value="">— Select —</option>
+                      {NUM_DAYS.map(d => <option key={d} value={d}>{d} day{d === '1' ? '' : 's'}</option>)}
                     </select>
                   </div>
                 </div>
 
-                {/* Name */}
+                {/* ── People & Group ── */}
+                <div className="py-row-2">
+                  <div className="py-field">
+                    <label className="py-label">No. of people</label>
+                    <select className="py-select" value={form.num_people} onChange={e => setF('num_people', e.target.value)}>
+                      {NUM_PEOPLE.map(n => <option key={n} value={n}>{n}</option>)}
+                    </select>
+                  </div>
+                  <div className="py-field">
+                    <label className="py-label">Group type</label>
+                    <select className="py-select" value={form.group_type} onChange={e => setF('group_type', e.target.value)}>
+                      {GROUP_TYPES.map(g => <option key={g.value} value={g.value}>{g.label}</option>)}
+                    </select>
+                  </div>
+                </div>
+
+                {/* ── Contact ── */}
+                <div className="py-row-2">
+                  <div className="py-field">
+                    <label className="py-label">Your name <span className="py-req">*</span></label>
+                    <input
+                      className="py-input"
+                      type="text" placeholder="Full name"
+                      value={form.name} onChange={e => setF('name', e.target.value)}
+                      required autoComplete="name"
+                    />
+                  </div>
+                  <div className="py-field">
+                    <label className="py-label">Phone / WhatsApp <span className="py-req">*</span></label>
+                    <input
+                      className="py-input"
+                      type="tel" placeholder="+91 XXXXX XXXXX"
+                      value={form.phone} onChange={e => setF('phone', e.target.value)}
+                      required autoComplete="tel"
+                    />
+                  </div>
+                </div>
+
+                {/* ── Arriving from ── */}
                 <div className="py-field">
                   <label className="py-label">
-                    Your name <span className="py-req">*</span>
+                    Arriving from <span className="py-opt">(optional)</span>
                   </label>
                   <input
                     className="py-input"
-                    type="text"
-                    placeholder="Full name"
-                    value={form.name}
-                    onChange={e => setF('name', e.target.value)}
-                    required
-                    autoComplete="name"
+                    type="text" placeholder="e.g. Delhi, Mumbai, Already in Varanasi…"
+                    value={form.arriving_from} onChange={e => setF('arriving_from', e.target.value)}
+                    autoComplete="off"
                   />
                 </div>
 
-                {/* Phone */}
+                {/* ── Budget ── */}
                 <div className="py-field">
                   <label className="py-label">
-                    Phone / WhatsApp <span className="py-req">*</span>
+                    Budget <span className="py-opt">(optional)</span>
                   </label>
-                  <input
-                    className="py-input"
-                    type="tel"
-                    placeholder="+91 XXXXX XXXXX"
-                    value={form.phone}
-                    onChange={e => setF('phone', e.target.value)}
-                    required
-                    autoComplete="tel"
-                  />
+                  <select className="py-select" value={form.customer_budget} onChange={e => setF('customer_budget', e.target.value)}>
+                    {BUDGETS.map(b => <option key={b.value} value={b.value}>{b.label}</option>)}
+                  </select>
                 </div>
 
-                {/* Email */}
+                {/* ── Notes ── */}
                 <div className="py-field">
                   <label className="py-label">
-                    Email <span className="py-opt">(optional)</span>
-                  </label>
-                  <input
-                    className="py-input"
-                    type="email"
-                    placeholder="you@example.com"
-                    value={form.email}
-                    onChange={e => setF('email', e.target.value)}
-                    autoComplete="email"
-                  />
-                </div>
-
-                {/* Message */}
-                <div className="py-field">
-                  <label className="py-label">
-                    Anything to add? <span className="py-opt">(optional)</span>
+                    Special requests <span className="py-opt">(optional)</span>
                   </label>
                   <textarea
                     className="py-textarea"
                     rows={3}
-                    placeholder="Specific temples, group details, budget, special occasion…"
-                    value={form.message}
-                    onChange={e => setF('message', e.target.value)}
+                    placeholder="Elders / kids, special puja, food preferences, accessibility needs…"
+                    value={form.customer_notes}
+                    onChange={e => setF('customer_notes', e.target.value)}
                   />
                 </div>
 
@@ -256,10 +364,7 @@ export default function BookingForm() {
                   <div className="py-error">
                     {errorMsg}
                     {' · '}
-                    <a
-                      href={`${WA_BASE}?text=${encodeURIComponent(buildWaMsg(form))}`}
-                      target="_blank" rel="noopener"
-                    >
+                    <a href={`${WA_BASE}?text=${encodeURIComponent(buildWaMsg(form))}`} target="_blank" rel="noopener">
                       Message us on WhatsApp
                     </a>
                   </div>
@@ -267,11 +372,7 @@ export default function BookingForm() {
 
                 {/* Actions */}
                 <div className="py-actions">
-                  <button
-                    type="submit"
-                    className="btn"
-                    disabled={status === 'submitting'}
-                  >
+                  <button type="submit" className="btn" disabled={status === 'submitting'}>
                     {status === 'submitting' ? 'Sending…' : 'Send Booking Enquiry'}
                   </button>
                   <a
@@ -300,7 +401,7 @@ export default function BookingForm() {
   )
 }
 
-/* ── small helpers ── */
+/* ── helpers ── */
 
 function WaIcon() {
   return (
