@@ -58,6 +58,7 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(253,244,222,.95);bac
 .nav-links a{padding:4px 0;border-bottom:2px solid transparent;transition:border-color .2s}
 .nav-links a:hover{border-color:var(--saffron)}
 .nav-links .nav-itin{display:none}
+.nav-links .nav-cta-mob{display:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:600;font-size:1rem;padding:12px 22px;border-radius:var(--radius);border:none;cursor:pointer;background:var(--saffron);color:#fff;transition:background .2s,transform .2s}
 .btn:hover{background:var(--saffron-deep);transform:translateY(-1px)}
 .btn.line{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
@@ -379,6 +380,8 @@ footer .big-hi{position:absolute;right:-10px;bottom:-40px;font-family:'Tiro Deva
   .nav .wrap{width:min(1200px,100% - 12px)}.menu-btn{display:block}.nav .btn{display:none}.nav .btn.dl-itin{display:inline-flex;font-size:.85rem;padding:6px 10px;white-space:nowrap;text-align:center;line-height:1.25}
   .nav-links .nav-itin{display:flex;align-items:center;gap:8px;margin:10px 16px 6px;padding:12px 16px;background:var(--saffron);color:#fff;border-bottom:none;border-radius:var(--radius);font-weight:600;justify-content:center}
   .nav-links .nav-itin:hover{background:var(--saffron-deep);border-color:transparent}
+  .nav-links .nav-cta-mob{display:flex;align-items:center;justify-content:center;margin:6px 16px 12px;padding:12px 16px;background:var(--saffron);color:#fff;border-bottom:none;border-radius:var(--radius);font-weight:600}
+  .nav-links .nav-cta-mob:hover{background:var(--saffron-deep)}
   .services{grid-template-columns:repeat(2,1fr)}
   .visual{height:420px}
   .arch{width:88%}

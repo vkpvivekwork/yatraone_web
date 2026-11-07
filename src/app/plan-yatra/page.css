@@ -1,0 +1,212 @@
+/* ── Plan Yatra page ── */
+
+/* Hero */
+.py-hero {
+  background: linear-gradient(160deg, var(--paper) 0%, var(--paper-2) 100%);
+  padding: clamp(28px, 6vw, 72px) 0 clamp(20px, 4vw, 48px);
+  border-bottom: 1px solid var(--line);
+}
+.py-hero .wrap { max-width: 720px }
+
+.py-namaste {
+  font-family: 'Kalam', cursive;
+  font-size: 1.3rem;
+  color: var(--saffron-deep);
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin-bottom: 8px;
+}
+.py-h1 {
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+  margin-bottom: 14px;
+}
+.py-h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--saffron-deep);
+}
+.py-lead {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 36rem;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.py-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Section wrapper */
+.py-section {
+  padding: clamp(28px, 6vw, 72px) 0;
+}
+.py-section .wrap { max-width: 600px }
+
+/* Form card */
+/* Reset the global `form` rule which uses grid/4col */
+.py-form {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(20px, 5vw, 36px);
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px;
+  /* override globals.css `form` grid */
+  grid-template-columns: unset !important;
+  align-items: unset !important;
+}
+
+.py-form-title { font-size: 1.45rem; margin-bottom: 2px }
+.py-form-sub   { font-size: .9rem; color: var(--ink-soft) }
+
+/* Field groups */
+.py-field { display: flex; flex-direction: column; gap: 5px }
+.py-label {
+  display: block;
+  font-weight: 600;
+  font-size: .93rem;
+  color: var(--ink);
+  /* override global label which sets .8rem + ink-soft */
+}
+.py-req { color: var(--saffron-deep) }
+.py-opt { color: var(--ink-soft); font-weight: 400; font-size: .88rem }
+
+/* Inputs — these supplement the global input/select/textarea rules */
+.py-input,
+.py-select,
+.py-textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+  /* reset global min-height on textarea via textarea.py-textarea */
+}
+.py-input:focus,
+.py-select:focus,
+.py-textarea:focus {
+  border-color: var(--saffron);
+  box-shadow: 0 0 0 3px rgba(232, 112, 26, .12);
+}
+
+textarea.py-textarea {
+  resize: vertical;
+  min-height: 84px;
+  height: auto;
+}
+
+.py-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b5337' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+/* Two-column row (date + persons) */
+.py-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Error banner */
+.py-error {
+  background: #fff3f3;
+  border: 1px solid #f5c6c6;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: .9rem;
+  color: #8b2020;
+  line-height: 1.5;
+}
+.py-error a {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Submit row */
+.py-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+.py-actions .btn        { flex: 1 1 180px }
+.py-actions .btn.wa     { flex: 0 0 auto }
+.py-actions .btn:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+  transform: none;
+}
+.py-privacy {
+  font-size: .8rem;
+  color: var(--ink-soft);
+  text-align: center;
+}
+.py-privacy a { text-decoration: underline; text-underline-offset: 2px }
+
+/* Success card */
+.py-success {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: clamp(28px, 6vw, 48px) clamp(20px, 5vw, 36px);
+  text-align: center;
+}
+.py-success-icon { font-size: 2.6rem; margin-bottom: 12px }
+.py-success h2   { margin-bottom: 10px }
+.py-success p    { color: var(--ink-soft); max-width: 28rem; margin: 0 auto 24px; line-height: 1.6 }
+.py-success-acts {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  /* Collapse 2-col to 1-col */
+  .py-row-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Full-width buttons */
+  .py-actions {
+    flex-direction: column;
+  }
+  .py-actions .btn,
+  .py-actions .btn.wa {
+    flex: 1 1 auto;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Success actions */
+  .py-success-acts {
+    flex-direction: column;
+    align-items: center;
+  }
+  .py-success-acts .btn { width: 100%; max-width: 320px }
+
+  /* Chip row on tiny screens */
+  .py-chips { gap: 6px }
+  .py-chips .chip { font-size: .82rem; padding: 4px 10px 4px 4px }
+}
+
+@media (max-width: 380px) {
+  .py-form { padding: 16px }
+  .py-hero { padding: 20px 0 16px }
+}

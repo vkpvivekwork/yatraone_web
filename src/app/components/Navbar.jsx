@@ -2,9 +2,7 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 
-const WA     = '919277472279'
-const WA_BASE = `https://wa.me/${WA}`
-const DEFAULT_CTA_HREF = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to plan a Kashi yatra.')}`
+const DEFAULT_CTA_HREF = '/plan-yatra'
 
 const LINKS = [
   { href: '/services',      label: 'Services',    active: p => p === '/services' || p.startsWith('/services/') },
@@ -20,7 +18,7 @@ const LINKS = [
  *
  * Props:
  *   ctaLabel  — button label   (default: "Plan my yatra")
- *   ctaHref   — button href    (default: WhatsApp general link)
+ *   ctaHref   — button href    (default: /plan-yatra)
  *   showItin  — show the "Download Custom Itinerary" link + button (home page only)
  */
 export default function Navbar({ ctaLabel = 'Plan my yatra', ctaHref, showItin = false }) {
@@ -51,13 +49,16 @@ export default function Navbar({ ctaLabel = 'Plan my yatra', ctaHref, showItin =
               Download Custom Itinerary
             </a>
           )}
+          <a href={href} className="nav-cta-mob" onClick={() => setNavOpen(false)}>
+            {ctaLabel}
+          </a>
         </nav>
         {showItin && (
           <a href="/travel-itinerary" className="btn line dl-itin">
             <span>Download Custom<br />Itinerary</span>
           </a>
         )}
-        <a href={href} target="_blank" rel="noopener" className="btn">{ctaLabel}</a>
+        <a href={href} className="btn">{ctaLabel}</a>
         <button className="menu-btn" aria-label="Menu" onClick={() => setNavOpen(v => !v)}>
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
             <path d="M3 6h18M3 12h18M3 18h18"/>
