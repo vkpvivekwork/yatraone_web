@@ -13,7 +13,7 @@ function Footer() {
         <div className="foot">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
+            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
           </div>
           <div><h4>Services</h4><ul>
@@ -36,7 +36,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Varanasi, Uttar Pradesh</span>
         </div>
       </div>
@@ -55,7 +55,7 @@ const SECTIONS = [
   {
     title: '2. Third-Party Services',
     items: [
-      { sub: null, desc: 'Yatra Ke Saathi acts as a facilitator connecting travellers with hotels, drivers, and boat operators. We are not the direct provider of accommodation, transport, or boating services.' },
+      { sub: null, desc: 'Yatra Ke Sathi acts as a facilitator connecting travellers with hotels, drivers, and boat operators. We are not the direct provider of accommodation, transport, or boating services.' },
       { sub: null, desc: 'We are not liable for the quality, safety, or conduct of third-party service providers, though we make every effort to work only with verified and trusted partners.' },
       { sub: null, desc: 'External links on our website are provided for convenience. We do not endorse or take responsibility for the content of external sites.' },
     ],
@@ -93,7 +93,7 @@ const SECTIONS = [
   {
     title: '7. Limitation of Liability',
     items: [
-      { sub: null, desc: 'To the maximum extent permitted by law, Yatra Ke Saathi\'s total liability for any claim arising from use of our services is limited to the amount paid for the specific booking.' },
+      { sub: null, desc: 'To the maximum extent permitted by law, Yatra Ke Sathi\'s total liability for any claim arising from use of our services is limited to the amount paid for the specific booking.' },
       { sub: null, desc: 'We are not liable for indirect, incidental, or consequential damages including loss of enjoyment, missed connections, or additional travel expenses.' },
     ],
   },
@@ -126,7 +126,7 @@ export default function DisclaimerPage() {
         <section style={{ padding: '64px 0 80px' }}>
           <div className="wrap" style={{ maxWidth: '780px' }}>
             <p style={{ fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--ink-soft)', marginBottom: '48px' }}>
-              By using the Yatra Ke Saathi website and services, you acknowledge and agree to the following disclaimers. If you do not agree, please refrain from using our services.
+              By using the Yatra Ke Sathi website and services, you acknowledge and agree to the following disclaimers. If you do not agree, please refrain from using our services.
             </p>
 
             {SECTIONS.map((sec) => (

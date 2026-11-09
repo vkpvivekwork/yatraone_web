@@ -654,7 +654,7 @@ export default function KashiPrayagrajAyodhya() {
         <div className="wrap nav-inner" style={{ padding: '6px 0' }}>
           <a href="/" className="logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
+            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
           </a>
           <nav className={`nav-links${navOpen ? ' open' : ''}`}>
             <a href="/#services" onClick={() => setNavOpen(false)}>Services</a>
@@ -959,7 +959,7 @@ export default function KashiPrayagrajAyodhya() {
                 Glimpses of Past Yatras
               </h2>
               <p style={{ color:'#5A3F28', fontSize:'1rem', maxWidth:'40rem', margin:'0 auto' }}>
-                Real moments from real travellers who journeyed with Yatra Ke Saathi.
+                Real moments from real travellers who journeyed with Yatra Ke Sathi.
               </p>
               <GoldRule margin="18px auto 0" />
             </div>
@@ -1091,7 +1091,7 @@ export default function KashiPrayagrajAyodhya() {
               fontFamily: "'Fraunces',Georgia,serif", fontWeight: 900,
               fontSize: 'clamp(1.8rem,4vw,2.8rem)', color: '#6B2509',
               textTransform: 'uppercase', letterSpacing: '-1px', marginBottom: '4px',
-            }}>Yatra Ke Saathi</h2>
+            }}>Yatra Ke Sathi</h2>
             <p style={{ color: '#8B5E1A', fontSize: '.95rem', marginBottom: '24px' }}>Tour &amp; Travel · Varanasi</p>
 
             <GoldRule margin="0 auto 28px" />
@@ -1130,7 +1130,7 @@ export default function KashiPrayagrajAyodhya() {
             <div>
               <a href="/" className="logo" style={{ marginBottom: '14px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
+                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
               </a>
               <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
             </div>
@@ -1162,7 +1162,7 @@ export default function KashiPrayagrajAyodhya() {
             </div>
           </div>
           <div className="copy">
-            <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+            <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
             <span>Photos: Unsplash</span>
           </div>
         </div>

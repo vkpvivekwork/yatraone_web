@@ -184,7 +184,7 @@ export default function BookingForm() {
             <p className="py-namaste">नमस्ते 🙏</p>
             <h1 className="py-h1">Plan Your <em>Kashi Yatra</em></h1>
             <p className="py-lead">
-              Fill the short form below. A local Yatra Ke Saathi representative will confirm your booking on WhatsApp within 2&nbsp;hours — no advance payment needed.
+              Fill the short form below. A local Yatra Ke Sathi representative will confirm your booking on WhatsApp within 2&nbsp;hours — no advance payment needed.
             </p>
             <div className="py-chips">
               {TRUST.map(t => (
@@ -420,7 +420,7 @@ function Footer() {
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <a href="/" className="logo" style={{ marginBottom: '14px' }}>
-              <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '56px', width: 'auto', display: 'block' }} />
+              <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '56px', width: 'auto', display: 'block' }} />
             </a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>
               Tours, cabs, boats and hotels in Kashi, arranged by people who live here.
@@ -444,7 +444,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Photos: Unsplash</span>
         </div>
       </div>

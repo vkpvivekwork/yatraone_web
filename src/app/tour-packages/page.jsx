@@ -531,7 +531,7 @@ export default function TourPackagesPage() {
         <div className="wrap nav-inner" style={{ padding: '6px 0' }}>
           <a href="/" className="logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
+            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
           </a>
           <nav className={`nav-links${navOpen ? ' open' : ''}`}>
             <a href="/#services" onClick={() => setNavOpen(false)}>Services</a>
@@ -659,7 +659,7 @@ export default function TourPackagesPage() {
         </section>
 
         {/* ══════════════════════════════════════════════
-            WHY YATRA KE SAATHI
+            WHY YATRA KE SATHI
         ══════════════════════════════════════════════ */}
         <section style={{ padding:'0 0 80px', background:'linear-gradient(180deg,#EDD690 0%,#F5E8AE 100%)', backgroundImage:GRAIN }}>
           <div style={{ overflow:'hidden' }}>
@@ -669,7 +669,7 @@ export default function TourPackagesPage() {
             <div style={{ textAlign:'center', marginBottom:'46px' }}>
               <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1rem', color:'#8B5E1A', marginBottom:'6px' }}>हमें क्यों चुनें</div>
               <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(2rem,4vw,3rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', lineHeight:1.08, marginBottom:'8px' }}>
-                Why Yatra Ke Saathi?
+                Why Yatra Ke Sathi?
               </h2>
               <p style={{ color:'#5A3F28', fontSize:'1rem', maxWidth:'44rem', margin:'0 auto' }}>
                 We are locals — born and raised in Kashi. Every route, every ghat, every darshan shortcut — we know it by heart.
@@ -755,7 +755,7 @@ export default function TourPackagesPage() {
             <div>
               <a href="/" className="logo" style={{ marginBottom:'14px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height:'60px', width:'auto', display:'block' }} />
+                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height:'60px', width:'auto', display:'block' }} />
               </a>
               <p style={{ fontSize:'.93rem', maxWidth:'22rem', color:'#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
             </div>
@@ -787,7 +787,7 @@ export default function TourPackagesPage() {
             </div>
           </div>
           <div className="copy">
-            <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+            <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
             <span>Photos: Unsplash</span>
           </div>
         </div>

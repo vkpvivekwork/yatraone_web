@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Plan Your Custom Yatra — Yatra Ke Saathi',
+  title: 'Plan Your Custom Yatra — Yatra Ke Sathi',
   description: 'Build your custom teerth yatra itinerary. Pick your dhams, services and dates. We arrange everything.',
 }
 

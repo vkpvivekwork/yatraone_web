@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Yatra Ke Saathi — Teerth Yatra from Kashi',
+  title: 'Yatra Ke Sathi — Teerth Yatra from Kashi',
   description: 'Spiritual yatras to Kashi, Ayodhya, Prayagraj, Ujjain, Vrindavan and Haridwar. Tour packages, cabs, boats and hotels arranged by locals.',
 }
 

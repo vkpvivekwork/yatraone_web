@@ -55,7 +55,7 @@ const PACKAGES = [
 
 const REVIEWS = [
   { text: 'Booked the morning boat for our family of 5. The guide knew every ghat — it felt like watching Kashi breathe. Truly unforgettable.', name: 'Priya M., Mumbai', stars: '★★★★★', pkg: 'Morning Boat' },
-  { text: 'The Ganga Aarti from a boat is something no words can describe. Yatra Ke Saathi arranged everything smoothly on short notice.', name: 'Rohit K., Delhi', stars: '★★★★★', pkg: 'Aarti Boat Ride' },
+  { text: 'The Ganga Aarti from a boat is something no words can describe. Yatra Ke Sathi arranged everything smoothly on short notice.', name: 'Rohit K., Delhi', stars: '★★★★★', pkg: 'Aarti Boat Ride' },
   { text: 'Got the Ghat Ride + Reel package for our honeymoon. The photos they delivered same evening were beautiful. Worth every rupee.', name: 'Anjali & Vivek, Pune', stars: '★★★★★', pkg: 'Ghat Ride + Reel' },
 ]
 
@@ -69,7 +69,7 @@ function Footer() {
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <a href="/" className="logo" style={{ marginBottom: '14px' }}>
-              <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '56px', width: 'auto', display: 'block' }} />
+              <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '56px', width: 'auto', display: 'block' }} />
             </a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
           </div>
@@ -91,7 +91,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Photos: Unsplash</span>
         </div>
       </div>
@@ -318,7 +318,7 @@ export default function BoatRidesPage() {
               {/* testimonials */}
               <div className="br-testimonials">
                 <h3>What yatris say</h3>
-                <p className="subhead">Real guests who booked through Yatra Ke Saathi</p>
+                <p className="subhead">Real guests who booked through Yatra Ke Sathi</p>
                 {REVIEWS.map((r, i) => (
                   <div key={i} className="br-review">
                     <p>{r.text}</p>

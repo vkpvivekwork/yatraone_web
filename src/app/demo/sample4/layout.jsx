@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Yatra Ke Saathi — Teerth Yatra: Kashi, Ayodhya, Prayagraj, Ujjain',
-  description: 'Yatra Ke Saathi: spiritual yatras to Kashi, Ayodhya, Prayagraj, Ujjain, Vrindavan and Haridwar. Tour packages, cabs, boats and hotels arranged by locals.',
+  title: 'Yatra Ke Sathi — Teerth Yatra: Kashi, Ayodhya, Prayagraj, Ujjain',
+  description: 'Yatra Ke Sathi: spiritual yatras to Kashi, Ayodhya, Prayagraj, Ujjain, Vrindavan and Haridwar. Tour packages, cabs, boats and hotels arranged by locals.',
 }
 
 export default function Sample4Layout({ children }) {

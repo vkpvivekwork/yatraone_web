@@ -463,7 +463,7 @@ export default function VaranasiAyodhya3Day() {
         <div className="wrap nav-inner" style={{ padding: '6px 0' }}>
           <a href="/" className="logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
+            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
           </a>
           <nav className={`nav-links${navOpen ? ' open' : ''}`}>
             <a href="/#services" onClick={() => setNavOpen(false)}>Services</a>
@@ -647,7 +647,7 @@ export default function VaranasiAyodhya3Day() {
             <div style={{ textAlign:'center', marginBottom:'40px' }}>
               <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1rem', color:'#8B5E1A', marginBottom:'6px' }}>यात्रियों की यादें</div>
               <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(2rem,4vw,3rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', lineHeight:1.08, marginBottom:'8px' }}>Glimpses of Past Yatras</h2>
-              <p style={{ color:'#5A3F28', fontSize:'1rem', maxWidth:'40rem', margin:'0 auto' }}>Real moments from real travellers who journeyed with Yatra Ke Saathi.</p>
+              <p style={{ color:'#5A3F28', fontSize:'1rem', maxWidth:'40rem', margin:'0 auto' }}>Real moments from real travellers who journeyed with Yatra Ke Sathi.</p>
               <GoldRule margin="18px auto 0" />
             </div>
             <style>{`.ka-diary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}@media(min-width:720px){.ka-diary-grid{grid-template-columns:repeat(3,1fr)}}.ka-diary-img{overflow:hidden}.ka-diary-img img{transition:transform .6s ease;display:block;width:100%;height:100%;object-fit:cover}.ka-diary-card:hover .ka-diary-img img{transform:scale(1.07)}.ka-diary-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.55),0 0 0 2px #C49225 !important}`}</style>
@@ -706,7 +706,7 @@ export default function VaranasiAyodhya3Day() {
         <section style={{ padding:'60px 0 80px' }}>
           <div className="wrap" style={{ textAlign:'center' }}>
             <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1rem', color:'#8B5E1A', marginBottom:'8px' }}>हर यात्रा का भरोसेमंद साथी</div>
-            <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.8rem,4vw,2.8rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', marginBottom:'4px' }}>Yatra Ke Saathi</h2>
+            <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.8rem,4vw,2.8rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', marginBottom:'4px' }}>Yatra Ke Sathi</h2>
             <p style={{ color:'#8B5E1A', fontSize:'.95rem', marginBottom:'24px' }}>Tour &amp; Travel · Varanasi</p>
             <GoldRule margin="0 auto 28px" />
             <div style={{ display:'flex', flexWrap:'wrap', gap:'10px', justifyContent:'center', marginBottom:'32px', color:'#3A2510', fontSize:'.95rem' }}>
@@ -734,7 +734,7 @@ export default function VaranasiAyodhya3Day() {
             <div>
               <a href="/" className="logo" style={{ marginBottom:'14px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height:'60px', width:'auto', display:'block' }} />
+                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height:'60px', width:'auto', display:'block' }} />
               </a>
               <p style={{ fontSize:'.93rem', maxWidth:'22rem', color:'#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
             </div>

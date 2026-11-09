@@ -71,7 +71,7 @@ export default function PackagePage({ pkg }) {
         <div className="wrap nav-inner">
           <a href="/" className="logo">
             <svg className="mark" viewBox="0 0 48 48"><use href="#pk-mark" /></svg>
-            <span><b>Yatra Ke Saathi</b><small>यात्रा के साथी</small></span>
+            <span><b>Yatra Ke Sathi</b><small>यात्रा के साथी</small></span>
           </a>
           <nav className={`nav-links${navOpen ? ' open' : ''}`}>
             <a href="/#services" onClick={() => setNavOpen(false)}>Services</a>
@@ -405,7 +405,7 @@ export default function PackagePage({ pkg }) {
                   <use href="#pk-mark" />
                 </svg>
                 <span>
-                  <b>Yatra Ke Saathi</b>
+                  <b>Yatra Ke Sathi</b>
                   <small style={{ color: 'var(--marigold)' }}>यात्रा के साथी</small>
                 </span>
               </a>
@@ -441,7 +441,7 @@ export default function PackagePage({ pkg }) {
             </div>
           </div>
           <div className="copy">
-            <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+            <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
             <span>Photos: Unsplash</span>
           </div>
         </div>

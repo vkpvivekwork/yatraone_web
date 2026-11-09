@@ -13,7 +13,7 @@ function Footer() {
         <div className="foot">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
+            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
           </div>
           <div><h4>Services</h4><ul>
@@ -36,7 +36,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Varanasi, Uttar Pradesh</span>
         </div>
       </div>
@@ -126,7 +126,7 @@ export default function CancellationPolicyPage() {
             </div>
 
             <div style={{ marginBottom: '40px', borderLeft: '3px solid var(--saffron)', paddingLeft: '24px' }}>
-              <h2 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '14px', color: 'var(--ink)' }}>4. Cancellations by Yatra Ke Saathi</h2>
+              <h2 style={{ fontSize: '1.15rem', fontWeight: 700, marginBottom: '14px', color: 'var(--ink)' }}>4. Cancellations by Yatra Ke Sathi</h2>
               <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                 <li style={{ fontSize: '.97rem', lineHeight: 1.7, color: 'var(--ink-soft)' }}>In the rare event that we cancel a confirmed booking due to unforeseen circumstances, you will receive a <strong>full refund</strong> or a rescheduled trip at no extra cost.</li>
                 <li style={{ fontSize: '.97rem', lineHeight: 1.7, color: 'var(--ink-soft)' }}>Cancellations due to force majeure (floods, government orders, safety concerns) may result in a credit note or partial refund at our discretion.</li>

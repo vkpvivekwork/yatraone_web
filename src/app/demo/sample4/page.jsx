@@ -242,7 +242,7 @@ export default function Sample4() {
     function submit() {
       const f = $("#yf")
       const L = [
-        "Namaste Yatra Ke Saathi 🙏",
+        "Namaste Yatra Ke Sathi 🙏",
         "— Yatra Pass enquiry —",
         "Dhams: " + DHAMS.filter(d => state.cities.has(d.id)).map(d => d.name).join(" → "),
         "Services: " + [...state.svcs].map(s => ({tour:"Tour package",cab:"Cab",boat:"Boat",hotel:"Hotel"})[s]).join(", ")
@@ -410,7 +410,7 @@ export default function Sample4() {
             <defs><path id="sc" d="M50 50m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0"/></defs>
             <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="3"/>
             <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-            <text fontFamily="Hind" fontSize="9.5" fontWeight="600" letterSpacing="2" fill="currentColor"><textPath href="#sc">YATRA KE SAATHI · ENQUIRY ·</textPath></text>
+            <text fontFamily="Hind" fontSize="9.5" fontWeight="600" letterSpacing="2" fill="currentColor"><textPath href="#sc">YATRA KE SATHI · ENQUIRY ·</textPath></text>
             <text x="50" y="56" textAnchor="middle" fontFamily="Eczar" fontWeight="700" fontSize="15" fill="currentColor">शुभ यात्रा</text>
           </symbol>
         </defs>
@@ -427,7 +427,7 @@ export default function Sample4() {
       {/* Nav */}
       <header className="nav">
         <div className="wrap nav-in">
-          <a href="#top" className="logo"><span className="k"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg></span><span><b>Yatra Ke Saathi</b><small>यात्रा के साथी · तीर्थ यात्रा</small></span></a>
+          <a href="#top" className="logo"><span className="k"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg></span><span><b>Yatra Ke Sathi</b><small>यात्रा के साथी · तीर्थ यात्रा</small></span></a>
           <nav className="links" id="links">
             <a href="#planner">Plan Yatra</a>
             <a href="#circuits">Circuits</a>
@@ -447,7 +447,7 @@ export default function Sample4() {
           <div className="slides" id="slides"></div>
           <div className="wrap hero-in">
             <div className="teerth">तीर्थ यात्रा</div>
-            <h1>Every yatra needs a <span>saathi</span>.</h1>
+            <h1>Every yatra needs a <span>sathi</span>.</h1>
             <p className="lead">Kashi, Ayodhya, Prayagraj, Ujjain and beyond. We plan the route, the cab, the boat, the stay and the darshan, so your journey stays a spiritual one.</p>
             <div className="dham-card" id="dhamCard"></div>
             <div className="hero-cta">
@@ -672,7 +672,7 @@ export default function Sample4() {
           <div className="wrap">
             <div className="center reveal" style={{marginBottom:'40px'}}>
               <span className="eyebrow"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg>What we arrange</span>
-              <h2 className="title">Four services, <span>one saathi</span></h2>
+              <h2 className="title">Four services, <span>one sathi</span></h2>
               <p className="lead2">Book one service or all four. Either way, one person from our team looks after your yatra.</p>
             </div>
             <div className="acc reveal" id="acc">
@@ -709,9 +709,9 @@ export default function Sample4() {
               <figure className="ph"><img src="https://images.unsplash.com/photo-1658730487395-dcc99f5d997c?w=500&q=75&auto=format&fit=crop" alt="Mahakaleshwar temple, Ujjain" loading="lazy" onError={e => e.currentTarget.remove()} /><figcaption>Ujjain</figcaption></figure>
             </div>
             <div className="reveal d1">
-              <span className="eyebrow"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg>About Yatra Ke Saathi</span>
+              <span className="eyebrow"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg>About Yatra Ke Sathi</span>
               <h2 className="title">Born in Kashi. <span>Walking with yatris</span> across Bharat.</h2>
-              <p>We grew up between the ghats and the temples of Kashi. For years, friends and relatives called us to arrange a cab, a good room and a boatman they could trust. Then they asked us for Ayodhya, Prayagraj and Ujjain too. Yatra Ke Saathi grew out of those calls.</p>
+              <p>We grew up between the ghats and the temples of Kashi. For years, friends and relatives called us to arrange a cab, a good room and a boatman they could trust. Then they asked us for Ayodhya, Prayagraj and Ujjain too. Yatra Ke Sathi grew out of those calls.</p>
               <div className="quote">Treat every yatri the way you'd treat family visiting from home.</div>
               <p>From your pickup at the station to your last darshan, one person looks after your yatra from start to finish.</p>
               <div className="stats">
@@ -745,7 +745,7 @@ export default function Sample4() {
             <div className="how">
               <div className="st reveal"><span className="n">01</span><div className="i"><svg viewBox="0 0 40 40"><use href="#i-chat" /></svg></div><h3>Tell us your plan</h3><p>Fill in the Yatra Pass or send a WhatsApp message with your dhams, dates and group size.</p></div>
               <div className="st reveal d1"><span className="n">02</span><div className="i"><svg viewBox="0 0 40 40"><use href="#i-plan" /></svg></div><h3>Get a clear quote</h3><p>We send a day-by-day plan with one all-inclusive price. Change anything you like.</p></div>
-              <div className="st reveal d2"><span className="n">03</span><div className="i"><svg viewBox="0 0 40 40"><use href="#i-guide" /></svg></div><h3>Arrive &amp; relax</h3><p>We meet you at the station or airport. From there, just follow your saathi.</p></div>
+              <div className="st reveal d2"><span className="n">03</span><div className="i"><svg viewBox="0 0 40 40"><use href="#i-guide" /></svg></div><h3>Arrive &amp; relax</h3><p>We meet you at the station or airport. From there, just follow your sathi.</p></div>
             </div>
           </div>
         </section>
@@ -803,12 +803,12 @@ export default function Sample4() {
           <div className="wrap company">
             <div className="reveal">
               <span className="eyebrow"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg>The company</span>
-              <h2 className="title">Yatra Ke Saathi</h2>
+              <h2 className="title">Yatra Ke Sathi</h2>
               <p style={{color:'var(--ink-soft)'}}>A Varanasi-based travel company offering tour packages, cab services, boat rides and hotel bookings for teerth yatras across North and Central India.</p>
               <ul className="info">
                 <li className="w"><svg viewBox="0 0 40 40"><use href="#i-pin" /></svg><b>Office</b>Your address, near Dashashwamedh Ghat, Varanasi, UP</li>
                 <li><svg viewBox="0 0 40 40"><use href="#i-phone" /></svg><b>Phone / WhatsApp</b>+91 00000 00000</li>
-                <li><svg viewBox="0 0 40 40"><use href="#i-mail" /></svg><b>Email</b>hello@yatrakesaathi.com</li>
+                <li><svg viewBox="0 0 40 40"><use href="#i-mail" /></svg><b>Email</b>hello@yatrakesathi.com</li>
                 <li><svg viewBox="0 0 40 40"><use href="#i-clock" /></svg><b>Hours</b>Every day, 5:30 AM – 10 PM</li>
                 <li><svg viewBox="0 0 40 40"><use href="#i-doc" /></svg><b>GSTIN</b>Your registration number</li>
               </ul>
@@ -843,15 +843,15 @@ export default function Sample4() {
         <div className="wrap">
           <div className="foot">
             <div>
-              <a href="#top" className="logo" style={{marginBottom:'14px'}}><span className="k"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg></span><span><b>Yatra Ke Saathi</b><small>यात्रा के साथी</small></span></a>
+              <a href="#top" className="logo" style={{marginBottom:'14px'}}><span className="k"><svg viewBox="0 0 40 40"><use href="#kalash" /></svg></span><span><b>Yatra Ke Sathi</b><small>यात्रा के साथी</small></span></a>
               <p style={{fontSize:'.95rem',maxWidth:'22rem'}}>Teerth yatras with cabs, boats, stays and darshan, arranged by people from Kashi.</p>
               <div className="dhams"><span>Kashi</span><span>Ayodhya</span><span>Prayagraj</span><span>Ujjain</span><span>Vrindavan</span><span>Haridwar</span></div>
             </div>
             <div><h4>Services</h4><ul><li><a href="#planner" data-go="tour">Tour packages</a></li><li><a href="#planner" data-go="cab">Cab booking</a></li><li><a href="#planner" data-go="boat">Boat rides</a></li><li><a href="#planner" data-go="hotel">Hotels</a></li></ul></div>
             <div><h4>Explore</h4><ul><li><a href="#circuits">Yatra circuits</a></li><li><a href="#about">About us</a></li><li><a href="#stories">Yatri stories</a></li><li><a href="#company">Terms</a></li></ul></div>
-            <div><h4>Contact</h4><ul><li>Varanasi, Uttar Pradesh</li><li>+91 00000 00000</li><li>hello@yatrakesaathi.com</li></ul></div>
+            <div><h4>Contact</h4><ul><li>Varanasi, Uttar Pradesh</li><li>+91 00000 00000</li><li>hello@yatrakesathi.com</li></ul></div>
           </div>
-          <div className="copy"><span>© <span id="yr"></span> Yatra Ke Saathi</span><span>Photos: Unsplash (replace with your own)</span></div>
+          <div className="copy"><span>© <span id="yr"></span> Yatra Ke Sathi</span><span>Photos: Unsplash (replace with your own)</span></div>
         </div>
       </footer>
 

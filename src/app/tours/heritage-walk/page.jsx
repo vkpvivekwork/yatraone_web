@@ -183,7 +183,7 @@ export default function HeritageWalkPage() {
         <div className="wrap nav-inner" style={{ padding: '6px 0' }}>
           <a href="/" className="logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
+            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
           </a>
           <nav className={`nav-links${navOpen ? ' open' : ''}`}>
             <a href="/tour-packages" onClick={() => setNavOpen(false)}>Packages</a>
@@ -499,7 +499,7 @@ export default function HeritageWalkPage() {
             <div>
               <a href="/" className="logo" style={{ marginBottom: '14px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
+                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
               </a>
               <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
             </div>

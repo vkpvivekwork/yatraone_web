@@ -207,7 +207,7 @@ export default function TravelItinerary() {
     function submit() {
       const svcNames = { tour:'Tour package', cab:'Cab', boat:'Boat', hotel:'Hotel' }
       const L = [
-        'Namaste Yatra Ke Saathi 🙏',
+        'Namaste Yatra Ke Sathi 🙏',
         '— Custom Yatra Enquiry —',
         'Dhams: ' + DHAMS.filter(d => state.cities.has(d.id)).map(d => d.name).join(' → '),
         'Services: ' + [...state.svcs].map(s => svcNames[s] || s).join(', '),
@@ -316,7 +316,7 @@ export default function TravelItinerary() {
             <defs><path id="sc" d="M50 50m-36 0a36 36 0 1 1 72 0a36 36 0 1 1-72 0"/></defs>
             <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" strokeWidth="3"/>
             <circle cx="50" cy="50" r="28" fill="none" stroke="currentColor" strokeWidth="1.5"/>
-            <text fontFamily="Hind" fontSize="9.5" fontWeight="600" letterSpacing="2" fill="currentColor"><textPath href="#sc">YATRA KE SAATHI · ENQUIRY ·</textPath></text>
+            <text fontFamily="Hind" fontSize="9.5" fontWeight="600" letterSpacing="2" fill="currentColor"><textPath href="#sc">YATRA KE SATHI · ENQUIRY ·</textPath></text>
             <text x="50" y="56" textAnchor="middle" fontFamily="Eczar" fontWeight="700" fontSize="15" fill="currentColor">शुभ यात्रा</text>
           </symbol>
         </defs>
@@ -334,7 +334,7 @@ export default function TravelItinerary() {
       <header className="nav">
         <div className="wrap nav-in">
           <a href="/" className="logo">
-            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height:'52px', width:'auto', display:'block' }} />
+            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height:'52px', width:'auto', display:'block' }} />
           </a>
           <a href="/" className="back-link">← Back to home</a>
           <a
@@ -544,7 +544,7 @@ export default function TravelItinerary() {
               </div>
               <div className="tr-card">
                 <div className="tr-stars">★★★★★</div>
-                <p>"First time visiting Kedarnath. They handled the heli booking, hotel in Sitapur, and even the puja registration. Truly saathi."</p>
+                <p>"First time visiting Kedarnath. They handled the heli booking, hotel in Sitapur, and even the puja registration. Truly sathi."</p>
                 <span>— Sunita &amp; family, Delhi</span>
               </div>
               <div className="tr-card">

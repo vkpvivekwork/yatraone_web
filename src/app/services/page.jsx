@@ -95,7 +95,7 @@ function Footer() {
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <a href="/" className="logo" style={{ marginBottom: '14px' }}>
-              <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
+              <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
             </a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>
               Tours, cabs, boats and hotels in Varanasi, arranged by people who live here.
@@ -129,7 +129,7 @@ function Footer() {
           </div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Photos: Unsplash</span>
         </div>
       </div>
@@ -161,7 +161,7 @@ export default function ServicesPage() {
     if (!form.checkValidity()) { form.reportValidity(); return }
     const cfg = BOOKING_SVCS[current]
     const svcLabel = cfg.title.replace(/^(Plan a|Book a|Find a) /, '')
-    const lines = ['Namaste Yatra Ke Saathi 🙏', `Service: ${svcLabel}`]
+    const lines = ['Namaste Yatra Ke Sathi 🙏', `Service: ${svcLabel}`]
     for (const [k, v] of new FormData(form).entries()) {
       if (String(v).trim()) lines.push(`${k}: ${v}`)
     }
@@ -477,7 +477,7 @@ export default function ServicesPage() {
           <div className="wrap">
             <div className="center" style={{ marginBottom: '52px' }}>
               <span className="eyebrow">What we arrange</span>
-              <h2 className="sec-title">Four services, <em>one saathi</em></h2>
+              <h2 className="sec-title">Four services, <em>one sathi</em></h2>
               <p className="sec-lead">
                 Book one service or all four. Either way, one person from our team looks after your trip.
               </p>
@@ -523,7 +523,7 @@ export default function ServicesPage() {
             <div className="center" style={{ marginBottom: '52px' }}>
               <span className="eyebrow">Why Choose Us</span>
               <h2 className="sec-title">Travel with <em>confidence</em></h2>
-              <p className="sec-lead">Local knowledge, honest pricing, and genuine care — the Yatra Ke Saathi promise.</p>
+              <p className="sec-lead">Local knowledge, honest pricing, and genuine care — the Yatra Ke Sathi promise.</p>
             </div>
             <div className="svcs-trust">
               {TRUST.map(t => (
@@ -574,7 +574,7 @@ export default function ServicesPage() {
             </a>
             <div className="pkg-cta-links">
               <a href="tel:+919277472279">+91 92774 72279</a>
-              <a href="/about">About Yatra Ke Saathi</a>
+              <a href="/about">About Yatra Ke Sathi</a>
             </div>
           </div>
         </section>

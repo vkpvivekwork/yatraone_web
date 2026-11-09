@@ -31,7 +31,7 @@ export default function Navbar({ ctaLabel = 'Plan my yatra', ctaHref, showItin =
       <div className="wrap nav-inner">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <a href="/" className="logo">
-          <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
+          <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '64px', width: 'auto', display: 'block' }} />
         </a>
         <nav className={`nav-links${navOpen ? ' open' : ''}`} id="navLinks">
           {LINKS.map(({ href: lhref, label, active }) => (

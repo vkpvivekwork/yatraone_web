@@ -203,7 +203,7 @@ const REVIEWS = [
   { name: 'Priya Verma',    city: 'Mumbai',    stars: 5, text: 'The Ganga Aarti arrangements were flawless. Our driver knew every shortcut and the hotel was spotless. Will return for Kumbh.' },
   { name: 'Ramesh Agarwal', city: 'Jaipur',    stars: 5, text: 'My elderly parents did Ram Mandir darshan comfortably. No rush, no crowd stress. A truly trustworthy team.' },
   { name: 'Sunita Devi',    city: 'Delhi',     stars: 5, text: 'Triveni Sangam sunrise boat ride was the highlight of my life. Everything on time, guide was deeply knowledgeable.' },
-  { name: 'Vikram Singh',   city: 'Lucknow',   stars: 5, text: 'Booked for family of 6. Exact price as quoted, zero hidden charges. 100% recommend Yatra Ke Saathi.' },
+  { name: 'Vikram Singh',   city: 'Lucknow',   stars: 5, text: 'Booked for family of 6. Exact price as quoted, zero hidden charges. 100% recommend Yatra Ke Sathi.' },
   { name: 'Anita Sharma',   city: 'Ahmedabad', stars: 5, text: 'Travelled solo — they paired me with a group instantly. Felt completely safe. The VIP darshan pass saved 2+ hours of queue.' },
 ]
 
@@ -762,7 +762,7 @@ export default function GoldenTrianglePage() {
         <div className="wrap nav-inner" style={{ padding: '6px 0' }}>
           <a href="/" className="logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
+            <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
           </a>
           <nav className={`nav-links${navOpen ? ' open' : ''}`}>
             <a href="/" onClick={() => setNavOpen(false)}>Home</a>
@@ -1302,7 +1302,7 @@ export default function GoldenTrianglePage() {
                 Glimpses of Past Yatras
               </h2>
               <p style={{ color: '#5A3F28', fontSize: '1rem', maxWidth: '40rem', margin: '0 auto' }}>
-                Real moments from pilgrims who journeyed with Yatra Ke Saathi.
+                Real moments from pilgrims who journeyed with Yatra Ke Sathi.
               </p>
               <GoldRule margin="16px auto 0" />
             </div>
@@ -1453,7 +1453,7 @@ export default function GoldenTrianglePage() {
               हर यात्रा का भरोसेमंद साथी
             </div>
             <h2 style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 900, fontSize: 'clamp(1.6rem,3.5vw,2.4rem)', color: '#6B2509', letterSpacing: '-1px', marginBottom: '4px' }}>
-              Yatra Ke Saathi
+              Yatra Ke Sathi
             </h2>
             <p style={{ color: '#8B5E1A', fontSize: '.95rem', marginBottom: '20px' }}>Tour & Travel · Varanasi</p>
             <GoldRule margin="0 auto 24px" />
@@ -1514,7 +1514,7 @@ export default function GoldenTrianglePage() {
             <div>
               <a href="/" className="logo" style={{ marginBottom: '14px' }}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
+                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
               </a>
               <p style={{ fontSize: '.92rem', maxWidth: '22rem', color: '#cdb892' }}>
                 Tours, cabs, boats and hotels in Kashi, arranged by people who live here.
@@ -1548,7 +1548,7 @@ export default function GoldenTrianglePage() {
             </div>
           </div>
           <div className="copy">
-            <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+            <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
             <span>Photos: Unsplash</span>
           </div>
         </div>

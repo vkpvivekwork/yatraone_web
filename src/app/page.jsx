@@ -213,7 +213,7 @@ export default function Home() {
     const form = e.target
     if (!form.checkValidity()) { form.reportValidity(); return }
     const svcLabel = cfg.title.replace(/^(Plan a|Book a|Find a) /, '')
-    const lines = ['Namaste Yatra Ke Saathi 🙏', `Service: ${svcLabel}`]
+    const lines = ['Namaste Yatra Ke Sathi 🙏', `Service: ${svcLabel}`]
     for (const [k, v] of new FormData(form).entries()) {
       if (String(v).trim()) lines.push(`${k}: ${v}`)
     }
@@ -508,7 +508,7 @@ export default function Home() {
           <div className="wrap">
             <div className="center reveal" style={{ marginBottom: '46px' }}>
               <span className="eyebrow">What we arrange</span>
-              <h2 className="sec-title">Four services, <em>one saathi</em></h2>
+              <h2 className="sec-title">Four services, <em>one sathi</em></h2>
               <p className="sec-lead">Book one service or all four. Either way, one person from our team looks after your trip.</p>
               <div className="lotus-div" style={{ marginTop: '18px' }}>
                 <svg viewBox="0 0 60 36"><use href="#lotus" /></svg>
@@ -555,9 +555,9 @@ export default function Home() {
               </div>
             </div>
             <div className="reveal d1">
-              <span className="eyebrow">About Yatra Ke Saathi</span>
+              <span className="eyebrow">About Yatra Ke Sathi</span>
               <h2 className="sec-title">Born in these <em>galis</em>.</h2>
-              <p>We grew up between the ghats and the temples. For years, friends and relatives visiting Kashi called us to arrange a cab, a good room and a boatman they could trust. Yatra Ke Saathi grew out of those calls.</p>
+              <p>We grew up between the ghats and the temples. For years, friends and relatives visiting Kashi called us to arrange a cab, a good room and a boatman they could trust. Yatra Ke Sathi grew out of those calls.</p>
               <p className="pull">&ldquo;Treat every yatri the way you&apos;d treat family visiting from home.&rdquo;</p>
               <p>From your pickup at the station to the last diya you float on the Ganga, one person looks after your trip from start to finish.</p>
               <div className="stats">
@@ -600,7 +600,7 @@ export default function Home() {
                 <button className="btn line" onClick={() => dispatchPick('tour', 'Custom package')}>
                   Build a custom trip
                 </button>
-                <a href="/tour-packages" style={{ fontSize: '.88rem', color: 'var(--saffron-deep)', textDecoration: 'underline' }}>See all packages →</a>
+                <a href="/tours" style={{ fontSize: '.88rem', color: 'var(--saffron-deep)', textDecoration: 'underline' }}>See all packages →</a>
               </div>
             </div>
             <div className="pkgs">
@@ -655,7 +655,7 @@ export default function Home() {
                   <span>3</span>
                 </div>
                 <h3>Arrive &amp; relax</h3>
-                <p>We meet you at the station or airport. From there, just follow your saathi.</p>
+                <p>We meet you at the station or airport. From there, just follow your sathi.</p>
               </div>
             </div>
           </div>
@@ -788,7 +788,7 @@ export default function Home() {
           <div className="wrap company">
             <div className="reveal">
               <span className="eyebrow">The company</span>
-              <h2 className="sec-title">Yatra Ke Saathi</h2>
+              <h2 className="sec-title">Yatra Ke Sathi</h2>
               <p style={{ color: 'var(--ink-soft)' }}>A Varanasi-based travel company offering tour packages, cab services, Ganga boat rides and hotel bookings.</p>
               <ul className="info">
                 <li>
@@ -870,7 +870,7 @@ export default function Home() {
             <div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <a href="#top" className="logo" style={{ marginBottom: '14px' }}>
-                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
+                <img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} />
               </a>
               <p style={{ fontSize: '1.05rem', fontFamily: "'Noto Sans Devanagari', sans-serif", color: '#e8c97a', marginBottom: '8px', letterSpacing: '.01em' }}>
                 हर यात्रा के भरोसेमंद साथी
@@ -916,7 +916,7 @@ export default function Home() {
             </div>
           </div>
           <div className="copy">
-            <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+            <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
             <span>Varanasi, Uttar Pradesh</span>
           </div>
         </div>

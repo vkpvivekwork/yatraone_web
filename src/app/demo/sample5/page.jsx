@@ -85,7 +85,7 @@ export default function Sample5() {
       e.preventDefault()
       const d = new FormData(e.target)
       const msg = [
-        'Namaste Yatra Ke Saathi 🙏',
+        'Namaste Yatra Ke Sathi 🙏',
         '— Yatra Enquiry —',
         `Name: ${d.get('name')}`,
         `Phone: ${d.get('phone')}`,
@@ -100,7 +100,7 @@ export default function Sample5() {
 
     // Package enquire
     $$('.pkg-cta').forEach(btn => btn.addEventListener('click', () => {
-      const msg = `Namaste Yatra Ke Saathi 🙏\nI am interested in: ${btn.dataset.pkg}`
+      const msg = `Namaste Yatra Ke Sathi 🙏\nI am interested in: ${btn.dataset.pkg}`
       window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank')
     }))
 
@@ -170,7 +170,7 @@ export default function Sample5() {
         <div className="wrap nav-inner">
           <a href="#top" className="logo">
             <span className="logo-icon"><svg viewBox="0 0 40 40"><use href="#ico-kalash" /></svg></span>
-            <span className="logo-text"><b>Yatra Ke Saathi</b><small>यात्रा के साथी · तीर्थ यात्रा</small></span>
+            <span className="logo-text"><b>Yatra Ke Sathi</b><small>यात्रा के साथी · तीर्थ यात्रा</small></span>
           </a>
           <nav className="nav-links" id="navLinks">
             <a href="#services">Services</a>
@@ -202,7 +202,7 @@ export default function Sample5() {
               <span style={{ color: 'var(--gold)' }}>✦ तीर्थ यात्रा ✦</span>
             </div>
             <p className="hero-tagline kalam">यात्रा के साथी</p>
-            <h1>Your Saathi for Every<br /><em>Teerth Yatra</em></h1>
+            <h1>Your Sathi for Every<br /><em>Teerth Yatra</em></h1>
             <p className="lead">
               Kashi, Ayodhya, Prayagraj, Ujjain and beyond — we plan the route, the cab, the boat, the stay and the darshan so your journey stays a spiritual one.
             </p>
@@ -224,7 +224,7 @@ export default function Sample5() {
             <div className="section-head fi">
               <span className="hi-sub kalam">सेवाएं</span>
               <div className="orn"><span>✦ What We Arrange ✦</span></div>
-              <h2>Four Services, <em>One Saathi</em></h2>
+              <h2>Four Services, <em>One Sathi</em></h2>
               <p>Book one or all four. One person from our team handles your entire yatra from pickup to last darshan.</p>
             </div>
             <div className="services-grid">
@@ -466,7 +466,7 @@ export default function Sample5() {
         <div className="wrap">
           <div className="foot-grid">
             <div className="foot-brand">
-              <b>Yatra Ke Saathi</b>
+              <b>Yatra Ke Sathi</b>
               <small>यात्रा के साथी · तीर्थ यात्रा</small>
               <p>Teerth yatras with cabs, boats, stays and darshan — arranged by a family from the ghats of Kashi.</p>
               <div className="dhams-tags">
@@ -487,13 +487,13 @@ export default function Sample5() {
               <ul>
                 <li>Near Dashashwamedh Ghat, Varanasi</li>
                 <li><a href="tel:+910000000000">+91 00000 00000</a></li>
-                <li><a href="mailto:hello@yatrakesaathi.com">hello@yatrakesaathi.com</a></li>
+                <li><a href="mailto:hello@yatrakesathi.com">hello@yatrakesathi.com</a></li>
                 <li>Every day · 5:30 AM – 10 PM</li>
               </ul>
             </div>
           </div>
           <div className="foot-copy">
-            <span>© <span id="yr"></span> Yatra Ke Saathi · Varanasi</span>
+            <span>© <span id="yr"></span> Yatra Ke Sathi · Varanasi</span>
             <span className="kalam" style={{ opacity: .5 }}>॥ शुभ यात्रा ॥</span>
           </div>
         </div>

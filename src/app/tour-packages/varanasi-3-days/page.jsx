@@ -284,7 +284,7 @@ export default function Varanasi3Days() {
       <div className="topbar" style={{ background:'#6B2509' }}><div className="wrap"><span className="hi">हर हर महादेव · काशी विश्वनाथ</span><span><span className="hide-sm">Call / WhatsApp: </span><a href="tel:+919277472279">+91 92774 72279</a></span></div></div>
       <header className="nav" style={{ background:'rgba(245,232,174,.97)', borderBottom:'1px solid rgba(196,146,37,.3)' }}>
         <div className="wrap nav-inner" style={{ padding:'6px 0' }}>
-          <a href="/" className="logo">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height:'64px', width:'auto', display:'block' }} /></a>
+          <a href="/" className="logo">{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height:'64px', width:'auto', display:'block' }} /></a>
           <nav className={`nav-links${navOpen?' open':''}`}>
             <a href="/#services" onClick={()=>setNavOpen(false)}>Services</a>
             <a href="/packages" onClick={()=>setNavOpen(false)}>Packages</a>
@@ -476,7 +476,7 @@ export default function Varanasi3Days() {
         <section style={{ padding:'60px 0 80px' }}>
           <div className="wrap" style={{ textAlign:'center' }}>
             <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1rem', color:'#8B5E1A', marginBottom:'8px' }}>हर यात्रा का भरोसेमंद साथी</div>
-            <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.8rem,4vw,2.8rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', marginBottom:'4px' }}>Yatra Ke Saathi</h2>
+            <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.8rem,4vw,2.8rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', marginBottom:'4px' }}>Yatra Ke Sathi</h2>
             <p style={{ color:'#8B5E1A', fontSize:'.95rem', marginBottom:'24px' }}>Tour &amp; Travel · Varanasi</p>
             <GoldRule margin="0 auto 28px" />
             <div style={{ display:'flex', flexWrap:'wrap', gap:'10px', justifyContent:'center', marginBottom:'32px', color:'#3A2510', fontSize:'.95rem' }}>
@@ -494,7 +494,7 @@ export default function Varanasi3Days() {
         <div className="big-hi" aria-hidden="true">काशी</div>
         <div className="wrap">
           <div className="foot">
-            <div><a href="/" className="logo" style={{ marginBottom:'14px' }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height:'60px', width:'auto', display:'block' }} /></a><p style={{ fontSize:'.93rem', maxWidth:'22rem', color:'#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p></div>
+            <div><a href="/" className="logo" style={{ marginBottom:'14px' }}>{/* eslint-disable-next-line @next/next/no-img-element */}<img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height:'60px', width:'auto', display:'block' }} /></a><p style={{ fontSize:'.93rem', maxWidth:'22rem', color:'#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p></div>
             <div><h4>Services</h4><ul><li><a href="/#book">Tour packages</a></li><li><a href="/#book">Cab booking</a></li><li><a href="/#book">Boat rides</a></li><li><a href="/#book">Hotels</a></li></ul></div>
             <div><h4>Popular Packages</h4><ul><li><a href="/tour-packages/kashi-ayodhya">Kashi–Ayodhya (3D)</a></li><li><a href="/tour-packages/kashi-prayagraj-ayodhya">Kashi–Prayagraj–Ayodhya (4D)</a></li><li><a href="/tour-packages/varanasi-3-days">Varanasi 3 Days</a></li><li><a href="/tour-packages/divya-dham-yatra">Divya Dham Yatra (5D)</a></li></ul></div>
             <div><h4>Contact</h4><ul><li>Varanasi, Uttar Pradesh</li><li><a href="tel:+919277472279">+91 92774 72279</a></li><li><a href="mailto:info@yatraksathi.com">info@yatraksathi.com</a></li></ul></div>

@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Varanasi Tour 2 Days 1 Night — Compact Kashi Experience | Yatra Ke Saathi',
+  title: 'Varanasi Tour 2 Days 1 Night — Compact Kashi Experience | Yatra Ke Sathi',
   description:
     'Perfect 2-day 1-night Varanasi tour. Kashi Vishwanath, Ganga Aarti, Sarnath & more. AC cab, hotel & breakfast included. Book on WhatsApp.',
   keywords: [
@@ -7,14 +7,14 @@ export const metadata = {
     'Kashi overnight tour',
     'Varanasi 1 night package',
     'Kashi darshan',
-    'Yatra Ke Saathi',
+    'Yatra Ke Sathi',
   ],
   openGraph: {
-    title: 'Varanasi 2D/1N Tour | Compact Kashi Experience | Yatra Ke Saathi',
+    title: 'Varanasi 2D/1N Tour | Compact Kashi Experience | Yatra Ke Sathi',
     description:
       'Compact Varanasi experience — temples, ghats, Sarnath & Ganga Aarti in 2 days 1 night.',
     url: 'https://yatraksathi.com/tour-packages/varanasi-tour-2-days-1-night',
-    siteName: 'Yatra Ke Saathi',
+    siteName: 'Yatra Ke Sathi',
     type: 'website',
   },
 }

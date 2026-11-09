@@ -92,7 +92,7 @@ const STEPS = [
 const TESTIMONIALS = [
   { name: 'Priya S., Mumbai',         stars: 5, text: 'The Kashi Darshan tour was perfectly timed around temple opening hours. Our guide knew things no guidebook mentions. Absolutely magical day.' },
   { name: 'Suresh Family, Chennai',   stars: 5, text: 'Booked the 3-day Kashi + Ayodhya package for a group of 12. Smooth logistics, great hotels, and a guide who truly understood pilgrimage sentiments.' },
-  { name: 'Kavita R., Hyderabad',     stars: 5, text: 'Watching Ganga Aarti from a boat arranged by Yatra Ke Saathi was the highlight of our trip. Everything was arranged without any hassle.' },
+  { name: 'Kavita R., Hyderabad',     stars: 5, text: 'Watching Ganga Aarti from a boat arranged by Yatra Ke Sathi was the highlight of our trip. Everything was arranged without any hassle.' },
 ]
 
 /* ─── Sub-components ─────────────────────────────────────── */
@@ -114,7 +114,7 @@ function Footer() {
         <div className="foot">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
+            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
           </div>
           <div><h4>Services</h4><ul>
@@ -136,7 +136,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Photos: Unsplash</span>
         </div>
       </div>

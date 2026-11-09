@@ -41,7 +41,7 @@ function Footer() {
         <div className="foot">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
+            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
           </div>
           <div><h4>Services</h4><ul>
@@ -63,7 +63,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Photos: Unsplash</span>
         </div>
       </div>
@@ -88,10 +88,10 @@ export default function AboutPage() {
           <div className="wrap">
             <nav className="pkg-breadcrumb"><a href="/">Home</a><span className="sep">›</span><span>About Us</span></nav>
             <div className="hi" style={{ fontSize: '1rem', color: 'var(--saffron-deep)', marginBottom: '6px' }}>हमारी कहानी</div>
-            <h1 style={{ fontSize: 'clamp(2.4rem,5vw,3.6rem)', marginBottom: '14px' }}>About Yatra Ke Saathi</h1>
+            <h1 style={{ fontSize: 'clamp(2.4rem,5vw,3.6rem)', marginBottom: '14px' }}>About Yatra Ke Sathi</h1>
             <p style={{ color: 'var(--ink-soft)', fontSize: '1.08rem', maxWidth: '42rem', lineHeight: 1.65 }}>
               We are locals — born and raised in Kashi. Every route, every ghat, every darshan shortcut —
-              we know it by heart. We started Yatra Ke Saathi to help pilgrims and travellers experience
+              we know it by heart. We started Yatra Ke Sathi to help pilgrims and travellers experience
               Varanasi the way it deserves to be experienced.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function AboutPage() {
                 <div className="eyebrow">Our Story</div>
                 <h2 className="sec-title">Born in Kashi, <em>serving Kashi</em></h2>
                 <p className="sec-lead" style={{ marginBottom: '16px' }}>
-                  Yatra Ke Saathi was founded with one simple goal: make pilgrimages to Kashi, Ayodhya,
+                  Yatra Ke Sathi was founded with one simple goal: make pilgrimages to Kashi, Ayodhya,
                   Prayagraj and the surrounding sacred cities seamless, safe, and truly meaningful.
                 </p>
                 <p style={{ color: 'var(--ink-soft)', marginBottom: '16px', lineHeight: 1.7 }}>
@@ -159,7 +159,7 @@ export default function AboutPage() {
             <div className="sec-head center">
               <div>
                 <div className="eyebrow">Why us</div>
-                <h2 className="sec-title">Why Yatra Ke Saathi?</h2>
+                <h2 className="sec-title">Why Yatra Ke Sathi?</h2>
                 <p className="sec-lead">Eight reasons pilgrims from across India trust us with their most sacred journeys.</p>
               </div>
             </div>

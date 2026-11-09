@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Varanasi Group Tour Package — 2 Days for 10+ Persons | Yatra Ke Saathi',
+  title: 'Varanasi Group Tour Package — 2 Days for 10+ Persons | Yatra Ke Sathi',
   description:
     'Organise your group pilgrimage to Varanasi. AC Tempo Traveller, Mini Bus & Volvo Coach available. VIP temple darshan, Ganga Aarti & Sarnath. Contact us on WhatsApp.',
   keywords: [
@@ -8,14 +8,14 @@ export const metadata = {
     'Varanasi group darshan',
     'Group temple tour Varanasi',
     'AC Tempo Traveller Varanasi',
-    'Yatra Ke Saathi',
+    'Yatra Ke Sathi',
   ],
   openGraph: {
-    title: 'Varanasi Group Tour | 10+ Persons | Yatra Ke Saathi',
+    title: 'Varanasi Group Tour | 10+ Persons | Yatra Ke Sathi',
     description:
       'Organised group darshan in Varanasi — VIP temple passes, Ganga Aarti & Sarnath. AC fleet for any group size.',
     url: 'https://yatraksathi.com/tour-packages/varanasi-group-tour-itinerary',
-    siteName: 'Yatra Ke Saathi',
+    siteName: 'Yatra Ke Sathi',
     type: 'website',
   },
 }

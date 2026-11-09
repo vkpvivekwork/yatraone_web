@@ -123,7 +123,7 @@ export const TESTIMONIALS = [
     stars: 5,
   },
   {
-    text: "First time in Varanasi, knew nobody. One WhatsApp message and everything was arranged — pickup, hotel, guide, and the Vishwanath darshan VIP pass. Truly a saathi.",
+    text: "First time in Varanasi, knew nobody. One WhatsApp message and everything was arranged — pickup, hotel, guide, and the Vishwanath darshan VIP pass. Truly a sathi.",
     name: "Meena Pillai",
     city: "Chennai",
     trip: "Varanasi · 3-Day Package",
@@ -132,8 +132,8 @@ export const TESTIMONIALS = [
 ];
 
 export const PACKAGES = [
-  { days: "1 day", title: "Kashi Darshan", sub: "Kashi temple circuit", href: "/tours/varanasi-temple-darshan", desc: "A full-day guided circuit of Kashi's most sacred temples, ghats, and the grand evening Ganga Aarti — the complete first-time experience.", img: "1627894483216-2138af692e32", imgAlt: "Priests performing Ganga Aarti at Dashashwamedh Ghat", features: ["Kashi Vishwanath darshan","Sunrise boat ride","Old-city walk","Evening Ganga Aarti"], pkg: "Kashi Darshan (1 Day)", popular: false },
-  { days: "5 days", title: "Triveni Yatra", sub: "Kashi · Ayodhya · Prayagraj", href: "/golden-triangle", desc: "Three of India's holiest cities in one journey — Kashi, Ayodhya, and Prayagraj. Private cab, guided darshan, and Sangam snan included.", img: "1561359313-0639aad49ca6", imgAlt: "Boats on the Ganga before the ghats and temples of Varanasi", features: ["Kashi darshan & aarti","Prayagraj Sangam snan","Ayodhya Ram Mandir","Private cab throughout"], pkg: "Triveni Yatra – Kashi · Ayodhya · Prayagraj (5 Days)", popular: false },
+  { days: "3 days", title: "Kashi Tours", sub: "Varanasi 3 Days 2 Nights", href: "/tours/varanasi-tour-package-3-days-2-nights", desc: "A full-day guided circuit of Kashi's most sacred temples, ghats, and the grand evening Ganga Aarti — the complete first-time experience.", img: "1627894483216-2138af692e32", imgAlt: "Priests performing Ganga Aarti at Dashashwamedh Ghat", features: ["Kashi Vishwanath darshan","Sunrise boat ride","Old-city walk","Evening Ganga Aarti"], pkg: "Kashi Darshan (1 Day)", popular: false },
+  { days: "4 days", title: "Varanasi Ayodhya Prayagraj", sub: "Tri-city Yatra · 3 Nights", href: "/tours/varanasi-ayodhya-prayagraj-tour-package", desc: "Three of India's holiest cities in one journey — Kashi, Ayodhya, and Prayagraj. Private cab, guided darshan, and Sangam snan included.", img: "1561359313-0639aad49ca6", imgAlt: "Boats on the Ganga before the ghats and temples of Varanasi", features: ["Kashi darshan & aarti","Prayagraj Sangam snan","Ayodhya Ram Mandir","Private cab throughout"], pkg: "Triveni Yatra – Kashi · Ayodhya · Prayagraj (5 Days)", popular: false },
   { days: "2 hrs", title: "Sunrise on the Ganga", sub: "Ganga boat ride", href: "/boat-rides", desc: "Step into a wooden boat before dawn and watch Kashi wake up from the river — the quietest, most memorable two hours you'll spend here.", img: "1571536802807-30451e3955d8", imgAlt: "Wooden boats on the Ganga in the early morning light", features: ["Sunrise boat ride","Ganga Aarti view","Local boatman guide","Flower diya floating"], pkg: "Sunrise on the Ganga (Boat Ride)", popular: true },
   { days: "3 hrs", title: "Subah-e-Banaras", sub: "Heritage walk · Kashi", href: "/tours/heritage-walk", desc: "An early morning walk through the living heart of the city — ghats, old lanes, chai stalls, and stories that no guidebook carries.", img: "1634920540678-df0e179c5243", imgAlt: "Colourful morning life in the lanes of Kashi", features: ["Early morning ghat walk","Chai & kachori stop","Silk & spice lanes","Local heritage guide"], pkg: "Subah-e-Banaras Heritage Walk", popular: false },
 ];

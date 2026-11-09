@@ -76,7 +76,7 @@ const STEPS = [
 
 const TESTIMONIALS = [
   { name: 'Priya M., Mumbai',           stars: 5, text: 'Booked the morning boat for our family of 5. The guide knew every ghat — it felt like watching Kashi breathe. Truly unforgettable.' },
-  { name: 'Rohit K., Delhi',            stars: 5, text: 'The Ganga Aarti from a boat is something no words can describe. Yatra Ke Saathi arranged everything smoothly on short notice.' },
+  { name: 'Rohit K., Delhi',            stars: 5, text: 'The Ganga Aarti from a boat is something no words can describe. Yatra Ke Sathi arranged everything smoothly on short notice.' },
   { name: 'Anjali & Vivek, Pune',       stars: 5, text: 'Got the Ghat Tour + Photography package for our honeymoon. The photos delivered same evening were beautiful. Worth every rupee.' },
 ]
 
@@ -99,7 +99,7 @@ function Footer() {
         <div className="foot">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
+            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
           </div>
           <div><h4>Services</h4><ul>
@@ -121,7 +121,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Photos: Unsplash</span>
         </div>
       </div>

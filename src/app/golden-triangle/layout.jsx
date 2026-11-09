@@ -1,5 +1,5 @@
 export const metadata = {
-  title: 'Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya | 5 Days 4 Nights | Yatra Ke Saathi',
+  title: 'Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya | 5 Days 4 Nights | Yatra Ke Sathi',
   description:
     'Book the Golden Triangle pilgrimage — Varanasi, Prayagraj & Ayodhya in 5 Days / 4 Nights starting ₹6,999/person. Includes Kashi Vishwanath darshan, Triveni Sangam snan, Ram Mandir VIP passes, AC cab & hotel. Book via WhatsApp.',
   keywords: [
@@ -10,16 +10,16 @@ export const metadata = {
     'Triveni Sangam tour',
     'Kashi Vishwanath darshan tour',
     'pilgrimage tour Varanasi',
-    'Yatra Ke Saathi',
+    'Yatra Ke Sathi',
     'Varanasi tour package 5 days',
     'Golden Triangle pilgrimage India',
   ],
   openGraph: {
-    title: 'Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya | 5D/4N | Yatra Ke Saathi',
+    title: 'Golden Triangle Tour — Varanasi · Prayagraj · Ayodhya | 5D/4N | Yatra Ke Sathi',
     description:
       'Sacred yatra covering Kashi Vishwanath, Triveni Sangam & Ram Mandir. Starting ₹6,999/person. AC cab, hotel, darshan passes included.',
     url: 'https://yatraksathi.com/golden-triangle',
-    siteName: 'Yatra Ke Saathi',
+    siteName: 'Yatra Ke Sathi',
     type: 'website',
     images: [
       {
@@ -32,7 +32,7 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Golden Triangle Tour | 5D/4N | Yatra Ke Saathi',
+    title: 'Golden Triangle Tour | 5D/4N | Yatra Ke Sathi',
     description: 'Varanasi · Prayagraj · Ayodhya pilgrimage starting ₹6,999/person.',
   },
   alternates: {

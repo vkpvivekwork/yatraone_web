@@ -13,7 +13,7 @@ function Footer() {
         <div className="foot">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Saathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
+            <a href="/" className="logo" style={{ marginBottom: '14px' }}><img src="/images/yatra-k-sathi-logo.png" alt="Yatra Ke Sathi" style={{ height: '60px', width: 'auto', display: 'block' }} /></a>
             <p style={{ fontSize: '.93rem', maxWidth: '22rem', color: '#cdb892' }}>Tours, cabs, boats and hotels in Kashi, arranged by people who live here.</p>
           </div>
           <div><h4>Services</h4><ul>
@@ -36,7 +36,7 @@ function Footer() {
           </ul></div>
         </div>
         <div className="copy">
-          <span>© {new Date().getFullYear()} Yatra Ke Saathi</span>
+          <span>© {new Date().getFullYear()} Yatra Ke Sathi</span>
           <span>Varanasi, Uttar Pradesh</span>
         </div>
       </div>
@@ -82,7 +82,7 @@ const SECTIONS = [
   {
     title: '5. Force Majeure',
     items: [
-      { sub: null, desc: 'Yatra Ke Saathi is not liable for trip disruptions caused by events beyond our reasonable control, including natural disasters, floods, government restrictions, strikes, curfews, or extreme weather.' },
+      { sub: null, desc: 'Yatra Ke Sathi is not liable for trip disruptions caused by events beyond our reasonable control, including natural disasters, floods, government restrictions, strikes, curfews, or extreme weather.' },
       { sub: null, desc: 'In such cases, we will do our best to reschedule or offer a partial refund at our discretion.' },
     ],
   },
@@ -130,7 +130,7 @@ export default function TermsAndConditionsPage() {
         <section style={{ padding: '64px 0 80px' }}>
           <div className="wrap" style={{ maxWidth: '780px' }}>
             <p style={{ fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--ink-soft)', marginBottom: '48px' }}>
-              By booking any service with Yatra Ke Saathi, you agree to the following terms and conditions. Please read them carefully before confirming your trip.
+              By booking any service with Yatra Ke Sathi, you agree to the following terms and conditions. Please read them carefully before confirming your trip.
             </p>
 
             {SECTIONS.map((sec) => (
