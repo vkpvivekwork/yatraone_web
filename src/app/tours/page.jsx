@@ -53,7 +53,7 @@ const PACKAGES = [
     img:   '1608412525537-662195e817c5',
     desc:  'Tell us your dates, group size and places. We design a personalised itinerary around your schedule and budget.',
     tags:  ['Any group size', 'Flexible dates', 'Multi-city', 'Any budget'],
-    href:  '/tours/custom-tour-package',
+    href:  '/travel-itinerary',
   },
 ]
 
