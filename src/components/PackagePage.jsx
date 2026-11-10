@@ -428,7 +428,7 @@ export default function PackagePage({ pkg }) {
                 <li><a href="/packages">All packages</a></li>
                 <li><a href="/golden-triangle">Golden Triangle</a></li>
                 <li><a href="/packages/divya-dham-yatra">Divya Dham Yatra</a></li>
-                <li><a href="/packages/varanasi-ayodhya-3-day">Varanasi Ayodhya</a></li>
+                <li><a href="/tour-packages/kashi-ayodhya">Kashi Ayodhya (3D)</a></li>
               </ul>
             </div>
             <div>

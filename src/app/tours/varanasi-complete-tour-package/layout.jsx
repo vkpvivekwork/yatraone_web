@@ -1,7 +1,7 @@
 export const metadata = {
-  title: 'Varanasi Complete Tour Package 5 Days — All Temples, Ghats & Excursions | Yatra Ke Sathi',
+  title: 'Varanasi Complete Tour Package 4 Days 3 Nights — Temples, Ghats & Excursions | Yatra Ke Sathi',
   description:
-    'Complete Varanasi tour package — all major temples, every key ghat, Sarnath, Ramnagar Fort, Chunar Fort & heritage lane walk. 5 days 4 nights. Book with locals.',
+    'Complete Varanasi tour package — Sparsh Darshan, all major ghats, Sarnath, Swarved Mandir, Ramnagar Fort & Vindhyachal 3 Devi Darshan. 4 days 3 nights. Book with locals.',
   keywords: [
     'Varanasi complete tour package',
     'Varanasi full tour package',

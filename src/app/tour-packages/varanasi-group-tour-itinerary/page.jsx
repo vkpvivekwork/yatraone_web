@@ -1193,7 +1193,7 @@ export default function VaranasiGroupTour() {
               <ul>
                 <li><a href="/tour-packages/kashi-ayodhya">Kashi–Ayodhya (3D)</a></li>
                 <li><a href="/tour-packages/varanasi-2-days">Varanasi 2 Days</a></li>
-                <li><a href="/tour-packages/golden-triangle-varanasi-ayodhya-prayagraj">Golden Triangle (4D)</a></li>
+                <li><a href="/tour-packages/kashi-prayagraj-ayodhya">Kashi–Prayagraj–Ayodhya (4D)</a></li>
                 <li><a href="/tour-packages/divya-dham-yatra">Divya Dham Yatra (5D)</a></li>
               </ul>
             </div>

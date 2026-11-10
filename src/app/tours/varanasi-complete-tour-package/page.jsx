@@ -6,7 +6,7 @@ const API_URL  = 'https://yatra.pythonanywhere.com/api/bookings/'
 const WA       = '919277472279'
 const WA_BASE  = `https://wa.me/${WA}`
 const TORAN    = 60
-const PKG_NAME = 'Varanasi Complete Tour Package 5 Days 4 Nights'
+const PKG_NAME = 'Varanasi Complete Tour Package 4 Days 3 Nights'
 const U = (id, w = 600) => `https://images.unsplash.com/photo-${id}?w=${w}&q=75&auto=format&fit=crop`
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .28 0 0 0 0 .16 0 0 0 0 .04 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
 
@@ -58,34 +58,28 @@ const TORN_PAPER_SVG = generateTornPaperSVG()
 
 const DAYS = [
   {
-    day: 'Day 1', title: 'Arrival & Evening Aarti',
-    activities: ['Arrival in Varanasi — hotel check-in & freshen up', 'Assi Ghat evening walk', 'Kashi Vishwanath Temple darshan', 'Dashashwamedh Ganga Aarti ceremony', 'Evening Aarti boat ride on the Ganga', 'Overnight stay'],
+    day: 'Day 1', title: 'Arrival, Temples & Dashashwamedh Ghat',
+    activities: ['Pickup from railway station / airport', 'Hotel check-in & freshen up', 'Kaal Bhairav Mandir darshan — Kotwal of Kashi', 'Maha Mritunjay Mandir darshan', 'Dashashwamedh Ghat — evening atmosphere & aarti viewing', 'Local market walk — Banarasi chai, paan & street food', 'Overnight stay in Varanasi'],
     img: '1705952484283-19c31e37e0e4',
-    photos: [{ id:'1627894483216-2138af692e32', alt:'Ganga Aarti' }, { id:'1665413791167-6718dcf36773', alt:'Kashi Vishwanath' }, { id:'1561359313-0639aad49ca6', alt:'Varanasi ghats' }],
+    photos: [{ id:'1665413791167-6718dcf36773', alt:'Kaal Bhairav Mandir' }, { id:'1627894483216-2138af692e32', alt:'Dashashwamedh Ghat evening' }, { id:'1561359313-0639aad49ca6', alt:'Varanasi ghats at dusk' }],
   },
   {
-    day: 'Day 2', title: 'Kashi Temples & Old City',
-    activities: ['Pre-dawn walk to the ghats — sunrise boat ride', 'Kashi Vishwanath Temple darshan', 'Maa Annapurna & Gyan Vapi area', 'Kal Bhairav & Vishalakshi Mandir', 'Heritage lane walk through Vishwanath Gali', 'Evening Ganga Aarti'],
+    day: 'Day 2', title: 'Sparsh Darshan (Kashi Vishwanath), Subah-e-Banaras & Ghats',
+    activities: ['Pre-dawn Sparsh Darshan — Kashi Vishwanath Temple (touch the Shivling)', 'Subah-e-Banaras morning Aarti at Assi Ghat', 'Sunrise boat ride on the Ganges', 'Manikarnika Ghat & Harishchandra Ghat', 'Kachori Sabji & Jalebi — authentic Banarasi breakfast', 'Sankat Mochan Hanuman Temple', 'Durga Kund Mandir & Tulsi Manas Mandir', 'BHU campus tour — Birla Temple', 'Overnight stay in Varanasi'],
     img: '1596097825168-c9b773f404ff',
-    photos: [{ id:'1571536802807-30451e3955d8', alt:'Sunrise boat ride' }, { id:'1608412525537-662195e817c5', alt:'Morning rituals' }, { id:'1665413791167-6718dcf36773', alt:'Temple darshan' }],
+    photos: [{ id:'1596097825168-c9b773f404ff', alt:'Sparsh Darshan — Kashi Vishwanath' }, { id:'1571536802807-30451e3955d8', alt:'Sunrise boat ride on the Ganges' }, { id:'1608412525537-662195e817c5', alt:'Manikarnika Ghat' }],
   },
   {
-    day: 'Day 3', title: 'Sarnath & Ramnagar Fort',
-    activities: ['Morning drive to Sarnath (12 km)', 'Dhamek Stupa — where Buddha first preached', 'Sarnath Archaeological Museum', 'Mulagandha Kuti Vihar temple', 'Ramnagar Fort & heritage museum', 'Evening free at ghats'],
+    day: 'Day 3', title: 'Sarnath, Swarved Mandir, Ramnagar Fort & Akshardham',
+    activities: ['Morning drive to Sarnath (12 km)', 'Dhamek Stupa — where Buddha gave his first sermon', 'Sarnath Archaeological Museum', 'Swarved Mahamandir Dham — 7-storey meditation temple', 'Ramnagar Fort & Heritage Museum', 'Akshardham Varanasi', 'Evening at ghats', 'Overnight stay in Varanasi'],
     img: '1627894483216-2138af692e32',
-    photos: [{ id:'1649876674933-a5b3b39b4da1', alt:'Dhamek Stupa' }, { id:'1634920540678-df0e179c5243', alt:'Ramnagar Fort' }, { id:'1596097825168-c9b773f404ff', alt:'Ghats at dusk' }],
+    photos: [{ id:'1649876674933-a5b3b39b4da1', alt:'Sarnath — Dhamek Stupa' }, { id:'1634920540678-df0e179c5243', alt:'Ramnagar Fort' }, { id:'1596097825168-c9b773f404ff', alt:'Akshardham Varanasi' }],
   },
   {
-    day: 'Day 4', title: 'Deep Kashi & Chunar Fort',
-    activities: ['Manikarnika Ghat & Harishchandra Ghat', 'Bharat Mata Mandir & Tulsi Manas Mandir', 'Sankat Mochan Hanuman Temple', 'Durga Kund Temple', 'Chunar Fort excursion (50 km)'],
-    img: '1608412525537-662195e817c5',
-    photos: [{ id:'1596097825168-c9b773f404ff', alt:'Manikarnika Ghat' }, { id:'1705952484283-19c31e37e0e4', alt:'Chunar Fort' }, { id:'1627894483216-2138af692e32', alt:'Sankat Mochan' }],
-  },
-  {
-    day: 'Day 5', title: 'Final Morning & Departure',
-    activities: ['Early ghat walk or sunrise boat ride', 'BHU campus tour — Birla Temple', 'Banarasi kachori breakfast & local market', 'Souvenir shopping — Banarasi sarees', 'Drop to railway station / airport'],
+    day: 'Day 4', title: 'Vindhyachal — 3 Devi Darshan & Departure',
+    activities: ['Early morning drive to Vindhyachal (~65 km, ~1.5 hrs)', 'Maa Vindhyavasini Devi Temple darshan', 'Ashtabhuja Devi Temple darshan', 'Kali Khoh Temple darshan — 3 Devi Darshan complete', 'Return drive to Varanasi', 'Drop at railway station / airport'],
     img: '1561359313-0639aad49ca6',
-    photos: [{ id:'1571536802807-30451e3955d8', alt:'Last sunrise' }, { id:'1504674900247-0877df9cc836', alt:'Banarasi breakfast' }, { id:'1649876674933-a5b3b39b4da1', alt:'Departure' }],
+    photos: [{ id:'1608412525537-662195e817c5', alt:'Vindhyachal Devi Temple' }, { id:'1513475382585-d06e58bcb0e0', alt:'Ashtabhuja Temple' }, { id:'1627894483216-2138af692e32', alt:'Departure from Varanasi' }],
   },
 ]
 
@@ -97,7 +91,7 @@ const INCLUSIONS = [
   { photo:'1627894483216-2138af692e32', icon:'🕯️', title:'Ganga Ghat Aarti' },
   { photo:'1649876674933-a5b3b39b4da1', icon:'🏛️', title:'Sarnath Excursion' },
   { photo:'1608412525537-662195e817c5', icon:'🏰', title:'Ramnagar Fort' },
-  { photo:'1705952484283-19c31e37e0e4', icon:'🏯', title:'Chunar Fort' },
+  { photo:'1705952484283-19c31e37e0e4', icon:'🕌', title:'Swarved Mandir' },
   { photo:'1634920540678-df0e179c5243', icon:'🧭', title:'Expert Guide' },
   { photo:'1596097825168-c9b773f404ff', icon:'🚶', title:'Heritage Walk' },
   { photo:'1504674900247-0877df9cc836', icon:'🍳', title:'Daily Breakfast' },
@@ -114,7 +108,7 @@ const TRIP_DIARIES = [
 ]
 
 const FAQS = [
-  { q:'What does the Varanasi 5 Days Complete Tour cover?', a:'Day 1: hotel check-in, Assi Ghat walk and Evening Ganga Aarti. Day 2: sunrise boat ride, Kashi Vishwanath, Kal Bhairav, heritage lane walk. Day 3: Sarnath excursion with Dhamek Stupa, museum and Ramnagar Fort. Day 4: Manikarnika Ghat, Sankat Mochan, Chunar Fort. Day 5: morning ghat walk, BHU Birla Temple and departure transfer.' },
+  { q:'What does the Varanasi 4 Days Complete Tour cover?', a:'Day 1: Kaal Bhairav Mandir, Maha Mritunjay Mandir, Dashashwamedh Ghat evening and local market. Day 2: pre-dawn Sparsh Darshan at Kashi Vishwanath, Subah-e-Banaras Aarti, sunrise boat ride, Manikarnika Ghat, Sankat Mochan, Durga Kund, Tulsi Manas and BHU. Day 3: Sarnath, Swarved Mahamandir, Ramnagar Fort and Akshardham. Day 4: Vindhyachal — Maa Vindhyavasini, Ashtabhuja and Kali Khoh (3 Devi Darshan), then drop.' },
   { q:'Is there a minimum group size?', a:'Minimum 2 persons. Solo travellers may contact us on WhatsApp — we often arrange same-day groups.' },
   { q:'Are meals included?', a:'Daily breakfast is included. Lunch and dinner are not included but we guide you to the best local spots.' },
   { q:'What is not covered in the package?', a:'Train / flight tickets, monument entry fees (Sarnath Museum, Ramnagar Fort, Chunar Fort), personal expenses and 5% GST.' },
@@ -249,7 +243,7 @@ export default function VaranasiCompletePage() {
     if (!form.name.trim() || !form.phone.trim()) return
     setStatus('submitting'); setErrMsg('')
     try {
-      const payload = { name:form.name.trim(), phone:form.phone.trim(), services:['tour'], cities:['kashi'], start_date:form.start_date||undefined, num_people:form.num_people||'2', num_days:'5', package_name:PKG_NAME, customer_notes:form.customer_notes.trim()||undefined, page_source:'tours/varanasi-complete' }
+      const payload = { name:form.name.trim(), phone:form.phone.trim(), services:['tour'], cities:['kashi'], start_date:form.start_date||undefined, num_people:form.num_people||'2', num_days:'4', package_name:PKG_NAME, customer_notes:form.customer_notes.trim()||undefined, page_source:'tours/varanasi-complete' }
       Object.keys(payload).forEach(k => payload[k]===undefined && delete payload[k])
       const res = await fetch(API_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) })
       if (res.ok) { setStatus('success') } else {
@@ -314,17 +308,17 @@ export default function VaranasiCompletePage() {
             </nav>
             <div style={{ display:'inline-flex', alignItems:'center', gap:'10px', fontSize:'.78rem', fontWeight:700, letterSpacing:'.14em', textTransform:'uppercase', color:'#F4A81D', marginBottom:'14px' }}>
               <span>Varanasi</span><span style={{ color:'rgba(244,168,29,.45)' }}>|</span>
-              <span style={{ color:'rgba(255,255,255,.6)', fontWeight:400, letterSpacing:'.08em' }}>5 Days · 4 Nights · Sampurna Kashi Darshan</span>
+              <span style={{ color:'rgba(255,255,255,.6)', fontWeight:400, letterSpacing:'.08em' }}>4 Days · 3 Nights · Sampurna Kashi Darshan</span>
             </div>
             <h1 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(2.6rem,7vw,4.6rem)', color:'#FFFFFF', textShadow:'0 3px 28px rgba(0,0,0,.75)', lineHeight:.95, marginBottom:'12px', letterSpacing:'-.02em' }}>Varanasi Complete<br />Tour Package</h1>
-            <div style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:400, fontStyle:'italic', fontSize:'clamp(1.2rem,3vw,1.9rem)', color:'rgba(255,255,255,.75)', marginBottom:'10px' }}>5 Days · 4 Nights</div>
+            <div style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:400, fontStyle:'italic', fontSize:'clamp(1.2rem,3vw,1.9rem)', color:'rgba(255,255,255,.75)', marginBottom:'10px' }}>4 Days · 3 Nights</div>
             <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'clamp(1rem,2.5vw,1.4rem)', color:'#D4956A', marginBottom:'28px' }}>संपूर्ण काशी दर्शन · हर हर महादेव</div>
             <div style={{ display:'flex', gap:'12px', flexWrap:'wrap', marginBottom:'28px', justifyContent:'center' }}>
               <a href={waEnquire} target="_blank" rel="noopener" style={{ display:'inline-flex', alignItems:'center', gap:'10px', background:'#25D366', color:'#fff', borderRadius:'4px', padding:'14px 28px', fontWeight:700, fontSize:'1rem', textDecoration:'none', boxShadow:'0 4px 20px rgba(37,211,102,.45)' }}><WaIcon size={20} color="#fff" /> WhatsApp Us</a>
               <a href="#book" style={{ display:'inline-flex', alignItems:'center', gap:'10px', background:'rgba(255,255,255,.1)', border:'1.5px solid rgba(255,255,255,.35)', color:'#FAF5E0', borderRadius:'4px', padding:'14px 24px', fontWeight:700, fontSize:'1rem', textDecoration:'none' }}>📋 Book Now</a>
             </div>
             <div style={{ display:'flex', gap:'0', flexWrap:'wrap', borderTop:'1px solid rgba(244,168,29,.18)', paddingTop:'20px', justifyContent:'center' }}>
-              {[{num:'5',label:'Days'},{num:'4',label:'Nights'},{num:'10+',label:'Temples'},{num:'500+',label:'Pilgrims'}].map((s,i)=>(
+              {[{num:'4',label:'Days'},{num:'3',label:'Nights'},{num:'10+',label:'Temples'},{num:'500+',label:'Pilgrims'}].map((s,i)=>(
                 <div key={s.label} style={{ display:'flex', alignItems:'center' }}>
                   {i>0&&<div style={{ width:'1px', height:'32px', background:'rgba(244,168,29,.2)', margin:'0 4px' }} />}
                   <div style={{ textAlign:'center', padding:'0 18px' }}>
@@ -343,7 +337,7 @@ export default function VaranasiCompletePage() {
             {[...Array(2)].flatMap(()=>[
               {icon:'⭐',text:'4.9★ Google Rating'},{icon:'👥',text:'500+ Pilgrims Served'},
               {icon:'📍',text:'Varanasi Based'},{icon:'⚡',text:'Reply within 2 Hours'},
-              {icon:'🛕',text:'10+ Temples in 5 Days'},{icon:'🔒',text:'No Advance to Enquire'},
+              {icon:'🛕',text:'10+ Temples in 4 Days'},{icon:'🔒',text:'No Advance to Enquire'},
               {icon:'🚗',text:'AC Cab Included'},{icon:'⛵',text:'Daily Sunrise Boat Ride'},
             ]).map((t,i)=>(
               <span key={i} style={{ display:'inline-flex', alignItems:'center', gap:'6px', padding:'0 32px', whiteSpace:'nowrap', fontSize:'.82rem', color:'rgba(250,245,224,.85)' }}>
@@ -358,9 +352,9 @@ export default function VaranasiCompletePage() {
         ══════════════════════════════════════════════ */}
         <section style={{ padding:'70px 0 40px' }}>
           <div className="wrap" style={{ textAlign:'center', marginBottom:'52px' }}>
-            <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1rem', color:'#8B5E1A', marginBottom:'6px' }}>पाँच दिन की पवित्र यात्रा</div>
+            <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1rem', color:'#8B5E1A', marginBottom:'6px' }}>चार दिन की पवित्र यात्रा</div>
             <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(2rem,4vw,2.8rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', marginBottom:'8px' }}>Day-by-Day Itinerary</h2>
-            <p style={{ color:'#5A3F28', maxWidth:'46rem', margin:'0 auto', fontSize:'1rem' }}>5 days · 4 nights — click any day to expand the full plan.</p>
+            <p style={{ color:'#5A3F28', maxWidth:'46rem', margin:'0 auto', fontSize:'1rem' }}>4 days · 3 nights — click any day to expand the full plan.</p>
             <GoldRule margin="18px auto 0" />
           </div>
           <div className="wrap" style={{ maxWidth:'820px' }}>

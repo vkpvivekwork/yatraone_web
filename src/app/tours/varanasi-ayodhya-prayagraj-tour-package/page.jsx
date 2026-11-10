@@ -59,46 +59,48 @@ const TORN_PAPER_SVG = generateTornPaperSVG()
 
 const DAYS = [
   {
-    day: 'Day 1', title: 'Arrival & Kashi Darshan',
+    day: 'Day 1', title: 'Varanasi Arrival & Evening Rituals',
     city: 'Varanasi',
-    activities: ['Arrival in Varanasi — hotel check-in & freshen up', 'Kashi Vishwanath Temple darshan', 'Maa Annapurna & Gyan Vapi area', 'Evening Dashashwamedh Ganga Aarti ceremony', 'Overnight stay in Varanasi'],
+    activities: ['Hotel check-in & freshen up', 'Kaal Bhairav Temple darshan', 'Maha Mrityunjay Temple darshan', 'Ganga Aarti at Dashashwamedh Ghat', 'Explore Dashashwamedh shopping street', 'Annapurna Temple darshan', 'Kashi Vishwanath Shayan Aarti', 'Return to hotel · overnight stay'],
     img: '1705952484283-19c31e37e0e4',
   },
   {
-    day: 'Day 2', title: 'Varanasi Ghats & Drive to Ayodhya',
-    city: 'Varanasi → Ayodhya',
-    activities: ['Pre-dawn sunrise boat ride on the Ganges', 'Manikarnika & Assi Ghat walk', 'Banarasi kachori breakfast', 'Drive to Ayodhya (~200 km, ~4 hrs)', 'Ram Janmabhoomi & Ram Mandir darshan', 'Hanuman Garhi Temple', 'Overnight stay in Ayodhya'],
+    day: 'Day 2', title: 'Varanasi Spiritual Exploration & Ghats',
+    city: 'Varanasi',
+    activities: ['Early morning Mangala Aarti', 'Subah-e-Banaras — music & yoga at Assi Ghat', 'Morning private boat ride covering all 84 ghats', 'BHU Kashi Vishwanath Temple darshan', 'Sankat Mochan Hanuman Mandir darshan', 'Durga Mata Mandir darshan', 'Return to hotel · overnight stay'],
     img: '1596097825168-c9b773f404ff',
   },
   {
-    day: 'Day 3', title: 'Ayodhya Darshan & Drive to Prayagraj',
-    city: 'Ayodhya → Prayagraj',
-    activities: ['Saryu Ghat morning rituals & aarti', 'Kanak Bhawan Temple darshan', 'Drive to Prayagraj (~150 km, ~3 hrs)', 'Triveni Sangam boat ride & snan', 'Anand Bhavan & Swaraj Bhavan', 'Overnight stay in Prayagraj'],
+    day: 'Day 3', title: 'Prayagraj Sangam & Transit to Ayodhya',
+    city: 'Varanasi → Prayagraj → Ayodhya',
+    activities: ['Early morning departure toward Prayagraj', 'Sacred Triveni Sangam Snan — holy dip', 'Alopi Mata Shakti Peeth darshan', 'Bade Hanuman Ji (Lakhate Hanuman) darshan', 'Journey onward to Ayodhya', 'Hotel check-in in Ayodhya', 'Explore Lata Chowk & Surya Stambh', 'Evening Saryu Aarti · overnight stay'],
     img: '1627894483216-2138af692e32',
   },
   {
-    day: 'Day 4', title: 'Prayagraj Sangam & Departure',
-    city: 'Prayagraj → Departure',
-    activities: ['Sangam sunrise walk or early boat ride', 'Allahabad Fort view', 'Mankameshwar Mandir', 'Return drive to Varanasi', 'Drop to railway station / airport'],
+    day: 'Day 4', title: 'Ayodhya Darshan & Departure',
+    city: 'Ayodhya → Departure',
+    activities: ['Morning breakfast', 'Shri Ram Janmabhoomi Mandir darshan', 'Kanak Bhawan darshan', 'Dasharath Mahal darshan', 'Drop at railway station / airport'],
     img: '1608412525537-662195e817c5',
   },
 ]
 
 const INCLUSIONS = [
-  { photo:'1631049307264-da0ec9d70304', icon:'🏨', title:'3 Nights Hotel' },
+  { photo:'1631049307264-da0ec9d70304', icon:'🏨', title:'3-Star Hotel' },
   { photo:'1449965408869-eaa3f722e40d', icon:'🚗', title:'AC Vehicle' },
   { photo:'1571536802807-30451e3955d8', icon:'⛵', title:'Boat Rides' },
-  { photo:'1665413791167-6718dcf36773', icon:'🛕', title:'Kashi Darshan' },
-  { photo:'1627894483216-2138af692e32', icon:'🕯️', title:'Ganga Aarti' },
-  { photo:'1649876674933-a5b3b39b4da1', icon:'🙏', title:'Ram Mandir' },
+  { photo:'1627894483216-2138af692e32', icon:'🕯️', title:'Special Ganga Aarti' },
+  { photo:'1449965408869-eaa3f722e40d', icon:'📍', title:'Pickup & Drop' },
+  { photo:'1665413791167-6718dcf36773', icon:'🛕', title:'All Sightseeing' },
+  { photo:'1649876674933-a5b3b39b4da1', icon:'🙏', title:'Ram Janmabhoomi' },
   { photo:'1596097825168-c9b773f404ff', icon:'🏊', title:'Sangam Snan' },
+  { photo:'1608412525537-662195e817c5', icon:'🌸', title:'Alopi Mata Shakti Peeth' },
   { photo:'1504674900247-0877df9cc836', icon:'🍳', title:'Daily Breakfast' },
 ]
 
 const MARQUEE_ITEMS = [
-  '🛕 Kashi Vishwanath Darshan', '⛵ Sunrise Boat Ride', '🕯️ Ganga Aarti', '🙏 Ram Mandir Ayodhya',
-  '🏊 Triveni Sangam Snan', '🚗 AC Vehicle Throughout', '🏨 Hotel Stay', '🍳 Daily Breakfast',
-  '🗺️ Expert Local Guide', '📍 3 Sacred Cities', '✅ No Hidden Charges', '📲 WhatsApp Support 24/7',
+  '🛕 Kashi Vishwanath Shayan Aarti', '⛵ All 84 Ghats Boat Ride', '🕯️ Subah-e-Banaras', '🙏 Ram Janmabhoomi Darshan',
+  '🏊 Triveni Sangam Snan', '🌸 Alopi Mata Shakti Peeth', '🚗 AC Vehicle Throughout', '🏨 Hotel Stay',
+  '🍳 Daily Breakfast', '📍 3 Sacred Cities', '✅ No Hidden Charges', '📲 WhatsApp Support 24/7',
 ]
 
 const TRIP_DIARIES = [
@@ -111,7 +113,7 @@ const TRIP_DIARIES = [
 ]
 
 const FAQS = [
-  { q:'What does the 4-day Varanasi–Ayodhya–Prayagraj package cover?', a:'Day 1: Varanasi arrival, Kashi Vishwanath & Ganga Aarti. Day 2: Sunrise boat ride, Manikarnika Ghat, drive to Ayodhya, Ram Mandir & Hanuman Garhi. Day 3: Saryu Ghat, Kanak Bhawan, drive to Prayagraj, Triveni Sangam boat ride. Day 4: Sangam sunrise, Allahabad Fort, return to Varanasi & departure transfer.' },
+  { q:'What does the 4-day Varanasi–Ayodhya–Prayagraj package cover?', a:'Day 1: Varanasi arrival, Kaal Bhairav, Maha Mrityunjay, Ganga Aarti at Dashashwamedh, Annapurna Temple and Kashi Vishwanath Shayan Aarti. Day 2: Mangala Aarti, Subah-e-Banaras, private boat ride on all 84 ghats, BHU Kashi Vishwanath, Sankat Mochan and Durga Mata. Day 3: Prayagraj — Triveni Sangam Snan, Alopi Mata Shakti Peeth and Bade Hanuman Ji, then drive to Ayodhya — Lata Chowk, Surya Stambh and Saryu Aarti. Day 4: Ram Janmabhoomi Mandir, Kanak Bhawan, Dasharath Mahal and departure drop.' },
   { q:'Is the Ram Mandir darshan slot pre-booked?', a:'We help coordinate the darshan visit at an optimal time to minimise waiting. During peak seasons (Diwali, Ram Navami) advanced slots may be arranged on request.' },
   { q:'What is the distance between the three cities?', a:'Varanasi to Ayodhya is ~200 km (approx 4 hours). Ayodhya to Prayagraj is ~150 km (approx 3 hours). All travel is by private AC vehicle included in the package.' },
   { q:'Is Triveni Sangam snan included?', a:'Yes. A dedicated boat ride to the confluence of Ganga, Yamuna and Saraswati is included. Ritual bath is at your discretion.' },

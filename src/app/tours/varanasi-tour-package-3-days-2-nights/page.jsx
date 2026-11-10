@@ -59,65 +59,64 @@ const TORN_PAPER_SVG = generateTornPaperSVG()
 
 const DAYS = [
   {
-    day: 1, city: 'Varanasi', title: 'Arrival, Temples & Evening Ganga Aarti',
+    day: 1, city: 'Varanasi', title: 'Arrival, Kaal Bhairav & Dashashwamedh Ghat',
     activities: [
-      'Arrival in Varanasi — hotel check-in & freshen up',
-      'Kashi Vishwanath Temple darshan',
-      'Maa Annapurna Devi & Kal Bhairav Temple',
-      'Maa Vishalakshi Mandir & Gyan Vapi area',
-      'Vishwanath Gali walk — banarasi chai & snacks',
-      'Evening Ganga Aarti at Dashashwamedh Ghat',
-      'Aarti boat ride on the Ganga',
+      'Pickup from railway station / airport',
+      'Hotel check-in & freshen up',
+      'Kaal Bhairav Mandir darshan — Kotwal of Kashi',
+      'Maha Mritunjay Mandir darshan',
+      'Dashashwamedh Ghat — evening atmosphere & aarti viewing',
+      'Local market walk — Banarasi chai, paan & street food',
       'Overnight stay in Varanasi',
     ],
     photos: [
-      { id: '1665413791167-6718dcf36773', alt: 'Kashi Vishwanath Temple' },
-      { id: '1627894483216-2138af692e32', alt: 'Ganga Aarti ceremony' },
+      { id: '1665413791167-6718dcf36773', alt: 'Kaal Bhairav Mandir' },
+      { id: '1627894483216-2138af692e32', alt: 'Dashashwamedh Ghat evening' },
       { id: '1561359313-0639aad49ca6',   alt: 'Varanasi ghats at dusk' },
     ],
   },
   {
-    day: 2, city: 'Varanasi', title: 'Sunrise Boat Ride, Manikarnika & More Temples',
+    day: 2, city: 'Varanasi', title: 'Sparsh Darshan (Kashi Vishwanath), Subah-e-Banaras & Sarnath',
     activities: [
-      'Pre-dawn walk to the ghats — sunrise boat ride on the Ganges',
-      'Manikarnika Ghat & Harishchandra Ghat',
-      'Assi Ghat — Subah-e-Banaras morning rituals',
+      'Pre-dawn Sparsh Darshan — Kashi Vishwanath Temple (touch the Shivling)',
+      'Subah-e-Banaras morning Aarti at Assi Ghat',
+      'Sunrise boat ride on the Ganges',
       'Kachori Sabji & Jalebi — authentic Banarasi breakfast',
       'Sankat Mochan Hanuman Temple',
-      'Durga Kund Temple & Tulsi Manas Mandir',
+      'Durga Kund Mandir & Tulsi Manas Mandir',
       'BHU campus tour — Birla Temple',
-      'Evening Ganga Aarti at Dashashwamedh Ghat',
+      'Sarnath — Dhamek Stupa & Archaeological Museum',
+      'Akshardham Varanasi',
       'Overnight stay in Varanasi',
     ],
     photos: [
-      { id: '1596097825168-c9b773f404ff', alt: 'Sunrise Ganga Aarti' },
-      { id: '1571536802807-30451e3955d8', alt: 'Boat ride on the Ganges' },
-      { id: '1608412525537-662195e817c5', alt: 'Banarasi morning' },
+      { id: '1596097825168-c9b773f404ff', alt: 'Sparsh Darshan — Kashi Vishwanath' },
+      { id: '1571536802807-30451e3955d8', alt: 'Sunrise boat ride on the Ganges' },
+      { id: '1649876674933-a5b3b39b4da1', alt: 'Sarnath — Dhamek Stupa' },
     ],
   },
   {
-    day: 3, city: 'Varanasi → Sarnath', title: 'Sarnath Excursion & Departure',
+    day: 3, city: 'Varanasi → Vindhyachal', title: 'Vindhyachal — 3 Devi Darshan & Departure',
     activities: [
-      'Morning drive to Sarnath (12 km)',
-      'Dhamek Stupa — where Buddha gave his first sermon',
-      'Sarnath Archaeological Museum',
-      'Mulagandha Kuti Vihar temple',
-      'Return to Varanasi — lunch',
-      'Banarasi sarees & souvenir shopping',
-      'Return transfer to railway station / airport',
+      'Early morning drive to Vindhyachal (~65 km, ~1.5 hrs)',
+      'Maa Vindhyavasini Devi Temple darshan',
+      'Ashtabhuja Devi Temple darshan',
+      'Kali Khoh Temple darshan — 3 Devi Darshan complete',
+      'Return drive to Varanasi',
+      'Drop at railway station / airport',
     ],
     photos: [
-      { id: '1649876674933-a5b3b39b4da1', alt: 'Sarnath — Dhamek Stupa' },
-      { id: '1513475382585-d06e58bcb0e0', alt: 'Sarnath museum' },
-      { id: '1627894483216-2138af692e32', alt: 'Varanasi departure' },
+      { id: '1608412525537-662195e817c5', alt: 'Vindhyachal Devi Temple' },
+      { id: '1513475382585-d06e58bcb0e0', alt: 'Ashtabhuja Temple' },
+      { id: '1627894483216-2138af692e32', alt: 'Departure from Varanasi' },
     ],
   },
 ]
 
 const ROUTE = [
-  { city: 'Day 1', hi: 'सायं दर्शन',   nights: 'Temples & Aarti',       days: 'Evening'  },
-  { city: 'Day 2', hi: 'प्रातः भ्रमण', nights: 'Ghats & More Temples',   days: 'Full Day' },
-  { city: 'Day 3', hi: 'सारनाथ',       nights: 'Sarnath & Departure',    days: 'Morning'  },
+  { city: 'Day 1', hi: 'सायं दर्शन',   nights: 'Temples & Ghat',          days: 'Evening'  },
+  { city: 'Day 2', hi: 'स्पर्श दर्शन', nights: 'Sparsh Darshan & Sarnath', days: 'Full Day' },
+  { city: 'Day 3', hi: 'विन्ध्याचल',   nights: '3 Devi Darshan',           days: 'Morning'  },
 ]
 
 const INCLUSIONS = [
@@ -134,14 +133,14 @@ const INCLUSIONS = [
 ]
 
 const ACTIVITIES = [
-  { en: 'Kashi Vishwanath Temple',       photo: '1665413791167-6718dcf36773' },
-  { en: 'Evening Ganga Aarti',           photo: '1627894483216-2138af692e32' },
-  { en: 'Sunrise Boat Ride — Ganga',     photo: '1571536802807-30451e3955d8' },
-  { en: 'Manikarnika Ghat',              photo: '1596097825168-c9b773f404ff' },
-  { en: 'Sankat Mochan & Durga Temple',  photo: '1608412525537-662195e817c5' },
-  { en: 'Sarnath — Dhamek Stupa',        photo: '1649876674933-a5b3b39b4da1' },
-  { en: 'BHU & Birla Temple',            photo: '1561359313-0639aad49ca6'   },
-  { en: 'Local Kashi Street Food',       photo: '1513475382585-d06e58bcb0e0' },
+  { en: 'Sparsh Darshan — Kashi Vishwanath', photo: '1665413791167-6718dcf36773' },
+  { en: 'Kaal Bhairav & Maha Mritunjay',     photo: '1627894483216-2138af692e32' },
+  { en: 'Subah-e-Banaras Aarti',             photo: '1596097825168-c9b773f404ff' },
+  { en: 'Sunrise Boat Ride — Ganga',         photo: '1571536802807-30451e3955d8' },
+  { en: 'Sankat Mochan & Durga Kund',        photo: '1608412525537-662195e817c5' },
+  { en: 'Sarnath — Dhamek Stupa',            photo: '1649876674933-a5b3b39b4da1' },
+  { en: 'Akshardham Varanasi',               photo: '1561359313-0639aad49ca6'   },
+  { en: 'Vindhyachal — 3 Devi Darshan',      photo: '1513475382585-d06e58bcb0e0' },
 ]
 
 const TRIP_DIARIES = [
@@ -155,7 +154,7 @@ const TRIP_DIARIES = [
 
 
 const FAQS = [
-  { q: 'What does the 3 Days 2 Nights Varanasi tour cover?', a: 'Day 1: major temples (Kashi Vishwanath, Annapurna, Kal Bhairav, Vishalakshi) and Evening Ganga Aarti with boat ride. Day 2: sunrise boat ride, Manikarnika ghat, Sankat Mochan, Durga Temple, BHU. Day 3: Sarnath excursion with Dhamek Stupa and museum, then return transfer.' },
+  { q: 'What does the 3 Days 2 Nights Varanasi tour cover?', a: 'Day 1: Kaal Bhairav Mandir, Maha Mritunjay Mandir, Dashashwamedh Ghat evening and local market. Day 2: pre-dawn Sparsh Darshan at Kashi Vishwanath (touch the Shivling), Subah-e-Banaras Aarti, sunrise boat ride, Sankat Mochan, Durga Kund, Tulsi Manas, BHU, Sarnath and Akshardham. Day 3: Vindhyachal — Maa Vindhyavasini, Ashtabhuja and Kali Khoh (3 Devi Darshan), then return drop.' },
   { q: 'Is there a minimum group size?', a: 'Minimum 2 persons. Solo travellers may contact us on WhatsApp — we often arrange same-day groups.' },
   { q: 'Are meals included?', a: 'Daily breakfast is included. Lunch and dinner are not included but we guide you to the best local spots.' },
   { q: 'What is not covered in the package?', a: 'Train / flight tickets, monument entry fees (Sarnath Museum), personal expenses and 5% GST are not included.' },
@@ -587,7 +586,7 @@ async function handleSubmit(e) {
           <div className="wrap" style={{ textAlign:'center', marginBottom:'40px' }}>
             <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1rem', color:'#8B5E1A', marginBottom:'6px' }}>तीन दिन की पवित्र यात्रा</div>
             <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(2rem,4vw,2.8rem)', color:'#6B2509', textTransform:'uppercase', letterSpacing:'-1px', marginBottom:'8px' }}>Day-by-Day Itinerary</h2>
-            <p style={{ color:'#5A3F28', maxWidth:'46rem', margin:'0 auto', fontSize:'1rem' }}>Varanasi — 2 nights, 3 full days of temples, ghats, Ganga Aarti and Sarnath.</p>
+            <p style={{ color:'#5A3F28', maxWidth:'46rem', margin:'0 auto', fontSize:'1rem' }}>Varanasi — 2 nights, 3 full days of temples, Sparsh Darshan, Sarnath and Vindhyachal.</p>
             <GoldRule margin="18px auto 0" />
           </div>
           <div className="wrap" style={{ display:'flex', flexDirection:'column', gap:'26px' }}>
@@ -712,7 +711,7 @@ async function handleSubmit(e) {
       <div className="v3d-sticky">
         <div style={{ color:'#FAF5E0' }}>
           <strong style={{ fontFamily:"'Fraunces',serif", fontSize:'1rem', display:'block', lineHeight:1 }}>Varanasi 3D / 2N</strong>
-          <span style={{ fontSize:'.7rem', color:'rgba(250,245,224,.65)' }}>Temples · Boat · Sarnath · Guide</span>
+          <span style={{ fontSize:'.7rem', color:'rgba(250,245,224,.65)' }}>Stay · Boat · Guide · Cab · Food</span>
         </div>
         <a href="#v3d-form" style={{ display:'flex', alignItems:'center', gap:'7px', background:'#FAF0CC', color:'#6B2509', padding:'10px 18px', borderRadius:'4px', fontWeight:700, fontSize:'.92rem', textDecoration:'none', whiteSpace:'nowrap', flexShrink:0 }}>
           📋 Book Now

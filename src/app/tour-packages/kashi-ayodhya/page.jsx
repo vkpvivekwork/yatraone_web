@@ -14,57 +14,59 @@ const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'
 /* ── Data ──────────────────────────────────────────────── */
 const DAYS = [
   {
-    day: 1, city: 'Ayodhya', title: 'Arrival in Ayodhya — Deepotsav & Temple Darshan',
+    day: 1, city: 'Varanasi', title: 'Arrival in Kashi — Temple Darshan & Ganga Aarti',
     activities: [
-      'Arrival in Ayodhya (morning or afternoon) — hotel / homestay check-in',
-      'Shri Ram Janmabhoomi darshan',
-      'Hanumangarhi visit',
-      'Kanak Bhawan darshan',
-      'Ramkatha Museum exploration',
-      'Evening: Deepotsav celebrations at Ramkatha Park',
-      'Witness millions of diyas glowing at Guptar Ghat — Green Deepotsav',
-      'Drone show, green fireworks & cultural performances',
-      'Taste local cuisine & explore handicraft markets at night',
-      'Overnight stay in Ayodhya',
-    ],
-    photos: [
-      { id: '1599831069477-b2acdc0bcb91', alt: 'Saryu Aarti — Ayodhya' },
-      { id: '1613445607898-f46e51645acf', alt: 'Ram Mandir darshan' },
-      { id: '1634920540678-df0e179c5243', alt: 'Kanak Bhawan — Ayodhya' },
-    ],
-  },
-  {
-    day: 2, city: 'Varanasi', title: 'Arrival in Varanasi — Sarnath, Dolphins & Ganga',
-    activities: [
-      'Morning drive from Ayodhya to Varanasi (~3 hrs)',
-      'Hotel / homestay check-in',
-      'Visit Sarnath — where Lord Buddha gave his first sermon',
-      'Explore the Gharial & Turtle Breeding Centre at Sarnath',
-      'Dolphin sighting on the Ganges at Saidpur, Ghazipur',
-      'Visit the Namami Gange Museum (Ganga-themed immersive experience)',
+      'Arrival in Varanasi — hotel / homestay check-in',
+      'Kashi Vishwanath Temple darshan (VIP pass)',
+      'Maa Annapurna Devi Temple darshan',
+      'Kaal Bhairav Temple darshan',
+      'Evening Ganga Aarti at Dashashwamedh Ghat',
+      'Aarti boat ride on the Ganges',
+      'Explore Vishwanath Gali street food & bazaar',
       'Overnight stay in Varanasi',
     ],
     photos: [
-      { id: '1649876674933-a5b3b39b4da1', alt: 'Sarnath — Dhamek Stupa' },
-      { id: '1571536802807-30451e3955d8', alt: 'River Ganga at dawn' },
-      { id: '1608412525537-662195e817c5', alt: 'Varanasi ghats' },
+      { id: '1665413791167-6718dcf36773', alt: 'Kashi Vishwanath Temple' },
+      { id: '1627894483216-2138af692e32', alt: 'Ganga Aarti ceremony' },
+      { id: '1561359313-0639aad49ca6', alt: 'Varanasi ghats at dusk' },
     ],
   },
   {
-    day: 3, city: 'Varanasi', title: 'Exploring Varanasi & Departure',
+    day: 2, city: 'Varanasi', title: 'Morning Ghats, Sarnath & Ganga Trail',
     activities: [
-      'Early morning Ganga Aarti at the ghats',
-      'Yoga and meditation session by the Ganges',
-      'Kashi Vishwanath Temple darshan',
-      'Kal Bhairav Temple darshan',
-      'Afternoon: Ramnagar Fort & the Ganga River Trail',
-      'Meet Banarasi weavers — experience traditional handloom artistry',
-      'Depart for onward destination in the evening',
+      'Sunrise boat ride on the Ganges — explore all 84 ghats',
+      'Visit Manikarnika Ghat, Assi Ghat & Harishchandra Ghat',
+      'Subah-e-Banaras — music & yoga by the river',
+      'Sankat Mochan Hanuman Temple darshan',
+      'Durga Temple (Durga Kund) darshan',
+      'Sarnath — Buddha\'s first sermon site (Deer Park, Dhamek Stupa)',
+      'Dolphin sighting on the Ganges at Saidpur (seasonal)',
+      'Evening: Ramnagar Fort or shopping at Vishwanath Gali',
+      'Overnight stay in Varanasi',
     ],
     photos: [
-      { id: '1627894483216-2138af692e32', alt: 'Ganga Aarti ceremony' },
-      { id: '1665413791167-6718dcf36773', alt: 'Kashi Vishwanath Temple' },
-      { id: '1561359313-0639aad49ca6', alt: 'Varanasi ghats' },
+      { id: '1571536802807-30451e3955d8', alt: 'Morning boat on Ganga' },
+      { id: '1608412525537-662195e817c5', alt: 'Varanasi ghats' },
+      { id: '1649876674933-a5b3b39b4da1', alt: 'Sarnath — Dhamek Stupa' },
+    ],
+  },
+  {
+    day: 3, city: 'Ayodhya', title: 'Ram Janmabhoomi Darshan & Departure',
+    activities: [
+      'Early morning check-out from Varanasi hotel',
+      'Drive to Ayodhya (~4 hrs via AC cab)',
+      'Ram Janmabhoomi — Shri Ram Mandir darshan',
+      'Hanumangarhi Temple darshan',
+      'Kanak Bhawan darshan',
+      'Dasharath Mahal visit',
+      'Ramkatha Park & Saryu Ghat stroll',
+      'Evening Saryu Aarti at Ram ki Paidi',
+      'Drop to Lucknow / Varanasi airport or station',
+    ],
+    photos: [
+      { id: '1613445607898-f46e51645acf', alt: 'Ram Mandir — Ayodhya' },
+      { id: '1634920540678-df0e179c5243', alt: 'Kanak Bhawan — Ayodhya' },
+      { id: '1599831069477-b2acdc0bcb91', alt: 'Saryu Aarti — Ayodhya' },
     ],
   },
 ]
@@ -79,8 +81,8 @@ const TRIP_DIARIES = [
 ]
 
 const ROUTE = [
-  { city: 'Ayodhya',  hi: 'अयोध्या', nights: '1 Night',  days: 'Day 1' },
-  { city: 'Varanasi', hi: 'काशी',    nights: '1 Night',  days: 'Day 2–3' },
+  { city: 'Varanasi', hi: 'काशी',    nights: '2 Nights', days: 'Day 1–2' },
+  { city: 'Ayodhya',  hi: 'अयोध्या', nights: 'Day Visit', days: 'Day 3' },
 ]
 
 const SERVICES = [
@@ -95,16 +97,16 @@ const SERVICES = [
 ]
 
 const ACTIVITIES = [
-  { en: 'Ram Janmabhoomi Darshan',        photo: '1613445607898-f46e51645acf' },
-  { en: 'Hanumangarhi & Kanak Bhawan',   photo: '1634920540678-df0e179c5243' },
-  { en: 'Deepotsav — Guptar Ghat',       photo: '1599831069477-b2acdc0bcb91' },
+  { en: 'Kashi Vishwanath Temple Darshan', photo: '1665413791167-6718dcf36773' },
+  { en: '84 Ghats Sunrise Boat Ride',      photo: '1571536802807-30451e3955d8' },
+  { en: 'Evening Ganga Aarti',             photo: '1627894483216-2138af692e32' },
   { en: "Sarnath — Buddha's First Sermon", photo: '1649876674933-a5b3b39b4da1' },
-  { en: 'Dolphin Sighting on Ganga',     photo: '1571536802807-30451e3955d8' },
-  { en: 'Namami Gange Museum',           photo: '1596097825168-c9b773f404ff' },
-  { en: 'Ganga Aarti at the Ghats',      photo: '1627894483216-2138af692e32' },
-  { en: 'Kashi Vishwanath Temple',       photo: '1665413791167-6718dcf36773' },
-  { en: 'Ramnagar Fort & Ganga Trail',   photo: '1561359313-0639aad49ca6' },
-  { en: 'Banarasi Handloom Artistry',    photo: '1513475382585-d06e58bcb0e0' },
+  { en: 'Dolphin Sighting on the Ganga',   photo: '1596097825168-c9b773f404ff' },
+  { en: 'Ram Janmabhoomi Darshan',         photo: '1613445607898-f46e51645acf' },
+  { en: 'Hanumangarhi & Kanak Bhawan',    photo: '1634920540678-df0e179c5243' },
+  { en: 'Saryu Aarti at Ram ki Paidi',     photo: '1599831069477-b2acdc0bcb91' },
+  { en: 'Ramnagar Fort & Ganga Trail',     photo: '1561359313-0639aad49ca6' },
+  { en: 'Banarasi Street Food & Shopping', photo: '1513475382585-d06e58bcb0e0' },
 ]
 
 const FAQS = [
@@ -143,13 +145,13 @@ const FAQS = [
 ]
 
 const STD = {
-  label: 'Standard', price: '₹8,999', note: 'per person · Min 2 Pax',
+  label: 'Standard', price: '₹7,999', note: 'per person · Min 2 Pax',
   inclusions: [
     'Accommodation (2 Nights · 3 Star)',
-    'AC Vehicle — Varanasi to Ayodhya & back',
+    'AC Vehicle — Varanasi to Ayodhya',
     'Daily Breakfast',
     'Morning Boat Ride — River Ganga',
-    'Kashi Vishwanath Darshan assistance',
+    'Kashi Vishwanath VIP Darshan pass',
     'Ram Mandir Darshan assistance',
     'All sightseeing per itinerary',
     'Driver & Fuel charges',
@@ -165,9 +167,9 @@ const STD = {
 }
 
 const PRE = {
-  label: 'Premium', price: '₹12,999', note: 'per person · Min 2 Pax',
+  label: 'Premium', price: '₹10,999', note: 'per person · Min 2 Pax',
   inclusions: [
-    'Accommodation (2 Nights · 3 Star)',
+    'Accommodation (2 Nights · 4 Star)',
     'AC Vehicle — Varanasi to Ayodhya & back',
     'Daily Breakfast',
     'Morning & Evening Boat Ride — River Ganga',
@@ -710,8 +712,8 @@ export default function KashiAyodhya() {
     setTimeout(() => setSent(false), 4000)
   }
   const waEnquire = `${WA_BASE}?text=${encodeURIComponent('Namaste! I am interested in the Kashi–Ayodhya 2N/3D Divine Tour package. Please share details.')}`
-  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package (₹8,999/person) for Kashi–Ayodhya 2N/3D Divine Tour.')}`
-  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package (₹12,999/person) for Kashi–Ayodhya 2N/3D Divine Tour.')}`
+  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package (₹7,999/person) for Kashi–Ayodhya 2N/3D Divine Tour.')}`
+  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package (₹10,999/person) for Kashi–Ayodhya 2N/3D Divine Tour.')}`
 
   return (
     <div style={{

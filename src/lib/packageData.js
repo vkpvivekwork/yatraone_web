@@ -65,53 +65,6 @@ export const PACKAGES_DATA = {
     ],
   },
 
-  'varanasi-ayodhya-3-day': {
-    id: 'varanasi-ayodhya-3-day',
-    title: 'Varanasi Ayodhya 3 Day Tour',
-    subtitle: 'Varanasi · Ayodhya',
-    duration: '3 Days / 2 Nights',
-    cities: ['Varanasi', 'Ayodhya'],
-    route: '/packages/varanasi-ayodhya-3-day',
-    startingPrice: '₹7,999',
-    heroImg: '1561359313-0639aad49ca6',
-    days: [
-      {
-        day: 'Day 1', title: 'Varanasi (Kashi) Arrival & Temple Darshan',
-        activities: ['Check-in to hotel', 'Kashi Vishwanath Temple (VIP pass)', 'Maa Annapurna Devi Temple', 'Kalbhairav Temple', 'Evening Ganga Aarti at Dashashwamedh Ghat', 'Boat ride during Aarti', 'Night stay'],
-      },
-      {
-        day: 'Day 2', title: 'Varanasi Sightseeing & Sarnath',
-        activities: ['Sunrise boat ride on the Ganges', 'All major ghats (Manikarnika, Assi, Harishchandra)', 'Sankat Mochan Hanuman Temple', 'Durga Temple (Durga Kund)', 'Sarnath — Buddha\'s first sermon site', 'Sarnath Museum & Dhamek Stupa', 'Evening free for shopping at Vishwanath Gali', 'Night stay'],
-      },
-      {
-        day: 'Day 3', title: 'Ayodhya — Ram Janmabhoomi & Departure',
-        activities: ['Early morning check-out', 'Drive to Ayodhya (~4 hrs)', 'Ram Janmabhoomi — Shri Ram Mandir', 'Hanuman Garhi', 'Kanak Bhawan', 'Dasharath Mahal', 'Ramkatha Park & Saryu Ghat', 'Guptar Ghat', 'Evening Saryu Aarti at Ram ki Paidi', 'Drop to Lucknow / Varanasi airport or station'],
-      },
-    ],
-    temples: ['Kashi Vishwanath', 'Maa Annapurna Devi', 'Kalbhairav', 'Sankat Mochan', 'Durga Temple', 'Tulsi Manas', 'Ram Janmabhoomi', 'Hanuman Garhi', 'Kanak Bhawan', 'Dasharath Mahal', 'Nageshwarnath', 'Mani Parvat'],
-    pricing: [
-      { group: '2 Pax', rate: '₹10,999 / person' },
-      { group: '4 Pax', rate: '₹8,499 / person' },
-      { group: '6 Pax', rate: '₹8,999 / person' },
-      { group: '8 Pax+', rate: '₹7,999 / person' },
-    ],
-    inclusions: [
-      '2 nights hotel in Varanasi (3-star, double occupancy)',
-      'Private cab — all sightseeing Varanasi + Ayodhya',
-      'Boat ride with Ganga Aarti viewing',
-      'VIP Darshan tickets for Kashi Vishwanath',
-      'All toll, parking & driver allowances',
-      'GST & service tax included',
-    ],
-    exclusions: [
-      'Airfare / train tickets',
-      'All meals',
-      'Personal expenses & tips',
-      'Temple donation & puja materials',
-      'Sarnath Museum entry fee',
-    ],
-  },
-
   'varanasi-3-days': {
     id: 'varanasi-3-days',
     title: 'Varanasi 3 Days Itinerary',
@@ -257,35 +210,6 @@ export const PACKAGES_DATA = {
     ],
   },
 
-  'golden-triangle-varanasi-ayodhya-prayagraj': {
-    id: 'golden-triangle-varanasi-ayodhya-prayagraj',
-    title: 'Golden Triangle Tour',
-    subtitle: 'Varanasi · Ayodhya · Prayagraj',
-    duration: '4 Days / 3 Nights',
-    cities: ['Varanasi', 'Prayagraj', 'Ayodhya'],
-    route: '/packages/golden-triangle-varanasi-ayodhya-prayagraj',
-    startingPrice: null,
-    heroImg: '1608412525537-662195e817c5',
-    days: [
-      {
-        day: 'Day 1', city: 'Varanasi', title: 'Kashi Darshan & Ganga Aarti',
-        activities: ['Kashi Vishwanath darshan', 'Annapurna Temple', 'Kalbhairav Temple', 'Local street & Banarasi saree weavers', 'Ganga Aarti at Dasaswamedh Ghat with boat ride'],
-      },
-      {
-        day: 'Day 2', city: 'Varanasi', title: 'Sarnath & Temple Trail',
-        activities: ['Sankat Mochan', 'Durga Temple', 'Tulsi Manas Mandir', 'BHU', 'Kachori Sabji breakfast', 'Sarnath — Deer Park', 'Dharmarajika Temple', 'Chaukhandi Stupa', 'Dhamek Stupa'],
-      },
-      {
-        day: 'Day 3', city: 'Prayagraj', title: 'Triveni Sangam & Fort',
-        activities: ['Hanuman Mandir', 'Boat ride & holy bath at Sangam', 'Anand Bhawan', 'Allahabad Fort', 'Khusro Bagh'],
-      },
-      {
-        day: 'Day 4', city: 'Ayodhya', title: 'Ram Janmabhoomi & Departure',
-        activities: ['Ram Janmabhoomi Temple', 'Hanuman Garhi', 'Kanak Bhawan', 'Dasharath Mahal', 'Ramkatha Park', 'Guptar Ghat', 'Evening Aarti at Saryu River'],
-      },
-    ],
-  },
-
   'varanasi-group-tour-itinerary': {
     id: 'varanasi-group-tour-itinerary',
     title: 'Varanasi Group Tour Package',
@@ -346,15 +270,6 @@ export const ALL_PACKAGES_LIST = [
     route: '/golden-triangle',
   },
   {
-    id: 'varanasi-ayodhya-3-day',
-    title: 'Varanasi Ayodhya 3 Day Tour',
-    subtitle: 'Varanasi + Ayodhya',
-    duration: '3D / 2N',
-    cities: 'Varanasi · Ayodhya',
-    startingPrice: '₹7,999',
-    route: '/packages/varanasi-ayodhya-3-day',
-  },
-  {
     id: 'varanasi-3-days',
     title: 'Varanasi 3 Days Itinerary',
     subtitle: 'Temples, Ghats & History',
@@ -389,15 +304,6 @@ export const ALL_PACKAGES_LIST = [
     cities: 'Varanasi · Prayagraj · Ayodhya · Bodh Gaya',
     startingPrice: '₹12,000',
     route: '/packages/divya-dham-yatra',
-  },
-  {
-    id: 'golden-triangle-varanasi-ayodhya-prayagraj',
-    title: 'Golden Triangle (4 Days)',
-    subtitle: 'Varanasi + Ayodhya + Prayagraj',
-    duration: '4D / 3N',
-    cities: 'Varanasi · Prayagraj · Ayodhya',
-    startingPrice: null,
-    route: '/packages/golden-triangle-varanasi-ayodhya-prayagraj',
   },
   {
     id: 'varanasi-group-tour-itinerary',

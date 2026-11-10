@@ -49,16 +49,18 @@ const DAYS = [
     ],
   },
   {
-    day: 3, city: 'Prayagraj → Ayodhya', title: 'Triveni Sangam Snan & Ayodhya Arrival',
+    day: 3, city: 'Prayagraj → Ayodhya', title: 'Triveni Sangam Snan, Prayagraj & Ayodhya Arrival',
     activities: [
-      'Early morning departure to Prayagraj',
-      'Triveni Sangam Snan (holy dip)',
+      'Early morning departure to Prayagraj (~3 hrs)',
+      'Triveni Sangam Snan — holy dip at the confluence of Ganga, Yamuna & Saraswati',
+      'Boat ride at the Sangam',
       'Alopi Mata Shakti Peeth darshan',
-      'Bade Hanuman Ji darshan',
-      'Travel to Ayodhya',
-      'Hotel check-in in Ayodhya',
+      'Bade Hanuman Ji darshan (reclining idol)',
+      'Akshayavat & Patalpuri Mandir inside Allahabad Fort',
+      'Anand Bhawan — Nehru family heritage museum',
+      'Drive to Ayodhya (~2.5 hrs) — hotel check-in',
       'Explore Lata Mangeshkar Chowk & Surya Stambh',
-      'Evening Saryu Aarti',
+      'Evening Saryu Aarti at Ram ki Paidi',
       'Overnight stay in Ayodhya',
     ],
     photos: [
@@ -200,32 +202,40 @@ const FAQS = [
 ]
 
 const STD = {
-  label: 'Standard', price: '₹14,499', note: 'per person · Min 4 Pax',
+  label: 'Standard', price: '₹8,999', note: 'per person · Min 2 Pax',
   inclusions: [
-    'Accommodation (3 Star)', 'Transportation (AC Car)',
-    'Kashi Vishwanath Darshan passes', 'Boat ride at Varanasi (Private)',
-    'Ram Mandir darshan passes', 'All sightseeing',
+    'Accommodation (3 Star · 3 nights)',
+    'Transportation (AC Car) — all three cities',
+    'Kashi Vishwanath Darshan passes',
+    'Private boat ride at Varanasi & Sangam',
+    'Ram Mandir Darshan assistance',
+    'All sightseeing per itinerary',
+    'Driver & Fuel charges',
   ],
   exclusions: [
-    'Travel tickets (Bus / Train / Flight)', 'Meals (Fooding)',
-    'Mangala Aarti', 'Pickup / Drop facility', 'Personal expenses',
+    'Travel tickets (Bus / Train / Flight)',
+    'Meals', 'Mangala Aarti',
+    'Pickup / Drop from station/airport',
+    'Personal expenses', '5% GST',
   ],
 }
 
 const PRE = {
-  label: 'Premium', price: '₹21,499', note: 'per person · Min 4 Pax',
+  label: 'Premium', price: '₹14,499', note: 'per person · Min 4 Pax',
   inclusions: [
-    'Accommodation (3 Star)', 'Transportation (AC Car)',
-    'Fooding — Breakfast included',
+    'Accommodation (3 Star · 3 nights)',
+    'Transportation (AC Car) — all three cities',
+    'Daily Breakfast',
     'Kashi Vishwanath Mangala Aarti or Shayan Aarti',
-    'Boat ride at Varanasi (Private)',
+    'Private boat ride at Varanasi & Sangam',
     'Ganga Aarti special arrangements',
     'Ram Mandir VIP darshan passes',
-    'Pickup & Drop facility', 'All sightseeing',
+    'Pickup & Drop from Railway Station / Airport',
+    'All sightseeing per itinerary',
   ],
   exclusions: [
     'Travel tickets (Bus / Train / Flight)',
-    'Lunch & Dinner', 'Personal expenses',
+    'Lunch & Dinner', 'Personal expenses', '5% GST',
   ],
 }
 
@@ -628,8 +638,8 @@ function PkgCard({ data, waLink }) {
 export default function KashiPrayagrajAyodhya() {
   const [navOpen, setNavOpen] = useState(false)
   const waEnquire = `${WA_BASE}?text=${encodeURIComponent('Namaste! I am interested in the Kashi–Prayagraj–Ayodhya 3N/4D package. Please share details.')}`
-  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package for Kashi–Prayagraj–Ayodhya 3N/4D tour. Please share details.')}`
-  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package for Kashi–Prayagraj–Ayodhya 3N/4D tour. Please share details.')}`
+  const waStd     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Standard Package (₹8,999/person) for Kashi–Prayagraj–Ayodhya 3N/4D tour. Please share details.')}`
+  const waPre     = `${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book the Premium Package (₹14,499/person) for Kashi–Prayagraj–Ayodhya 3N/4D tour. Please share details.')}`
 
   return (
     <div style={{
@@ -1148,7 +1158,7 @@ export default function KashiPrayagrajAyodhya() {
               <ul>
                 <li><a href="/golden-triangle">Golden Triangle (5D)</a></li>
                 <li><a href="/packages/divya-dham-yatra">Divya Dham Yatra (5D)</a></li>
-                <li><a href="/packages/varanasi-ayodhya-3-day">Varanasi Ayodhya (3D)</a></li>
+                <li><a href="/tour-packages/kashi-ayodhya">Kashi Ayodhya (3D)</a></li>
                 <li><a href="/tour-packages/kashi-prayagraj-ayodhya">Kashi–Prayagraj–Ayodhya (4D)</a></li>
               </ul>
             </div>
