@@ -5,9 +5,9 @@ import Navbar from '@/app/components/Navbar'
 const API_URL  = 'https://yatra.pythonanywhere.com/api/bookings/'
 const WA       = '919277472279'
 const WA_BASE  = `https://wa.me/${WA}`
-const waEnquire = `https://wa.me/${WA}?text=${encodeURIComponent(`Namaste! I want to book the Varanasi Ayodhya Prayagraj Tour Package 4 Days 3 Nights.`)}`
+const waEnquire = `https://wa.me/${WA}?text=${encodeURIComponent(`Namaste! I want to book the Kashi–Ayodhya–Prayagraj 4D/3N package.`)}`
 const TORAN    = 60
-const PKG_NAME = 'Varanasi Ayodhya Prayagraj Tour Package 4 Days 3 Nights'
+const PKG_NAME = 'Kashi–Ayodhya–Prayagraj 4D/3N'
 const U = (id, w = 600) => `https://images.unsplash.com/photo-${id}?w=${w}&q=75&auto=format&fit=crop`
 const GRAIN = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.88' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .28 0 0 0 0 .16 0 0 0 0 .04 0 0 0 .1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
 
