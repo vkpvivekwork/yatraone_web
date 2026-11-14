@@ -99,12 +99,12 @@ const INCLUSIONS = [
 ]
 
 const TRIP_DIARIES = [
-  { name:'Priya Verma',   city:'Mumbai',  stars:5, photo:'1627894483216-2138af692e32', review:'The aarti boat ride at night was something I will never forget.' },
-  { name:'Rajesh Sharma', city:'Delhi',   stars:4, photo:'1665413791167-6718dcf36773', review:'Guide was very knowledgeable. Darshan was smooth with no long wait.' },
-  { name:'Sunita Devi',   city:'Patna',   stars:5, photo:'1561359313-0639aad49ca6',   review:'Felt completely safe as a solo woman traveller. Highly recommend.' },
-  { name:'Kavita Singh',  city:'Jaipur',  stars:5, photo:'1571536802807-30451e3955d8', review:'Sunrise on the Ganga — no words. The guide arranged everything.' },
-  { name:'Manoj Tiwari',  city:'Bhopal',  stars:4, photo:'1649876674933-a5b3b39b4da1', review:'Sarnath & Ramnagar both in one day. Very well planned by the team.' },
-  { name:'Amit Gupta',    city:'Lucknow', stars:5, photo:'1608412525537-662195e817c5', review:'Booked for family of 5. Exact price as quoted, zero hidden charges.' },
+  { name:'Meena Agarwal',         city:'Ahmedabad', stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery04.jpeg?updatedAt=1794591663323', review:'Came with our ladies group from Ahmedabad. Temple darshan was beautifully arranged — no rush, full devotion.' },
+  { name:'Savita Pandey',         city:'Lucknow',   stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery05.jpeg?updatedAt=1794591675210', review:'Taking the holy dip in Ganga with my family was a lifelong dream. Yatra Ke Sathi made it safe and seamless.' },
+  { name:'Anjali Mishra',         city:'Bhopal',    stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery06.jpeg?updatedAt=1794591707022', review:'Travelled solo and felt completely looked after. The guide was respectful and punctual throughout.' },
+  { name:'Suresh Kumar',          city:'Patna',     stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery01.jpeg?updatedAt=1794591722929', review:'Banarasi paan on the ghat — that memory I carry forever. Everything from cab to darshan was spot on.' },
+  { name:'Ramesh & Geeta Sharma', city:'Delhi',     stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery10.jpeg?updatedAt=1794591733950', review:'Our first Kashi Vishwanath darshan together. Guide arranged the VIP pass and we touched the Shivling — divine.' },
+  { name:'Deepak Tiwari',         city:'Jaipur',    stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery03.jpeg?updatedAt=1794591733055', review:'Booked for 12 people. All arrangements on time, guide was knowledgeable. Highly recommend for group yatras.' },
 ]
 
 const FAQS = [
@@ -559,7 +559,7 @@ export default function VaranasiCompletePage() {
                       <div style={{ background:'#FAF5E0', padding:'4px', boxShadow:'0 8px 28px rgba(0,0,0,.35),inset 0 0 0 1px rgba(196,146,37,.3)', borderRadius:'2px' }}>
                         <div style={{ aspectRatio:'3/4', overflow:'hidden', background:'#E8D8A0', position:'relative' }}>
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={U(t.photo,400)} alt={t.name} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
+                          <img src={t.photo} alt={t.name} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
                           <div style={{ position:'absolute', inset:0, background:'linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 50%)' }} />
                           <div style={{ position:'absolute', bottom:'7px', left:'7px', right:'7px' }}>
                             <div style={{ fontSize:'.58rem', color:'rgba(255,255,255,.85)', fontStyle:'italic', lineHeight:1.35, marginBottom:'4px', display:'-webkit-box', WebkitLineClamp:2, WebkitBoxOrient:'vertical', overflow:'hidden' }}>"{t.review}"</div>

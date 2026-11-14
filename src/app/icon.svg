@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="outerRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D96B52" />
+      <stop offset="50%" stop-color="#E87A5D" />
+      <stop offset="100%" stop-color="#7B4B5A" />
+    </linearGradient>
+    <linearGradient id="innerRingGrad" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#B85D52" />
+      <stop offset="50%" stop-color="#4A354F" />
+      <stop offset="100%" stop-color="#C96A55" />
+    </linearGradient>
+    <linearGradient id="goldShikhara" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F7C232" />
+      <stop offset="50%" stop-color="#FDE068" />
+      <stop offset="100%" stop-color="#D99B1E" />
+    </linearGradient>
+    <linearGradient id="saffronTemple" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F59B42" />
+      <stop offset="60%" stop-color="#DC7627" />
+      <stop offset="100%" stop-color="#B85614" />
+    </linearGradient>
+    <linearGradient id="templeBase" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#E88835" />
+      <stop offset="100%" stop-color="#C46218" />
+    </linearGradient>
+  </defs>
+
+  <circle cx="200" cy="200" r="184" fill="none" stroke="url(#outerRingGrad)" stroke-width="7" />
+  <circle cx="200" cy="200" r="175" fill="none" stroke="url(#innerRingGrad)" stroke-width="4" />
+
+  <g id="left-shikhara">
+    <circle cx="114" cy="95" r="3.5" fill="#FDE068" />
+    <path d="M114 98 L111 106 L117 106 Z" fill="#F7C232" />
+    <ellipse cx="114" cy="113" rx="19" ry="5.5" fill="#E6A822" />
+    <ellipse cx="114" cy="112" rx="17" ry="4" fill="#FDE068" />
+    <path d="M97 116 C91 145, 88 178, 88 205 L140 205 C140 178, 137 145, 131 116 Z" fill="url(#goldShikhara)" />
+    <path d="M104 116 C100 145, 98 178, 98 205" fill="none" stroke="#C98814" stroke-width="1.8" />
+    <path d="M114 116 L114 205" fill="none" stroke="#C98814" stroke-width="2" />
+    <path d="M124 116 C128 145, 130 178, 130 205" fill="none" stroke="#C98814" stroke-width="1.8" />
+    <rect x="88" y="205" width="52" height="7" fill="#F7C232" />
+    <rect x="86" y="212" width="56" height="6" fill="#D99B1E" />
+  </g>
+
+  <g id="main-temple">
+    <line x1="286" y1="115" x2="286" y2="138" stroke="#F59B42" stroke-width="2" />
+    <path d="M286 116 L303 121 L286 126 Z" fill="#E86F2C" />
+    <circle cx="286" cy="136" r="2.5" fill="#FDE068" />
+    <ellipse cx="286" cy="141" rx="8" ry="2.5" fill="#D97224" />
+    <path d="M279 143 C273 162, 269 182, 267 202 L305 202 C303 182, 299 162, 293 143 Z" fill="url(#saffronTemple)" />
+    <path d="M286 143 L286 202" stroke="#A84B10" stroke-width="1.5" />
+    <path d="M210 185 Q238 156 266 185 Z" fill="url(#saffronTemple)" />
+    <circle cx="238" cy="167" r="2.5" fill="#FDE068" />
+    <line x1="181" y1="168" x2="181" y2="182" stroke="#F59B42" stroke-width="1.5" />
+    <path d="M181 169 L193 172 L181 175 Z" fill="#E86F2C" />
+    <path d="M150 202 L181 180 L212 202 Z" fill="url(#saffronTemple)" />
+    <path d="M112 216 L134 196 L156 216 Z" fill="#F29F3D" />
+    <rect x="152" y="202" width="158" height="16" fill="url(#templeBase)" />
+    <g fill="#7A3208">
+      <rect x="162" y="206" width="5" height="9" rx="2.5" />
+      <rect x="172" y="206" width="5" height="9" rx="2.5" />
+      <rect x="182" y="206" width="5" height="9" rx="2.5" />
+      <rect x="218" y="206" width="6" height="9" rx="3" />
+      <rect x="230" y="206" width="6" height="9" rx="3" />
+      <rect x="242" y="206" width="6" height="9" rx="3" />
+      <rect x="274" y="206" width="5" height="9" rx="2.5" />
+      <rect x="284" y="206" width="5" height="9" rx="2.5" />
+      <rect x="294" y="206" width="5" height="9" rx="2.5" />
+    </g>
+    <rect x="84" y="218" width="232" height="28" fill="url(#templeBase)" />
+    <rect x="80" y="216" width="240" height="4" fill="#F7A94B" />
+    <g fill="#5E2404">
+      <path d="M94 246 L94 231 A4 4 0 0 1 102 231 L102 246 Z" />
+      <path d="M108 246 L108 231 A4 4 0 0 1 116 231 L116 246 Z" />
+      <path d="M122 246 L122 231 A4 4 0 0 1 130 231 L130 246 Z" />
+      <path d="M136 246 L136 231 A4 4 0 0 1 144 231 L144 246 Z" />
+      <path d="M150 246 L150 231 A4 4 0 0 1 158 231 L158 246 Z" />
+      <path d="M164 246 L164 231 A4 4 0 0 1 172 231 L172 246 Z" />
+      <path d="M222 246 L222 231 A4 4 0 0 1 230 231 L230 246 Z" />
+      <path d="M236 246 L236 231 A4 4 0 0 1 244 231 L244 246 Z" />
+      <path d="M286 246 L286 231 A4 4 0 0 1 294 231 L294 246 Z" />
+      <path d="M300 246 L300 231 A4 4 0 0 1 308 231 L308 246 Z" />
+    </g>
+    <rect x="74" y="246" width="252" height="7" fill="#E88D38" />
+    <rect x="68" y="253" width="264" height="8" fill="#F5A649" />
+    <polygon points="248,242 276,242 282,261 242,261" fill="#F9D5A2" />
+    <line x1="247" y1="246" x2="277" y2="246" stroke="#C97428" stroke-width="1.2" />
+    <line x1="246" y1="250" x2="278" y2="250" stroke="#C97428" stroke-width="1.2" />
+    <line x1="244" y1="254" x2="280" y2="254" stroke="#C97428" stroke-width="1.2" />
+    <line x1="243" y1="258" x2="281" y2="258" stroke="#C97428" stroke-width="1.2" />
+  </g>
+
+  <g id="aarti-priest" transform="translate(0, -18) scale(1.35)" transform-origin="200 320">
+    <path d="M184 275 L196 293" stroke="#B87A28" stroke-width="3" stroke-linecap="round" />
+    <polygon points="176,273 193,264 196,280 180,283" fill="#C98A32" />
+    <path d="M181 268 Q179 258 184 254 Q188 260 181 268 Z" fill="#FDE068" />
+    <path d="M189 263 Q187 253 193 250 Q197 256 189 263 Z" fill="#FFF3B0" />
+    <path d="M195 269 Q197 259 203 257 Q204 264 198 270 Z" fill="#FDE068" />
+    <path d="M195 292 L200 308 L206 306 L200 290 Z" fill="#D98A56" />
+    <circle cx="206" cy="305" r="5.5" fill="#D98A56" />
+    <path d="M202 301 Q207 298 211 302" fill="#2B1B17" />
+    <path d="M195 311 L218 311 L222 338 L192 338 Z" fill="#7A1C1C" />
+    <path d="M205 311 L214 311 L210 337 L198 337 Z" fill="#F5EEDB" />
+    <path d="M193 338 L220 338 L217 375 L196 375 Z" fill="#F7F1DF" />
+    <path d="M207 338 L207 375" stroke="#D4C7A8" stroke-width="1.5" />
+  </g>
+</svg>
