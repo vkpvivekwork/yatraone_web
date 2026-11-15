@@ -26,7 +26,7 @@ const PACKAGES = [
     id:    'varanasi-complete',
     name:  'Varanasi Complete Tour',
     hi:    'वाराणसी संपूर्ण यात्रा',
-    days:  '5 Days / 4 Nights',
+    days:  '4 Days / 3 Nights',
     badge: 'Best Value',
     img:   '1596097825168-c9b773f404ff',
     desc:  'All major temples, every important ghat, Sarnath, Ramnagar Fort, Chunar excursion and a heritage lane walk.',
@@ -233,7 +233,7 @@ export default function ToursPage() {
             </nav>
             <div style={{ fontFamily: "'Tiro Devanagari Hindi',serif", fontSize: 'clamp(.9rem,2.5vw,1.2rem)', color: '#FF9933', fontWeight: 700, marginBottom: '10px' }}>दर्शन और भ्रमण · काशी यात्रा</div>
             <h1 style={{ fontFamily: "'Fraunces',Georgia,serif", fontWeight: 900, fontSize: 'clamp(2.2rem,7vw,4.2rem)', color: '#fff', lineHeight: 1.08, textShadow: '0 3px 28px rgba(0,0,0,.7)', margin: '0 0 14px' }}>
-              Tours Planned<br />for You
+              Varanasi Tour<br />Packages
             </h1>
             <p style={{ fontSize: 'clamp(.95rem,2vw,1.1rem)', color: 'rgba(255,255,255,.88)', lineHeight: 1.65, maxWidth: '48rem', marginBottom: '28px' }}>
               Guided darshan, Ganga aarti, multi-city yatras to Ayodhya &amp; Prayagraj — planned around temple timings by people who live here.
