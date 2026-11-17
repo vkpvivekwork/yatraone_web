@@ -45,6 +45,28 @@ const PACKAGES = [
     href:  '/tours/varanasi-ayodhya-prayagraj-tour-package',
   },
   {
+    id:    'kashi-temple-darshan',
+    name:  '1 Day Kashi Temple Darshan',
+    hi:    'काशी दर्शन — एक दिन',
+    days:  '1 Day',
+    badge: 'Day Tour',
+    img:   '1599831069477-b2acdc0bcb91',
+    desc:  'Kashi Vishwanath, Sankat Mochan, Durga Mandir, sunrise boat ride and evening Ganga Aarti — all covered in one full day.',
+    tags:  ['Temple darshan', 'Boat ride', 'Ganga Aarti', 'Guide'],
+    href:  '/tours/varanasi-temple-darshan',
+  },
+  {
+    id:    'varanasi-on-wheels',
+    name:  'Varanasi on Wheels',
+    hi:    'दो पहियों पर काशी',
+    days:  '1 Day',
+    badge: 'Adventure',
+    img:   '1634920540678-df0e179c5243',
+    desc:  'Explore the hidden lanes, ghats and old city of Kashi on a guided bicycle or motorbike ride — the best way to feel the real pulse of Varanasi.',
+    tags:  ['Bike ride', 'Old city lanes', 'Ghats', 'Local guide'],
+    href:  '/tours/varanasi-bike-tour',
+  },
+  {
     id:    'custom',
     name:  'Custom Tour',
     hi:    'कस्टम यात्रा',
@@ -54,6 +76,36 @@ const PACKAGES = [
     desc:  'Tell us your dates, group size and places. We design a personalised itinerary around your schedule and budget.',
     tags:  ['Any group size', 'Flexible dates', 'Multi-city', 'Any budget'],
     href:  '/travel-itinerary',
+  },
+]
+
+const REVIEWS = [
+  {
+    name: 'Vivek Pal',
+    meta: 'Local Guide · 24 reviews',
+    trip: 'Family Tour · Ghats & Temples',
+    stars: 5,
+    text: 'Had a wonderful time in Varanasi with family. Having a local guide who knew all the shortcuts around the ghats and temples saved us so much time. The Subah-e-Banaras aarti at Assi Ghat was magical.',
+    initials: 'VP',
+    color: '#e8701a',
+  },
+  {
+    name: 'Ritesh Pandey',
+    meta: '3 reviews · 2 photos',
+    trip: 'Cab & Driver Service',
+    stars: 5,
+    text: 'Inka service bahut acha laga humko — time se aate hain, driver bhi acha hai. Main inko hi recommend karunga hamesha. Bahut acchi service lene wale log.',
+    initials: 'RP',
+    color: '#1a7ae8',
+  },
+  {
+    name: 'Piyush Kumar Singh',
+    meta: '1 review',
+    trip: 'Varanasi Tour Package',
+    stars: 5,
+    text: 'Excellent service and well-equipped network of connections that made the trip very affordable. Kudos to the team — really appreciable work!',
+    initials: 'PK',
+    color: '#1aa87a',
   },
 ]
 
@@ -208,20 +260,75 @@ export default function ToursPage() {
           .tcard-tag{font-size:.75rem;background:var(--paper-2);padding:3px 9px;border-radius:20px;color:var(--ink-soft)}
           .tcard-btn{margin-top:auto;padding-top:14px}
 
-          .tours-form-wrap{background:var(--cream);border:1px solid var(--line);border-radius:18px;padding:clamp(24px,5vw,46px);max-width:680px;margin:0 auto}
-          .tform-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:20px;row-gap:18px}
-          @media(max-width:540px){.tform-grid{grid-template-columns:1fr}}
+          .reviews-sec{padding:80px 0;background:var(--paper-2)}
+          .reviews-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-bottom:40px}
+          .reviews-rating-badge{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 20px}
+          .g-logo{width:22px;height:22px;flex-shrink:0}
+          .reviews-rating-num{font-family:'Fraunces',serif;font-size:2rem;font-weight:900;line-height:1;color:var(--ink)}
+          .reviews-rating-stars{display:flex;gap:2px}
+          .reviews-rating-count{font-size:.8rem;color:var(--ink-soft);margin-top:2px}
+          .reviews-see-all{font-size:.85rem;font-weight:600;color:var(--saffron-deep);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:5px}
+          .reviews-see-all:hover{text-decoration:underline}
+          .reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+          @media(max-width:860px){.reviews-grid{grid-template-columns:1fr 1fr}}
+          @media(max-width:560px){.reviews-grid{grid-template-columns:1fr}}
+          .rcard{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:12px;transition:box-shadow .2s}
+          .rcard:hover{box-shadow:0 6px 24px rgba(0,0,0,.08)}
+          .rcard-top{display:flex;align-items:center;gap:12px}
+          .rcard-avatar{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;color:#fff;flex-shrink:0}
+          .rcard-meta{flex:1;min-width:0}
+          .rcard-name{font-weight:700;font-size:.92rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+          .rcard-city{font-size:.78rem;color:var(--ink-soft)}
+          .rcard-g{margin-left:auto;flex-shrink:0}
+          .rcard-stars{display:flex;gap:2px}
+          .rcard-trip{font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--saffron-deep);background:rgba(232,112,26,.08);padding:3px 9px;border-radius:20px;width:fit-content}
+          .rcard-text{font-size:.88rem;color:var(--ink-soft);line-height:1.65;flex:1}
+          .rcard-verified{display:flex;align-items:center;gap:5px;font-size:.74rem;color:#5f6368;margin-top:2px}
+
+          .tours-book-layout{display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:start}
+          @media(max-width:900px){.tours-book-layout{grid-template-columns:1fr;max-width:640px;margin:0 auto}}
+          .tours-form-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,.07)}
+          .tform-top-bar{background:linear-gradient(135deg,#e8701a,#C4520C);padding:20px 28px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+          .tform-top-bar h3{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:#fff;margin:0}
+          .tform-top-badge{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:4px 12px;font-size:.74rem;font-weight:600;color:#fff;white-space:nowrap}
+          .tform-body{padding:24px 28px 28px;box-sizing:border-box;width:100%}
+          @media(max-width:540px){.tform-body{padding:18px 16px 22px}.tform-top-bar{padding:14px 16px}}
+
+          .tform-info-panel{display:flex;flex-direction:column;gap:16px;position:sticky;top:90px}
+          @media(max-width:900px){.tform-info-panel{display:none}}
+          .tfi-rating{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;align-items:center;gap:14px}
+          .tfi-rating-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:900;line-height:1;color:var(--ink)}
+          .tfi-rating-label{font-size:.78rem;color:var(--ink-soft);margin-top:3px}
+          .tfi-cta{background:linear-gradient(135deg,#1a5c1a,#1e7c1e);border-radius:16px;padding:22px 20px}
+          .tfi-cta p{font-size:.85rem;color:rgba(255,255,255,.85);margin:0 0 14px;line-height:1.55}
+          .tfi-cta-wa{display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:12px 16px;border-radius:10px;font-weight:700;font-size:.92rem;text-decoration:none;margin-bottom:8px}
+          .tfi-cta-call{display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;font-size:.88rem;text-decoration:none}
+          .tfi-trust{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px}
+          .tfi-trust h4{font-family:'Fraunces',serif;font-size:.95rem;font-weight:700;margin:0 0 14px;color:var(--ink)}
+          .tfi-trust-row{display:flex;align-items:flex-start;gap:9px;padding:7px 0;border-bottom:1px solid var(--line);font-size:.84rem;color:var(--ink-soft);line-height:1.45}
+          .tfi-trust-row:last-child{border-bottom:none;padding-bottom:0}
+          .tfi-trust-row span:first-child{font-size:1rem;flex-shrink:0;margin-top:.05em}
+          .trust-quick-cta{background:linear-gradient(135deg,#e8701a,#C4520C);border-radius:14px;padding:22px 20px;color:#fff}
+          .trust-quick-cta h4{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;margin:0 0 8px;color:#fff}
+          .trust-quick-cta p{font-size:.84rem;opacity:.9;margin:0 0 16px;line-height:1.55}
+          .trust-quick-cta a{display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;padding:11px 16px;border-radius:8px;font-weight:700;font-size:.9rem;text-decoration:none;transition:background .2s}
+          .trust-quick-cta a:hover{background:rgba(255,255,255,.28)}
+          .trust-quick-cta .cta-call{margin-top:8px;background:transparent;border:1px solid rgba(255,255,255,.25);opacity:.9}
+
+          .tform-body form{display:block;width:100%;box-sizing:border-box}
+          .tform-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:16px;row-gap:16px;width:100%}
+          @media(max-width:640px){.tform-grid{grid-template-columns:1fr}}
           .tform-full{grid-column:1/-1}
-          .tform-field label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
-          .tform-field input,.tform-field select,.tform-field textarea{width:100%;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:10px 13px;font-size:.96rem;color:var(--ink);outline:none;box-sizing:border-box;font-family:inherit;resize:none;transition:border-color .18s}
-          .tform-field input:focus,.tform-field select:focus,.tform-field textarea:focus{border-color:var(--saffron);background:#fff}
-          .tform-submit{width:100%;padding:14px;background:var(--saffron-deep);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:background .2s}
-          .tform-submit:hover{background:var(--kumkum)}
-          .tform-submit:disabled{opacity:.5;cursor:not-allowed}
+          .tform-field{min-width:0;width:100%;box-sizing:border-box}
+          .tform-field label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+          .tform-field input,.tform-field select,.tform-field textarea{width:100%;background:var(--paper);border:1.5px solid var(--line);border-radius:8px;padding:11px 14px;font-size:.96rem;color:var(--ink);outline:none;box-sizing:border-box;font-family:inherit;resize:none;transition:border-color .18s,box-shadow .18s}
+          .tform-field input:focus,.tform-field select:focus,.tform-field textarea:focus{border-color:var(--saffron);background:#fff;box-shadow:0 0 0 3px rgba(232,112,26,.1)}
+          .tform-submit{display:block;width:100%;padding:15px;background:var(--saffron-deep);color:#fff;border:none;border-radius:10px;font-weight:700;font-size:1rem;cursor:pointer;transition:background .2s,transform .15s;letter-spacing:.02em;box-sizing:border-box}
+          .tform-submit:hover{background:var(--kumkum);transform:translateY(-1px)}
+          .tform-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
           .tform-error{background:#fdf2f2;border:1px solid #f5c6c6;border-radius:8px;padding:12px 16px;font-size:.88rem;color:#9b2c2c}
           .tform-success{text-align:center;padding:40px 20px;display:flex;flex-direction:column;align-items:center;gap:14px}
           .tform-success-icon{font-size:3rem}
-          .tours-form form{display:block;padding:0;gap:0}
         `}</style>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
@@ -291,18 +398,93 @@ export default function ToursPage() {
           </div>
         </section>
 
-        {/* ── Booking Form ─────────────────────────────────────── */}
-        <section id="book" style={{ padding: '80px 0', background: 'var(--paper-2)' }}>
+        {/* ── Google Reviews ───────────────────────────────────── */}
+        <section className="reviews-sec">
           <div className="wrap">
-            <div className="sec-head center" style={{ marginBottom: '40px' }}>
+            <div className="reviews-header">
               <div>
-                <div className="eyebrow">Plan your tour</div>
-                <h2 className="sec-title">Send a Booking Enquiry</h2>
-                <p className="sec-lead">Free to enquire · No advance payment · We confirm on WhatsApp within 2 hours.</p>
+                <div className="eyebrow">Traveller Reviews</div>
+                <h2 className="sec-title" style={{ marginBottom: 0 }}>What Our Guests Say</h2>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '20px', flexWrap: 'wrap' }}>
+                <div className="reviews-rating-badge">
+                  {/* Google G logo */}
+                  <svg className="g-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                  <div>
+                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px' }}>
+                      <span className="reviews-rating-num">4.9</span>
+                      <div className="reviews-rating-stars">
+                        {[1,2,3,4,5].map(s => <svg key={s} width="16" height="16" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
+                      </div>
+                    </div>
+                    <div className="reviews-rating-count">Based on Google Reviews</div>
+                  </div>
+                </div>
+                <a href="https://www.google.com/maps/place/Yatra+k+Sathi/@25.288805,82.9929543,986m/data=!3m1!1e3!4m8!3m7!1s0x398e2de22de93b4f:0x9a0766270f74802c!8m2!3d25.288805!4d82.9955292!9m1!1b1!16s%2Fg%2F11yr3qc29_?entry=ttu&g_ep=EgoyMDI2MTExMC4wIKXMDSoASAFQAw%3D%3D" className="reviews-see-all" target="_blank" rel="noopener">
+                  See all reviews on Google →
+                </a>
               </div>
             </div>
 
+            <div className="reviews-grid">
+              {REVIEWS.slice(0, 3).map((r, i) => (
+                <div key={i} className="rcard">
+                  <div className="rcard-top">
+                    <div className="rcard-avatar" style={{ background: r.color }}>{r.initials}</div>
+                    <div className="rcard-meta">
+                      <div className="rcard-name">{r.name}</div>
+                      <div className="rcard-city">{r.meta}</div>
+                    </div>
+                    <div className="rcard-g">
+                      <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                      </svg>
+                    </div>
+                  </div>
+                  <div className="rcard-stars">
+                    {Array.from({ length: r.stars }).map((_, s) => (
+                      <svg key={s} width="15" height="15" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    ))}
+                  </div>
+                  <div className="rcard-trip">{r.trip}</div>
+                  <p className="rcard-text">"{r.text}"</p>
+                  <div className="rcard-verified">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Posted on Google
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Booking Form ─────────────────────────────────────── */}
+        <section id="book" style={{ padding: '80px 0', background: 'var(--paper-2)' }}>
+          <div className="wrap">
+            <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+              <div className="eyebrow">Plan your tour</div>
+              <h2 className="sec-title">Book Your Yatra</h2>
+              <p className="sec-lead" style={{ textAlign: 'center', margin: '0 auto' }}>We confirm within 2 hours on WhatsApp · No advance payment needed.</p>
+            </div>
+
+            <div className="tours-book-layout">
             <div className="tours-form-wrap">
+              <div className="tform-top-bar">
+                <h3>Send a Booking Enquiry</h3>
+                <div className="tform-top-badge">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  Free · No advance payment
+                </div>
+              </div>
+              <div className="tform-body">
               {status === 'success' ? (
                 <div className="tform-success">
                   <div className="tform-success-icon">🙏</div>
@@ -372,23 +554,64 @@ export default function ToursPage() {
                       </div>
                     )}
 
-                    <div className="tform-full" style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                    <div className="tform-full">
                       <button type="submit" className="tform-submit" disabled={status === 'submitting'}>
                         {status === 'submitting' ? 'Sending…' : 'Send Booking Enquiry'}
                       </button>
-                      <a
-                        href={`${WA_BASE}?text=${encodeURIComponent(buildWaMsg(form))}`}
-                        target="_blank" rel="noopener"
-                        style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '8px', padding: '12px', background: '#25D366', color: '#fff', borderRadius: '10px', fontWeight: 700, fontSize: '.95rem', textDecoration: 'none' }}
-                      >
-                        <WaIcon size={18} /> Or enquire on WhatsApp
-                      </a>
                     </div>
 
                   </div>
                 </form>
               )}
-            </div>
+              </div>{/* end tform-body */}
+            </div>{/* end tours-form-wrap */}
+
+            {/* ── Info panel (desktop right column) ── */}
+            <aside className="tform-info-panel">
+
+              {/* 4.9 Rating */}
+              <div className="tfi-rating">
+                <svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style={{flexShrink:0}}>
+                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                </svg>
+                <div>
+                  <div style={{display:'flex',alignItems:'baseline',gap:'8px'}}>
+                    <span className="tfi-rating-num">4.9</span>
+                    <div style={{display:'flex',gap:'2px'}}>
+                      {[1,2,3,4,5].map(s=><svg key={s} width="15" height="15" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
+                    </div>
+                  </div>
+                  <div className="tfi-rating-label">Google Rating · Yatra k Sathi</div>
+                </div>
+              </div>
+
+              {/* Quick contact */}
+              <div className="tfi-cta">
+                <p>Prefer to talk? Our Varanasi team responds within 2 hours.</p>
+                <a href={`${WA_BASE}?text=${encodeURIComponent('Namaste! I want to book a Varanasi tour. Please help me.')}`} target="_blank" rel="noopener" className="tfi-cta-wa">
+                  <WaIcon size={18}/> Chat on WhatsApp
+                </a>
+                <a href="tel:+919277472279" className="tfi-cta-call">
+                  📞 +91 92774 72279
+                </a>
+              </div>
+
+              {/* Trust points */}
+              <div className="tfi-trust">
+                <h4>Why Book With Us</h4>
+                <div className="tfi-trust-row"><span>🙏</span><span>Local Varanasi guides — people who live here</span></div>
+                <div className="tfi-trust-row"><span>💸</span><span>No advance payment · Pay only when confirmed</span></div>
+                <div className="tfi-trust-row"><span>⏱️</span><span>Confirmed on WhatsApp within 2 hours</span></div>
+                <div className="tfi-trust-row"><span>🕌</span><span>Temple timings &amp; aarti schedules always correct</span></div>
+                <div className="tfi-trust-row"><span>🚐</span><span>Cabs, boats &amp; hotels — all arranged</span></div>
+              </div>
+
+            </aside>
+
+            </div>{/* end tours-book-layout */}
           </div>
         </section>
 

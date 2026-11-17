@@ -6,7 +6,7 @@ const DEFAULT_CTA_HREF = '/plan-yatra'
 
 const LINKS = [
   { href: '/services',      label: 'Services',    active: p => p === '/services' || p.startsWith('/services/') },
-  { href: '/tour-packages', label: 'Packages',    active: p => p.startsWith('/tour-packages') },
+  { href: '/tours',         label: 'Packages',    active: p => p.startsWith('/tours') },
   { href: '/cab',           label: 'Cab',         active: p => p === '/cab' },
   { href: '/boat-rides',    label: 'Boating',     active: p => p === '/boat-rides' },
   { href: '/sightseeing',   label: 'Sightseeing', active: p => p === '/sightseeing' },
