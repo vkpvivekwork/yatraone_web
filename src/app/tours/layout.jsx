@@ -25,10 +25,10 @@ export const metadata = {
     siteName: 'Yatra Ke Sathi',
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1705952484283-19c31e37e0e4?w=1200&q=85&auto=format&fit=crop',
+        url: 'https://yatraksathi.com/YA%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BEk%20SA%E0%A4%A5%E0%A5%80.png',
         width: 1200,
         height: 630,
-        alt: 'Varanasi tour packages — Kashi ghats at sunrise',
+        alt: 'Yatrak Sathi — Varanasi tour packages',
       },
     ],
     type: 'website',
@@ -37,7 +37,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Varanasi Tour Packages | Yatra Ke Sathi',
     description: 'Kashi darshan, Ayodhya & Prayagraj yatras — guided packages planned by locals.',
-    images: ['https://images.unsplash.com/photo-1705952484283-19c31e37e0e4?w=1200&q=85&auto=format&fit=crop'],
+    images: ['https://yatraksathi.com/YA%E0%A4%A4%E0%A5%8D%E0%A4%B0%E0%A4%BEk%20SA%E0%A4%A5%E0%A5%80.png'],
   },
 }
 
