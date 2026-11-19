@@ -1,6 +1,10 @@
 'use client'
-import { useState, useRef, Fragment } from 'react'
+import { useState, useRef, useEffect, Fragment } from 'react'
+import Script from 'next/script'
 import Navbar from '@/app/components/Navbar'
+
+const META_PIXEL_ID = '1668345884790438'
+const GOOGLE_TAG_ID = 'YOUR_GOOGLE_TAG_ID' // ← replace when ready
 
 const API_URL  = 'https://yatra.pythonanywhere.com/api/bookings/'
 const WA       = '919277472279'
@@ -104,12 +108,18 @@ const MARQUEE_ITEMS = [
 ]
 
 const TRIP_DIARIES = [
-  { name:'Suresh Pandey',   city:'Lucknow',  stars:5, photo:'1627894483216-2138af692e32', review:'Completed the Tri-city yatra in 4 days. Ram Mandir darshan was deeply emotional. Everything was smooth.' },
-  { name:'Meena Tripathi',  city:'Mumbai',   stars:5, photo:'1665413791167-6718dcf36773', review:'First time in Varanasi and Ayodhya. The guide arranged everything — no queues, no confusion.' },
-  { name:'Ramesh Gupta',    city:'Delhi',    stars:5, photo:'1596097825168-c9b773f404ff', review:'Sangam snan at Prayagraj was the highlight. Highly recommend this tri-city package.' },
-  { name:'Anita Sharma',    city:'Jaipur',   stars:5, photo:'1571536802807-30451e3955d8', review:'The sunrise boat ride and Ganga Aarti on Day 1 — I will never forget those two hours.' },
-  { name:'Vijay Kumar',     city:'Patna',    stars:4, photo:'1649876674933-a5b3b39b4da1', review:'Well planned itinerary. 4 days felt right — not too rushed, covered all major darshans.' },
-  { name:'Priya Verma',     city:'Bhopal',   stars:5, photo:'1608412525537-662195e817c5', review:'Booked for parents (senior citizens). Team arranged easy access at every temple. Very thoughtful.' },
+  { name:'Meena Agarwal',          city:'Ahmedabad', stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery04.jpeg?updatedAt=1794591663323', caption:'Ladies Group Darshan · Kashi',        review:'Came with our ladies group from Ahmedabad. Temple darshan was beautifully arranged — no rush, full devotion.' },
+  { name:'Ramesh & Geeta Sharma',  city:'Delhi',     stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery10.jpeg?updatedAt=1794591733950', caption:'Kashi Vishwanath Darshan · Couple',   review:'Our first Kashi Vishwanath darshan together. Guide arranged the VIP pass and we touched the Shivling — divine.' },
+  { name:'Savita Pandey',          city:'Lucknow',   stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery05.jpeg?updatedAt=1794591675210', caption:'Holy Dip · River Ganga',               review:'Taking the holy dip in Ganga with my family was a lifelong dream. Yatra Ke Sathi made it safe and seamless.' },
+  { name:'Anjali Mishra',          city:'Bhopal',    stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery06.jpeg?updatedAt=1794591707022', caption:'Solo Darshan · Varanasi',              review:'Travelled solo and felt completely looked after. The guide was respectful and punctual throughout.' },
+  { name:'Suresh Kumar',           city:'Patna',     stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery01.jpeg?updatedAt=1794591722929', caption:'Banarasi Paan · Dashashwamedh Ghat',  review:'Banarasi paan on the ghat — that memory I carry forever. Everything from cab to darshan was spot on.' },
+  { name:'Deepak Tiwari',          city:'Jaipur',    stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery03.jpeg?updatedAt=1794591733055', caption:'Group Yatra · Kashi Vishwanath',      review:'Booked for 12 people. All arrangements on time, guide was knowledgeable. Highly recommend for group yatras.' },
+]
+
+const REVIEWS = [
+  { name:'Vivek Pal',          meta:'Local Guide · 24 reviews', trip:'Family Tour · Ghats & Temples', stars:5, text:'Had a wonderful time in Varanasi with family. Having a local guide who knew all the shortcuts around the ghats and temples saved us so much time. The Subah-e-Banaras aarti at Assi Ghat was magical.', initials:'VP', color:'#e8701a' },
+  { name:'Ritesh Pandey',      meta:'3 reviews · 2 photos',     trip:'Cab & Driver Service',          stars:5, text:'Inka service bahut acha laga humko — time se aate hain, driver bhi acha hai. Main inko hi recommend karunga hamesha. Bahut acchi service lene wale log.', initials:'RP', color:'#1a7ae8' },
+  { name:'Piyush Kumar Singh', meta:'1 review',                  trip:'Varanasi Tour Package',         stars:5, text:'Excellent service and well-equipped network of connections that made the trip very affordable. Kudos to the team — really appreciable work!', initials:'PK', color:'#1aa87a' },
 ]
 
 const FAQS = [
@@ -238,6 +248,16 @@ export default function VaranasiAyodhyaPrayagrajPage() {
   const [form, setForm]         = useState({ name:'', phone:'', start_date:'', num_people:'2', customer_notes:'' })
   const [status, setStatus]     = useState('idle')
   const [errMsg, setErrMsg]     = useState('')
+  const [utm, setUtm]           = useState({})
+
+  useEffect(() => {
+    const p = new URLSearchParams(window.location.search)
+    setUtm({
+      source:        p.get('utm_source')   || undefined,
+      referrer_name: p.get('utm_medium')   || document.referrer || undefined,
+      utm_campaign:  p.get('utm_campaign') || undefined,
+    })
+  }, [])
 
   function setF(k, v) { setForm(f => ({ ...f, [k]: v })) }
   function toggleDay(i) { setOpenDays(prev => prev.includes(i) ? prev.filter(d => d !== i) : [...prev, i]) }
@@ -258,10 +278,18 @@ export default function VaranasiAyodhyaPrayagrajPage() {
         num_days: '4', package_name: PKG_NAME,
         customer_notes: form.customer_notes.trim() || undefined,
         page_source: 'tours/varanasi-ayodhya-prayagraj',
+        ...utm,
       }
       Object.keys(payload).forEach(k => payload[k] === undefined && delete payload[k])
       const res = await fetch(API_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) })
-      if (res.ok) { setStatus('success') } else {
+      if (res.ok) {
+        // Fire conversion events
+        if (typeof window !== 'undefined') {
+          window.fbq?.('track', 'Lead')
+          window.gtag?.('event', 'conversion', { send_to: 'YOUR_GOOGLE_TAG_ID' })
+        }
+        setStatus('success')
+      } else {
         const data = await res.json().catch(() => ({}))
         setErrMsg(typeof data === 'object' ? Object.values(data).flat().join(' ') : 'Something went wrong.')
         setStatus('error')
@@ -275,13 +303,33 @@ export default function VaranasiAyodhyaPrayagrajPage() {
     <div style={{ background:'#F5E8AE', backgroundImage:GRAIN }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
 
+      {/* ── Meta Pixel — this landing page only ── */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <noscript><img height="1" width="1" style={{ display:'none' }} src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`} alt="" /></noscript>
+      <Script id="meta-pixel" strategy="afterInteractive">{`
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '${META_PIXEL_ID}');
+        fbq('track', 'PageView');
+      `}</Script>
+      <Script src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_TAG_ID}`} strategy="afterInteractive" />
+      <Script id="google-tag" strategy="afterInteractive">{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GOOGLE_TAG_ID}');
+      `}</Script>
+
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Tiro+Devanagari+Hindi&display=swap');
         .vap-day-btn{width:100%;text-align:left;border:none;cursor:pointer;background:transparent;padding:0;display:block}
         .vap-marquee-track{display:flex;gap:0;width:max-content;animation:vap-marquee 28s linear infinite}
         @keyframes vap-marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
         .vap-slider{display:flex;gap:16px;width:max-content;animation:vap-scroll 36s linear infinite}
-        @keyframes vap-scroll{0%{transform:translateX(0) rotate(-2deg)}100%{transform:translateX(-50%) rotate(-2deg)}}
+        @keyframes vap-scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
         .vap-inc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
         @media(min-width:480px){.vap-inc-grid{grid-template-columns:repeat(4,1fr)}}
         @media(min-width:900px){.vap-inc-grid{grid-template-columns:repeat(8,1fr)}}
@@ -299,10 +347,16 @@ export default function VaranasiAyodhyaPrayagrajPage() {
         .vap-sub:hover{opacity:.88}.vap-sub:disabled{opacity:.55;cursor:not-allowed}
         .vap-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(135deg,#B5421A,#6B2509);padding:12px 16px;gap:10px;align-items:center;justify-content:space-between;box-shadow:0 -4px 20px rgba(0,0,0,.3)}
         @media(max-width:720px){.vap-sticky{display:flex}.fab{bottom:76px!important}}
+        .vap-reviews-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        @media(max-width:760px){.vap-reviews-row{display:flex;overflow-x:auto;gap:0;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:10px;scrollbar-width:none}.vap-reviews-row::-webkit-scrollbar{display:none}}
+        .vap-rcard{background:#fff;border:1px solid rgba(196,146,37,.3);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;gap:10px}
+        @media(max-width:760px){.vap-rcard{min-width:100%;width:100%;flex-shrink:0;scroll-snap-align:start;box-sizing:border-box}}
+        .vap-early-cta{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+        .vap-early-btns{display:flex;gap:10px;flex-wrap:wrap}
       `}</style>
 
       <div className="topbar"><div className="wrap">
-        <span className="hi">हर हर महादेव · जय श्री राम · प्रयागराज</span>
+        <span className="hi">हर हर महादेव · जय श्री राम</span>
         <span><span className="hide-sm">Call / WhatsApp: </span><a href="tel:+919277472279">+91 92774 72279</a></span>
       </div></div>
       <div className="toran" aria-hidden="true">{Array.from({ length: TORAN }, (_, i) => <i key={i} />)}</div>
@@ -312,7 +366,7 @@ export default function VaranasiAyodhyaPrayagrajPage() {
 
         {/* ── Video Hero ── */}
         <section style={{ position:'relative', height:'88vh', minHeight:'520px', overflow:'hidden', background:'#1A0A02' }}>
-          <video ref={videoRef} autoPlay muted loop playsInline
+          <video ref={videoRef} autoPlay muted loop playsInline preload="none"
             style={{ position:'absolute', inset:0, width:'100%', height:'100%', objectFit:'cover', opacity:.75 }}
             poster={U('1627894483216-2138af692e32', 1400)}>
             <source src="/videos/varanasi-hero.mp4" type="video/mp4" />
@@ -363,6 +417,69 @@ export default function VaranasiAyodhyaPrayagrajPage() {
             ))}
           </div>
         </div>
+
+        {/* ── Trust Bridge ── */}
+        <div style={{ textAlign:'center', padding:'28px 16px 4px', background:'#F5E8AE', backgroundImage:GRAIN }}>
+          <div style={{ display:'inline-flex', flexDirection:'column', alignItems:'center', gap:'6px' }}>
+            <div style={{ display:'flex', gap:'3px' }}>
+              {[1,2,3,4,5].map(s => <svg key={s} width="18" height="18" viewBox="0 0 24 24" fill="#C49225"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
+            </div>
+            <div style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:700, fontSize:'clamp(.95rem,2vw,1.15rem)', color:'#3A1408' }}>
+              Trusted by 500+ pilgrims from across India
+            </div>
+            <div style={{ fontSize:'.78rem', color:'#8B5E1A' }}>Varanasi · Ayodhya · Prayagraj — planned by locals who live here</div>
+          </div>
+        </div>
+
+        {/* ── Enquiry Form — below hero ── */}
+        <section id="book" style={{ padding:'20px 0 28px' }}>
+          <div className="wrap" style={{ maxWidth:'780px', position:'relative', filter:'drop-shadow(0 4px 22px rgba(90,50,10,0.24))' }}>
+            <div style={{ position:'absolute', inset:0, zIndex:0 }} dangerouslySetInnerHTML={{ __html: TORN_PAPER_SVG }} />
+            <div style={{ position:'relative', zIndex:1, padding:'clamp(44px,7vw,72px) clamp(60px,12vw,100px) clamp(64px,10vw,88px)' }}>
+              {status === 'success' ? (
+                <div style={{ textAlign:'center', display:'flex', flexDirection:'column', alignItems:'center', gap:'16px' }}>
+                  <div style={{ fontSize:'3rem' }}>🙏</div>
+                  <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.6rem,4vw,2.4rem)', color:'#6B2509' }}>Enquiry Received!</h2>
+                  <p style={{ color:'#5A3F28', maxWidth:'360px', lineHeight:1.65 }}>Our team will confirm your booking on WhatsApp within 2 hours.</p>
+                  <GoldRule margin="4px 0" />
+                  <a href={waEnquire} target="_blank" rel="noopener" style={{ display:'inline-flex', alignItems:'center', gap:'8px', padding:'13px 24px', background:'#25D366', color:'#fff', borderRadius:'4px', fontWeight:700, textDecoration:'none' }}><WaIcon size={18} color="#fff" /> Also chat on WhatsApp</a>
+                </div>
+              ) : (
+                <>
+                  <div style={{ textAlign:'center', marginBottom:'32px' }}>
+                    <div style={{ display:'inline-flex', alignItems:'center', gap:'6px', background:'rgba(181,66,26,.12)', border:'1px solid rgba(181,66,26,.25)', borderRadius:'20px', padding:'4px 12px', fontSize:'.72rem', fontWeight:700, color:'#B5421A', marginBottom:'10px' }}>🔥 Popular dates filling fast — limited slots</div>
+                    <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.9rem,4vw,2.8rem)', color:'#6B2509', letterSpacing:'-1px', lineHeight:1.08, marginBottom:'12px' }}>Book This Tour</h2>
+                    <div style={{ display:'flex', justifyContent:'center', flexWrap:'wrap', gap:'8px 16px', marginBottom:'14px' }}>
+                      {[['⭐','4.9 Rating'],['⚡','Reply in 2 hrs'],['📍','Varanasi Based'],['✅','Zero Advance']].map(([icon, label]) => (
+                        <span key={label} style={{ display:'flex', alignItems:'center', gap:'4px', fontSize:'.72rem', color:'#5A3F28', fontWeight:600 }}><span>{icon}</span>{label}</span>
+                      ))}
+                    </div>
+                    <GoldRule margin="4px auto 0" />
+                  </div>
+                  <form onSubmit={handleSubmit} style={{ background:'transparent', border:'none', padding:0 }}>
+                    <div className="vap-fg">
+                      <div className="vap-fl"><label htmlFor="vap-name">Full Name *</label><input id="vap-name" type="text" required placeholder="e.g. Ramesh Sharma" autoComplete="name" value={form.name} onChange={e => setF('name', e.target.value)} /></div>
+                      <div className="vap-fl"><label htmlFor="vap-phone">Mobile / WhatsApp *</label><input id="vap-phone" type="tel" required placeholder="+91 98765 43210" autoComplete="tel" value={form.phone} onChange={e => setF('phone', e.target.value)} /></div>
+                      <div className="vap-fl">
+                        <label htmlFor="vap-people">No. of Travellers *</label>
+                        <select id="vap-people" required value={form.num_people} onChange={e => setF('num_people', e.target.value)}>
+                          <option value="">Select travellers</option>
+                          {NUM_PEOPLE.map(n => <option key={n} value={n}>{n} {n === '1' ? 'person' : 'people'}</option>)}
+                        </select>
+                      </div>
+                      <div className="vap-fl"><label htmlFor="vap-date">Expected Travel Date</label><input id="vap-date" type="date" min={today} value={form.start_date} onChange={e => setF('start_date', e.target.value)} /></div>
+                      <div className="vap-fl"><label htmlFor="vap-note">Special Requirements</label><input id="vap-note" type="text" placeholder="e.g. senior citizens, vegetarian…" value={form.customer_notes} onChange={e => setF('customer_notes', e.target.value)} /></div>
+                      {status === 'error' && <div className="vap-full" style={{ background:'#fdf2f2', border:'1px solid #f5c6c6', borderRadius:'6px', padding:'10px 14px', fontSize:'.88rem', color:'#9b2c2c' }}>{errMsg} · <a href={waEnquire} target="_blank" rel="noopener">Message us on WhatsApp</a></div>}
+                      <div className="vap-full" style={{ display:'flex', flexDirection:'column', gap:'10px' }}>
+                        <button type="submit" className="vap-sub" disabled={status === 'submitting'}>{status === 'submitting' ? 'Sending…' : 'Book Now — Send Enquiry'}</button>
+                      </div>
+                    </div>
+                  </form>
+                </>
+              )}
+            </div>
+          </div>
+        </section>
 
         {/* ── Collapsible Timeline Itinerary ── */}
         <section style={{ padding:'70px 0 80px' }}>
@@ -532,14 +649,84 @@ export default function VaranasiAyodhyaPrayagrajPage() {
             <div className="vap-slider">
               {DOUBLED.map((d, i) => (
                 <div key={i} style={{ width:'260px', flexShrink:0, background:'#FAF5E0', backgroundImage:GRAIN, border:'1.5px solid rgba(196,146,37,.35)', borderRadius:'10px', overflow:'hidden', boxShadow:'0 6px 24px rgba(43,26,14,.14)' }}>
-                  <div style={{ aspectRatio:'4/3', overflow:'hidden' }}>
+                  <div style={{ position:'relative', aspectRatio:'4/3', overflow:'hidden' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={U(d.photo, 400)} alt={d.name} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
+                    <img src={d.photo} alt={d.caption || d.name} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
+                    {d.caption && (
+                      <div style={{ position:'absolute', bottom:0, left:0, right:0, background:'linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%)', padding:'18px 10px 8px' }}>
+                        <div style={{ fontSize:'.65rem', color:'rgba(255,255,255,.9)', fontWeight:700, letterSpacing:'.06em' }}>{d.caption}</div>
+                      </div>
+                    )}
                   </div>
                   <div style={{ padding:'14px 14px 16px' }}>
                     <div style={{ color:'#C49225', fontSize:'.85rem', marginBottom:'6px', letterSpacing:'2px' }}>{'★'.repeat(d.stars)}</div>
                     <p style={{ fontSize:'.84rem', color:'#4A2E12', lineHeight:1.55, margin:'0 0 10px', fontStyle:'italic' }}>"{d.review}"</p>
                     <div style={{ fontSize:'.75rem', fontWeight:700, color:'#8B5E1A' }}>{d.name} · {d.city}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Google Reviews ── */}
+        <section style={{ padding:'60px 0 70px', background:'#FAF5E0', backgroundImage:GRAIN }}>
+          <div className="wrap">
+            {/* Header */}
+            <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'16px', marginBottom:'32px' }}>
+              <div>
+                <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'.95rem', color:'#B5421A', fontWeight:700, marginBottom:'6px' }}>यात्रियों की राय</div>
+                <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.6rem,3.5vw,2.2rem)', color:'#3A1408', margin:0 }}>What Our Guests Say</h2>
+              </div>
+              <div style={{ display:'flex', alignItems:'center', gap:'18px', flexWrap:'wrap' }}>
+                {/* Rating badge */}
+                <div style={{ display:'flex', alignItems:'center', gap:'12px', background:'#fff', border:'1px solid rgba(196,146,37,.3)', borderRadius:'10px', padding:'12px 16px' }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                  </svg>
+                  <div>
+                    <div style={{ display:'flex', alignItems:'baseline', gap:'6px' }}>
+                      <span style={{ fontFamily:"'Fraunces',serif", fontSize:'1.8rem', fontWeight:900, lineHeight:1, color:'#3A1408' }}>4.9</span>
+                      <div style={{ display:'flex', gap:'2px' }}>
+                        {[1,2,3,4,5].map(s => <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
+                      </div>
+                    </div>
+                    <div style={{ fontSize:'.72rem', color:'#5A3F28', marginTop:'2px' }}>Based on Google Reviews</div>
+                  </div>
+                </div>
+                <a href="https://www.google.com/maps/place/Yatra+k+Sathi/@25.288805,82.9929543,986m/data=!3m1!1e3!4m8!3m7!1s0x398e2de22de93b4f:0x9a0766270f74802c!8m2!3d25.288805!4d82.9955292!9m1!1b1!16s%2Fg%2F11yr3qc29_?entry=ttu&g_ep=EgoyMDI2MTExMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" style={{ fontSize:'.85rem', fontWeight:600, color:'#B5421A', textDecoration:'none', whiteSpace:'nowrap', display:'flex', alignItems:'center', gap:'4px' }}>
+                  See all on Google →
+                </a>
+              </div>
+            </div>
+            {/* Cards — 3-col desktop, single-row horizontal scroll mobile */}
+            <div className="vap-reviews-row">
+              {REVIEWS.map((r, i) => (
+                <div key={i} className="vap-rcard">
+                  <div style={{ display:'flex', alignItems:'center', gap:'10px' }}>
+                    <div style={{ width:'38px', height:'38px', borderRadius:'50%', background:r.color, color:'#fff', display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700, fontSize:'.85rem', flexShrink:0 }}>{r.initials}</div>
+                    <div style={{ flex:1, minWidth:0 }}>
+                      <div style={{ fontWeight:700, fontSize:'.88rem', color:'#3A1408', lineHeight:1.2 }}>{r.name}</div>
+                      <div style={{ fontSize:'.72rem', color:'#8B5E1A' }}>{r.meta}</div>
+                    </div>
+                    <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ flexShrink:0 }}>
+                      <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                      <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                      <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
+                      <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
+                  </div>
+                  <div style={{ display:'flex', gap:'2px' }}>
+                    {Array.from({ length: r.stars }).map((_, s) => <svg key={s} width="14" height="14" viewBox="0 0 24 24" fill="#FBBC05"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>)}
+                  </div>
+                  <div style={{ fontSize:'.72rem', fontWeight:700, color:'#B5421A', background:'rgba(181,66,26,.08)', borderRadius:'20px', padding:'3px 10px', alignSelf:'flex-start' }}>{r.trip}</div>
+                  <p style={{ fontSize:'.84rem', color:'#4A2E12', lineHeight:1.6, margin:0, fontStyle:'italic', flex:1 }}>"{r.text}"</p>
+                  <div style={{ display:'flex', alignItems:'center', gap:'5px', fontSize:'.7rem', color:'#5A3F28' }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#34A853" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    Posted on Google
                   </div>
                 </div>
               ))}
@@ -572,54 +759,6 @@ export default function VaranasiAyodhyaPrayagrajPage() {
           </div>
         </div>
 
-        {/* ── Enquiry Form ── */}
-        <section id="book" style={{ padding:'20px 0 28px' }}>
-          <div className="wrap" style={{ maxWidth:'780px', position:'relative', filter:'drop-shadow(0 4px 22px rgba(90,50,10,0.24))' }}>
-            <div style={{ position:'absolute', inset:0, zIndex:0 }} dangerouslySetInnerHTML={{ __html: TORN_PAPER_SVG }} />
-            <div style={{ position:'relative', zIndex:1, padding:'clamp(44px,7vw,72px) clamp(60px,12vw,100px) clamp(64px,10vw,88px)' }}>
-              {status === 'success' ? (
-                <div style={{ textAlign:'center', display:'flex', flexDirection:'column', alignItems:'center', gap:'16px' }}>
-                  <div style={{ fontSize:'3rem' }}>🙏</div>
-                  <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.6rem,4vw,2.4rem)', color:'#6B2509' }}>Enquiry Received!</h2>
-                  <p style={{ color:'#5A3F28', maxWidth:'360px', lineHeight:1.65 }}>Our team will confirm your booking on WhatsApp within 2 hours.</p>
-                  <GoldRule margin="4px 0" />
-                  <a href={waEnquire} target="_blank" rel="noopener" style={{ display:'inline-flex', alignItems:'center', gap:'8px', padding:'13px 24px', background:'#25D366', color:'#fff', borderRadius:'4px', fontWeight:700, textDecoration:'none' }}><WaIcon size={18} color="#fff" /> Also chat on WhatsApp</a>
-                </div>
-              ) : (
-                <>
-                  <div style={{ textAlign:'center', marginBottom:'32px' }}>
-                    <div style={{ display:'inline-flex', alignItems:'center', gap:'6px', background:'rgba(181,66,26,.12)', border:'1px solid rgba(181,66,26,.25)', borderRadius:'20px', padding:'4px 12px', fontSize:'.72rem', fontWeight:700, color:'#B5421A', marginBottom:'10px' }}>🔥 Popular dates filling fast — limited slots</div>
-                    <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.9rem,4vw,2.8rem)', color:'#6B2509', letterSpacing:'-1px', lineHeight:1.08, marginBottom:'12px' }}>Book This Tour</h2>
-                    <div style={{ display:'flex', justifyContent:'center', flexWrap:'wrap', gap:'8px 16px', marginBottom:'14px' }}>
-                      {[['⭐','4.9 Rating'],['👥','500+ Pilgrims'],['⚡','Reply in 2 hrs'],['📍','Varanasi Based']].map(([icon, label]) => (
-                        <span key={label} style={{ display:'flex', alignItems:'center', gap:'4px', fontSize:'.72rem', color:'#5A3F28', fontWeight:600 }}><span>{icon}</span>{label}</span>
-                      ))}
-                    </div>
-                    <GoldRule margin="4px auto 0" />
-                  </div>
-                  <form onSubmit={handleSubmit} style={{ background:'transparent', border:'none', padding:0 }}>
-                    <div className="vap-fg">
-                      <div className="vap-fl"><label htmlFor="vap-name">Full Name *</label><input id="vap-name" type="text" required placeholder="e.g. Ramesh Sharma" autoComplete="name" value={form.name} onChange={e => setF('name', e.target.value)} /></div>
-                      <div className="vap-fl"><label htmlFor="vap-phone">Mobile / WhatsApp *</label><input id="vap-phone" type="tel" required placeholder="+91 98765 43210" autoComplete="tel" value={form.phone} onChange={e => setF('phone', e.target.value)} /></div>
-                      <div className="vap-fl">
-                        <label htmlFor="vap-people">No. of Travellers *</label>
-                        <select id="vap-people" required value={form.num_people} onChange={e => setF('num_people', e.target.value)}>
-                          <option value="">Select travellers</option>
-                          {NUM_PEOPLE.map(n => <option key={n} value={n}>{n} {n === '1' ? 'person' : 'people'}</option>)}
-                        </select>
-                      </div>
-                      <div className="vap-fl"><label htmlFor="vap-date">Expected Travel Date</label><input id="vap-date" type="date" min={today} value={form.start_date} onChange={e => setF('start_date', e.target.value)} /></div>
-                      <div className="vap-fl"><label htmlFor="vap-note">Special Requirements</label><input id="vap-note" type="text" placeholder="e.g. senior citizens, vegetarian…" value={form.customer_notes} onChange={e => setF('customer_notes', e.target.value)} /></div>
-                      {status === 'error' && <div className="vap-full" style={{ background:'#fdf2f2', border:'1px solid #f5c6c6', borderRadius:'6px', padding:'10px 14px', fontSize:'.88rem', color:'#9b2c2c' }}>{errMsg} · <a href={waEnquire} target="_blank" rel="noopener">Message us on WhatsApp</a></div>}
-                      <div className="vap-full"><button type="submit" className="vap-sub" disabled={status === 'submitting'}>{status === 'submitting' ? 'Sending…' : 'Book Now — Send Enquiry'}</button></div>
-                    </div>
-                  </form>
-                </>
-              )}
-            </div>
-          </div>
-        </section>
-
         {/* ── FAQ ── */}
         <section style={{ padding:'70px 0 80px', background:'linear-gradient(180deg,#EDD690 0%,#F5E8AE 100%)', backgroundImage:GRAIN }}>
           <div className="wrap">
@@ -630,20 +769,18 @@ export default function VaranasiAyodhyaPrayagrajPage() {
           </div>
         </section>
 
-        {/* ── Final CTA ── */}
-        <section style={{ padding:'70px 0 90px', background:'linear-gradient(180deg,#EDD690 0%,#F5E8AE 100%)', backgroundImage:GRAIN }}>
-          <div className="wrap" style={{ textAlign:'center', maxWidth:'640px' }}>
-            <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'1.1rem', color:'#B5421A', marginBottom:'10px' }}>जय श्री राम · हर हर महादेव · जय प्रयागराज</div>
-            <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(2rem,5vw,3.2rem)', color:'#6B2509', letterSpacing:'-1px', lineHeight:1.1, marginBottom:'16px' }}>Three sacred cities await.<br/>We&apos;ll take care of everything.</h2>
-            <p style={{ color:'#5A3F28', fontSize:'1rem', lineHeight:1.7, marginBottom:'28px' }}>500+ pilgrims guided. Zero hidden charges. Confirmed on WhatsApp within 2 hours — no advance needed to enquire.</p>
-            <GoldRule margin="0 auto 28px" />
-            <div style={{ display:'flex', gap:'12px', flexWrap:'wrap', justifyContent:'center', marginBottom:'20px' }}>
-              <a href="#book" style={{ display:'inline-flex', alignItems:'center', gap:'10px', background:'linear-gradient(135deg,#B5421A,#6B2509)', color:'#FAF5E0', padding:'15px 34px', borderRadius:'4px', fontWeight:700, fontSize:'1.05rem', textDecoration:'none', boxShadow:'0 6px 24px rgba(107,37,9,.4)' }}>📋 Book This Tour</a>
-              <a href={waEnquire} target="_blank" rel="noopener" style={{ display:'inline-flex', alignItems:'center', gap:'10px', background:'#25D366', color:'#fff', padding:'15px 28px', borderRadius:'4px', fontWeight:700, fontSize:'1.05rem', textDecoration:'none' }}><WaIcon size={20} color="#fff" /> WhatsApp Us</a>
+        {/* ── Final WhatsApp Strip ── */}
+        <div style={{ background:'#25D366', padding:'20px 0' }}>
+          <div className="wrap" style={{ display:'flex', alignItems:'center', justifyContent:'space-between', flexWrap:'wrap', gap:'14px' }}>
+            <div>
+              <div style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:800, fontSize:'clamp(1rem,2.5vw,1.3rem)', color:'#fff' }}>Still have questions? Chat with us directly.</div>
+              <div style={{ fontSize:'.82rem', color:'rgba(255,255,255,.85)', marginTop:'3px' }}>Reply within minutes · +91 92774 72279 · Varanasi</div>
             </div>
-            <a href="tel:+919277472279" style={{ fontSize:'.9rem', color:'#B5421A', fontWeight:700, textDecoration:'none' }}>📞 +91 92774 72279 · Varanasi</a>
+            <a href={waEnquire} target="_blank" rel="noopener" style={{ display:'inline-flex', alignItems:'center', gap:'9px', background:'#fff', color:'#128C3E', padding:'12px 24px', borderRadius:'4px', fontWeight:800, fontSize:'1rem', textDecoration:'none', flexShrink:0 }}>
+              <WaIcon size={20} color="#128C3E" /> WhatsApp Us Now
+            </a>
           </div>
-        </section>
+        </div>
 
       </main>
 
