@@ -117,9 +117,9 @@ const TRIP_DIARIES = [
 ]
 
 const REVIEWS = [
-  { name:'Vivek Pal',          meta:'Local Guide · 24 reviews', trip:'Family Tour · Ghats & Temples', stars:5, text:'Had a wonderful time in Varanasi with family. Having a local guide who knew all the shortcuts around the ghats and temples saved us so much time. The Subah-e-Banaras aarti at Assi Ghat was magical.', initials:'VP', color:'#e8701a' },
-  { name:'Ritesh Pandey',      meta:'3 reviews · 2 photos',     trip:'Cab & Driver Service',          stars:5, text:'Inka service bahut acha laga humko — time se aate hain, driver bhi acha hai. Main inko hi recommend karunga hamesha. Bahut acchi service lene wale log.', initials:'RP', color:'#1a7ae8' },
-  { name:'Piyush Kumar Singh', meta:'1 review',                  trip:'Varanasi Tour Package',         stars:5, text:'Excellent service and well-equipped network of connections that made the trip very affordable. Kudos to the team — really appreciable work!', initials:'PK', color:'#1aa87a' },
+  { name:'Pradeep Kumar Mishra', meta:'5 reviews · 3 photos', trip:'Varanasi–Ayodhya–Prayagraj Package', stars:5, text:'Yaar ek hi trip mein Kashi, Ram Mandir aur Triveni Sangam — kya combination hai! Guide ne Kashi Vishwanath ka darshan bina kisi extra bhagdaud ke karaya. Ganga Aarti dekhke aankhein bhar aayi. Pura 4 din bahut smooth raha, koi bhi problem nahi aayi. Next time bhi inhi se lunga.', initials:'PM', color:'#e8701a' },
+  { name:'Sunita Verma',         meta:'2 reviews · 1 photo',  trip:'Teerthdham Family Yatra',          stars:5, text:'Humne ye package liya tha 6 logo ke saath. Subah-e-Banaras wali morning boat ride toh seedha dil ko touch kar gayi bhai — aankhon ke saamne poora Varanasi jag raha tha. Ayodhya mein Saryu Aarti bhi bahut sundar thi. Sab kuch time pe hua, koi tension nahi. Zaroor lo ye package!', initials:'SV', color:'#1a7ae8' },
+  { name:'Dinesh Agarwal',       meta:'1 review',             trip:'4-Day Kashi Yatra',                stars:5, text:'Honestly bol raha hoon — itne affordable mein itna acha service nahi milega kahin aur. Sangam snan, Alopi Mata darshan, Ram Janmabhoomi — sab kuch cover hua ek hi trip mein. Driver bahut cooperative tha, WhatsApp pe 24/7 available tha. Full paisa vasool trip rahi!', initials:'DA', color:'#1aa87a' },
 ]
 
 const FAQS = [
@@ -337,10 +337,10 @@ export default function VaranasiAyodhyaPrayagrajPage() {
         @media(max-width:639px){.vap-hide-mobile{display:none!important}}
         .vap-fg{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;row-gap:22px}
         @media(max-width:580px){.vap-fg{grid-template-columns:1fr}}
-        .vap-fl label{display:block;font-family:'Tiro Devanagari Hindi',Georgia,serif;font-size:.76rem;letter-spacing:.14em;text-transform:uppercase;color:#7A4A1A;margin-bottom:4px}
-        .vap-fl input,.vap-fl select{width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(139,94,26,0.55);border-radius:0;padding:7px 2px;font-family:Georgia,serif;font-size:1rem;color:#2B1A0E;outline:none;box-sizing:border-box}
+        .vap-fl label{display:block;font-family:system-ui,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.03em;color:#7A4A1A;margin-bottom:5px}
+        .vap-fl input,.vap-fl select{width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(139,94,26,0.55);border-radius:0;padding:7px 2px;font-family:system-ui,sans-serif;font-size:.95rem;color:#2B1A0E;outline:none;box-sizing:border-box}
         .vap-fl input:focus,.vap-fl select:focus{border-bottom-color:#B5421A}
-        .vap-fl input::placeholder{color:rgba(139,94,26,0.45);font-style:italic}
+        .vap-fl input::placeholder{color:rgba(139,94,26,0.4)}
         .vap-fl select{appearance:none;cursor:pointer}
         .vap-full{grid-column:1/-1}
         .vap-sub{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:13px 20px;background:linear-gradient(135deg,#8B3A10,#5A2008);color:#FAF5E0;border:none;border-radius:2px;font-family:'Tiro Devanagari Hindi',Georgia,serif;font-weight:700;font-size:1rem;cursor:pointer;letter-spacing:.08em;box-shadow:0 3px 14px rgba(139,58,16,.35);transition:opacity .18s}
@@ -574,68 +574,96 @@ export default function VaranasiAyodhyaPrayagrajPage() {
           </div>
         </section>
 
+        {/* ── Why Choose Us ── */}
+        <section style={{ padding:'44px 0', background:'linear-gradient(180deg,#F5E8AE 0%,#FAF5E0 100%)', backgroundImage:GRAIN }}>
+          <div className="wrap">
+            <div style={{ textAlign:'center', marginBottom:'32px' }}>
+              <p style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'.82rem', color:'#B5421A', margin:'0 0 8px', letterSpacing:'.1em' }}>हमें क्यों चुनें</p>
+              <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.5rem,3.2vw,2rem)', color:'#3A1408', margin:0, lineHeight:1.2 }}>Locals Who Care, Not Just Guides<br/><span style={{ color:'#B5421A' }}>Who Show.</span></h2>
+            </div>
+            <div style={{ display:'grid', gridTemplateColumns:'repeat(3,1fr)', gap:'0' }}>
+              {[
+                { icon:'🏡', label:'Family Ki Tarah Care' },
+                { icon:'🗝️', label:'Hidden Gems of Kashi' },
+                { icon:'🙏', label:'VIP Darshan, Zero Chaos' },
+                { icon:'🚗', label:'Clean · Safe · Hygienic' },
+                { icon:'🧭', label:'Expert Local Guide' },
+                { icon:'📸', label:'Yaadgaar Pal, Saath Mein' },
+              ].map((c, i) => (
+                <div key={c.label} style={{
+                  display:'flex', flexDirection:'column', alignItems:'center', gap:'8px',
+                  padding:'20px 12px',
+                  borderRight: (i+1) % 3 !== 0 ? '1px solid rgba(196,146,37,.25)' : 'none',
+                  borderBottom: i < 3 ? '1px solid rgba(196,146,37,.25)' : 'none',
+                }}>
+                  <span style={{ fontSize:'1.6rem', lineHeight:1 }}>{c.icon}</span>
+                  <span style={{ fontSize:'.75rem', fontWeight:700, color:'#4A2E12', fontFamily:'system-ui,sans-serif', textAlign:'center', lineHeight:1.4 }}>{c.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ── Tri-city Highlights ── */}
-        <section style={{ padding:'60px 0 70px' }}>
+        <section style={{ padding:'60px 0 70px', background:'#FAF5E0', backgroundImage:GRAIN }}>
           <div className="wrap">
             <SectionHead hi="तीन शहर · एक यात्रा" title="What You'll Experience" />
-            <div style={{ display:'grid', gap:'32px' }}>
+            <div style={{ display:'grid', gap:'0', borderRadius:'12px', overflow:'hidden', border:'1px solid rgba(196,146,37,.2)', boxShadow:'0 4px 20px rgba(43,26,14,.08)' }}>
+              {[
+                { num:'01', icon:'🛕', city:'Varanasi', sub:'Kashi',               accent:'#C47A1A', items:['Kashi Vishwanath Temple','Dashashwamedh Ganga Aarti','Sunrise Boat Ride','Manikarnika Ghat','Assi Ghat Walk','Maa Annapurna Mandir','Kachori Breakfast','Vishwanath Gali'] },
+                { num:'02', icon:'🙏', city:'Ayodhya',   sub:'Ram Nagari',          accent:'#B5421A', items:['Ram Janmabhoomi Darshan','Ram Mandir','Hanuman Garhi Temple','Saryu Ghat Aarti','Kanak Bhawan','Ram Ki Paidi','Dashrath Mahal','Nageshwarnath Mandir'] },
+                { num:'03', icon:'🏊', city:'Prayagraj', sub:'Sangam Nagari',       accent:'#1a6ea8', items:['Triveni Sangam Boat Ride','Sangam Snan','Allahabad Fort View','Mankameshwar Mandir','Anand Bhavan','Swaraj Bhavan','Hanuman Mandir Sangam','Akshayavat Tree'] },
+                { num:'🍵', icon:'',  city:'Iconic Foods', sub:'Across the Route',  accent:'#2a9450', items:['Banarasi Chai','Kachori Sabzi','Tamatar Chaat','Banarasi Paan','Khaja Mithai (Ayodhya)','Pedha (Ayodhya)','Aloo Tikki (Prayagraj)','Imarti (Prayagraj)'] },
+              ].map((c, i, arr) => (
+                <div key={c.city} style={{ display:'grid', gridTemplateColumns:'90px 1fr', borderBottom: i < arr.length-1 ? '1px solid rgba(196,146,37,.15)' : 'none' }}>
+                  {/* Left number block */}
+                  <div style={{ background:c.accent, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', padding:'20px 10px', gap:'4px' }}>
+                    <span style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'1.6rem', color:'rgba(255,255,255,.95)', lineHeight:1 }}>{c.num}</span>
+                    {c.icon && <span style={{ fontSize:'.95rem' }}>{c.icon}</span>}
+                    <span style={{ fontSize:'.56rem', fontWeight:700, color:'rgba(255,255,255,.7)', letterSpacing:'.1em', textTransform:'uppercase', textAlign:'center', marginTop:'2px' }}>{c.sub}</span>
+                  </div>
+                  {/* Right content */}
+                  <div style={{ background:'#fff', padding:'16px 18px' }}>
+                    <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', marginBottom:'10px', gap:'8px', flexWrap:'wrap' }}>
+                      <span style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'1.05rem', color:'#3A1408' }}>{c.city}</span>
+                      <span style={{ fontSize:'.62rem', fontWeight:700, color:c.accent, background:`${c.accent}12`, border:`1px solid ${c.accent}30`, borderRadius:'20px', padding:'2px 9px' }}>✓ Included</span>
+                    </div>
+                    <div style={{ display:'flex', flexWrap:'wrap', gap:'6px' }}>
+                      {c.items.map(p => (
+                        <span key={p} style={{ background:'#FAF5E0', border:'1px solid rgba(196,146,37,.3)', borderRadius:'20px', padding:'3px 11px', fontSize:'.74rem', color:'#5A3F28', fontWeight:600 }}>{p}</span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-              {/* Varanasi */}
-              <div>
-                <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'14px' }}>
-                  <span style={{ fontSize:'1.3rem' }}>🛕</span>
-                  <span style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:800, fontSize:'1.05rem', color:'#3A1408' }}>Varanasi — Kashi</span>
-                  <div style={{ flex:1, height:'1px', background:'linear-gradient(to right,rgba(196,146,37,.5),transparent)', marginLeft:'6px' }} />
+        {/* ── Hidden Gems of Varanasi ── */}
+        <section style={{ padding:'48px 0 52px', background:'#FAF5E0', backgroundImage:GRAIN }}>
+          <div className="wrap">
+            <div style={{ textAlign:'center', marginBottom:'24px' }}>
+              <div style={{ fontFamily:"'Tiro Devanagari Hindi',serif", fontSize:'.8rem', color:'#B5421A', marginBottom:'6px', letterSpacing:'.06em' }}>सिर्फ़ हम जानते हैं</div>
+              <h3 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'1.25rem', color:'#3A1408', margin:'0 0 6px' }}>🗝️ Hidden Gems of Varanasi</h3>
+              <span style={{ fontSize:'.78rem', color:'#8B5E1A', fontStyle:'italic' }}>Woh jagah jo tourist map pe nahi milti</span>
+            </div>
+            <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:'10px' }}>
+              {[
+                { icon:'🌊', name:'Lolark Kund' },
+                { icon:'⛵', name:'Kedar Ghat' },
+                { icon:'🕌', name:'Panchganga Ghat' },
+                { icon:'🏯', name:'Darbhanga Ghat' },
+                { icon:'🧘', name:'Kabir Math' },
+                { icon:'🇮🇳', name:'Bharat Mata Mandir' },
+                { icon:'🐘', name:'Sakshi Vinayak Temple' },
+                { icon:'🏰', name:'Ramnagar Fort' },
+              ].map(g => (
+                <div key={g.name} style={{ background:'#fff', border:'1px solid rgba(196,146,37,.3)', borderRadius:'8px', padding:'14px 10px', display:'flex', flexDirection:'column', alignItems:'center', gap:'7px', textAlign:'center', boxShadow:'0 1px 4px rgba(43,26,14,.06)' }}>
+                  <span style={{ fontSize:'1.5rem', lineHeight:1 }}>{g.icon}</span>
+                  <span style={{ fontSize:'.72rem', fontWeight:700, color:'#4A2E12', lineHeight:1.3, fontFamily:'system-ui,sans-serif' }}>{g.name}</span>
                 </div>
-                <div style={{ display:'flex', flexWrap:'wrap', gap:'8px' }}>
-                  {['Kashi Vishwanath Temple','Dashashwamedh Ganga Aarti','Sunrise Boat Ride','Manikarnika Ghat','Assi Ghat Walk','Maa Annapurna Mandir','Banarasi Kachori Breakfast','Vishwanath Gali'].map(p => (
-                    <span key={p} style={{ background:'#FAF5E0', backgroundImage:GRAIN, border:'1.5px solid rgba(196,146,37,.4)', borderRadius:'20px', padding:'5px 14px', fontSize:'.82rem', color:'#5A3F28', fontWeight:600, whiteSpace:'nowrap' }}>{p}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Ayodhya */}
-              <div>
-                <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'14px' }}>
-                  <span style={{ fontSize:'1.3rem' }}>🙏</span>
-                  <span style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:800, fontSize:'1.05rem', color:'#3A1408' }}>Ayodhya — Ram Nagari</span>
-                  <div style={{ flex:1, height:'1px', background:'linear-gradient(to right,rgba(196,146,37,.5),transparent)', marginLeft:'6px' }} />
-                </div>
-                <div style={{ display:'flex', flexWrap:'wrap', gap:'8px' }}>
-                  {['Ram Janmabhoomi Darshan','Ram Mandir','Hanuman Garhi Temple','Saryu Ghat Morning Aarti','Kanak Bhawan','Ram Ki Paidi','Dashrath Mahal','Nageshwarnath Mandir'].map(p => (
-                    <span key={p} style={{ background:'#FAF5E0', backgroundImage:GRAIN, border:'1.5px solid rgba(196,146,37,.4)', borderRadius:'20px', padding:'5px 14px', fontSize:'.82rem', color:'#5A3F28', fontWeight:600, whiteSpace:'nowrap' }}>{p}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Prayagraj */}
-              <div>
-                <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'14px' }}>
-                  <span style={{ fontSize:'1.3rem' }}>🏊</span>
-                  <span style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:800, fontSize:'1.05rem', color:'#3A1408' }}>Prayagraj — Sangam Nagari</span>
-                  <div style={{ flex:1, height:'1px', background:'linear-gradient(to right,rgba(196,146,37,.5),transparent)', marginLeft:'6px' }} />
-                </div>
-                <div style={{ display:'flex', flexWrap:'wrap', gap:'8px' }}>
-                  {['Triveni Sangam Boat Ride','Sangam Snan','Allahabad Fort View','Mankameshwar Mandir','Anand Bhavan','Swaraj Bhavan','Hanuman Mandir Sangam','Akshayavat Tree'].map(p => (
-                    <span key={p} style={{ background:'rgba(196,146,37,.1)', border:'1.5px solid rgba(196,146,37,.4)', borderRadius:'20px', padding:'5px 14px', fontSize:'.82rem', color:'#5A3F28', fontWeight:600, whiteSpace:'nowrap' }}>{p}</span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Street Food */}
-              <div>
-                <div style={{ display:'flex', alignItems:'center', gap:'10px', marginBottom:'14px' }}>
-                  <span style={{ fontSize:'1.3rem' }}>🍵</span>
-                  <span style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:800, fontSize:'1.05rem', color:'#3A1408' }}>Iconic Foods Across the Route</span>
-                  <div style={{ flex:1, height:'1px', background:'linear-gradient(to right,rgba(196,146,37,.5),transparent)', marginLeft:'6px' }} />
-                </div>
-                <div style={{ display:'flex', flexWrap:'wrap', gap:'8px' }}>
-                  {['Banarasi Chai','Kachori Sabzi (Varanasi)','Tamatar Chaat','Banarasi Paan','Khaja Mithai (Ayodhya)','Pedha (Ayodhya)','Sangam ke Aloo Tikki','Imarti (Prayagraj)'].map(f => (
-                    <span key={f} style={{ background:'rgba(196,146,37,.1)', border:'1.5px solid rgba(196,146,37,.4)', borderRadius:'20px', padding:'5px 14px', fontSize:'.82rem', color:'#5A3F28', fontWeight:600, whiteSpace:'nowrap' }}>{f}</span>
-                  ))}
-                </div>
-              </div>
-
+              ))}
             </div>
           </div>
         </section>
@@ -651,17 +679,14 @@ export default function VaranasiAyodhyaPrayagrajPage() {
                 <div key={i} style={{ width:'260px', flexShrink:0, background:'#FAF5E0', backgroundImage:GRAIN, border:'1.5px solid rgba(196,146,37,.35)', borderRadius:'10px', overflow:'hidden', boxShadow:'0 6px 24px rgba(43,26,14,.14)' }}>
                   <div style={{ position:'relative', aspectRatio:'4/3', overflow:'hidden' }}>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={d.photo} alt={d.caption || d.name} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
-                    {d.caption && (
-                      <div style={{ position:'absolute', bottom:0, left:0, right:0, background:'linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%)', padding:'18px 10px 8px' }}>
-                        <div style={{ fontSize:'.65rem', color:'rgba(255,255,255,.9)', fontWeight:700, letterSpacing:'.06em' }}>{d.caption}</div>
-                      </div>
-                    )}
+                    <img src={d.photo} alt={d.name} loading="lazy" style={{ width:'100%', height:'100%', objectFit:'cover', display:'block' }} />
+                    <div style={{ position:'absolute', bottom:0, left:0, right:0, background:'linear-gradient(to top,rgba(0,0,0,.72) 0%,transparent 100%)', padding:'22px 12px 10px' }}>
+                      <div style={{ color:'#FFD966', fontSize:'.85rem', letterSpacing:'2px', marginBottom:'4px' }}>{'★'.repeat(d.stars)}</div>
+                      <div style={{ fontSize:'.78rem', fontWeight:700, color:'#fff', letterSpacing:'.03em' }}>{d.name} · {d.city}</div>
+                    </div>
                   </div>
                   <div style={{ padding:'14px 14px 16px' }}>
-                    <div style={{ color:'#C49225', fontSize:'.85rem', marginBottom:'6px', letterSpacing:'2px' }}>{'★'.repeat(d.stars)}</div>
-                    <p style={{ fontSize:'.84rem', color:'#4A2E12', lineHeight:1.55, margin:'0 0 10px', fontStyle:'italic' }}>"{d.review}"</p>
-                    <div style={{ fontSize:'.75rem', fontWeight:700, color:'#8B5E1A' }}>{d.name} · {d.city}</div>
+                    <p style={{ fontSize:'.84rem', color:'#4A2E12', lineHeight:1.55, margin:0, fontStyle:'italic' }}>"{d.review}"</p>
                   </div>
                 </div>
               ))}
