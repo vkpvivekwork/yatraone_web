@@ -108,12 +108,12 @@ const MARQUEE_ITEMS = [
 ]
 
 const TRIP_DIARIES = [
-  { name:'Meena Agarwal',          city:'Ahmedabad', stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery04.jpeg?updatedAt=1794591663323', caption:'Ladies Group Darshan · Kashi',        review:'Came with our ladies group from Ahmedabad. Temple darshan was beautifully arranged — no rush, full devotion.' },
-  { name:'Ramesh & Geeta Sharma',  city:'Delhi',     stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery10.jpeg?updatedAt=1794591733950', caption:'Kashi Vishwanath Darshan · Couple',   review:'Our first Kashi Vishwanath darshan together. Guide arranged the VIP pass and we touched the Shivling — divine.' },
-  { name:'Savita Pandey',          city:'Lucknow',   stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery05.jpeg?updatedAt=1794591675210', caption:'Holy Dip · River Ganga',               review:'Taking the holy dip in Ganga with my family was a lifelong dream. Yatra Ke Sathi made it safe and seamless.' },
-  { name:'Anjali Mishra',          city:'Bhopal',    stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery06.jpeg?updatedAt=1794591707022', caption:'Solo Darshan · Varanasi',              review:'Travelled solo and felt completely looked after. The guide was respectful and punctual throughout.' },
-  { name:'Suresh Kumar',           city:'Patna',     stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery01.jpeg?updatedAt=1794591722929', caption:'Banarasi Paan · Dashashwamedh Ghat',  review:'Banarasi paan on the ghat — that memory I carry forever. Everything from cab to darshan was spot on.' },
-  { name:'Deepak Tiwari',          city:'Jaipur',    stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery03.jpeg?updatedAt=1794591733055', caption:'Group Yatra · Kashi Vishwanath',      review:'Booked for 12 people. All arrangements on time, guide was knowledgeable. Highly recommend for group yatras.' },
+  { name:'Kavitha Rao',             city:'Bengaluru', stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery04.jpeg?updatedAt=1794591663323', caption:'Ladies Group Darshan · Kashi',        review:'8 ladies group from Bengaluru — yaar, Ganga Aarti dekhke roye hum log. Full paisa vasool!' },
+  { name:'Suresh & Priya Kulkarni',city:'Pune',      stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery10.jpeg?updatedAt=1794591733950', caption:'Kashi Vishwanath Darshan · Couple',   review:'Guide ne VIP line madhun nela, shivlingala sparsh kela — te pal ajunhi डोळ्यासमोर ahe. Khup chan!' },
+  { name:'Padma Reddy',            city:'Hyderabad', stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery05.jpeg?updatedAt=1794591675210', caption:'Holy Dip · River Ganga',               review:'Hyderabad nundi ittu dooram vacchi Sangam snan chesaamu — maa amma ki tears of joy vacchayi. Unforgettable!' },
+  { name:'Anjali Patil',           city:'Nashik',    stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery06.jpeg?updatedAt=1794591707022', caption:'Family Darshan · Varanasi',             review:'Aajobaancha swapna hota Kashi-Ayodhya. Guide ne saglyanna sombat nela — Ram Mandir darshan mhanaje shabdach nahi.' },
+  { name:'Rajesh Patel',           city:'Ahmedabad', stars:5, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery01.jpeg?updatedAt=1794591722929', caption:'Banarasi Paan · Dashashwamedh Ghat',  review:'Ahmedabad thi itnu dur — thoduk darr hato. Pan ekdum mast rayo! Banarasi paan, boat sunrise, Ganga Aarti — sab set.' },
+  { name:'Venkata Rao',            city:'Vijayawada',stars:4, photo:'https://ik.imagekit.io/yatraksathi/TravelStories/gallery03.jpeg?updatedAt=1794591733055', caption:'Group Yatra · Kashi Vishwanath',      review:'14 mandi group tho vachamu — anni perfect ga arrange chesaaru. Vijayawada nundi worth it anna feeling ichindi!' },
 ]
 
 const REVIEWS = [
@@ -335,15 +335,22 @@ export default function VaranasiAyodhyaPrayagrajPage() {
         @media(min-width:900px){.vap-inc-grid{grid-template-columns:repeat(8,1fr)}}
         .vap-hide-mobile{display:block}
         @media(max-width:639px){.vap-hide-mobile{display:none!important}}
-        .vap-fg{display:grid;grid-template-columns:1fr 1fr;column-gap:28px;row-gap:22px}
-        @media(max-width:580px){.vap-fg{grid-template-columns:1fr}}
+        .vap-form-mob{display:block}.vap-form-desk{display:none}
+        @media(min-width:721px){.vap-form-mob{display:none!important}.vap-form-desk{display:block!important}}
+        .vap-desk-card{display:grid!important;grid-template-columns:240px 1.5px 1fr;gap:0 36px;box-sizing:border-box;width:100%}
+        .vap-desk-card .vap-desk-left{}
+        .vap-desk-card .vap-desk-divider{background:linear-gradient(to bottom,transparent,#C49225 30%,#C49225 70%,transparent)}
+        .vap-desk-card .vap-desk-right{min-width:0;width:100%}
+        .vap-desk-card .vap-desk-right form{width:100%;display:block}
+        .vap-fg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:20px;row-gap:18px;width:100%}
+        @media(max-width:500px){.vap-fg{grid-template-columns:1fr}}
         .vap-fl label{display:block;font-family:system-ui,sans-serif;font-size:.78rem;font-weight:600;letter-spacing:.03em;color:#7A4A1A;margin-bottom:5px}
         .vap-fl input,.vap-fl select{width:100%;background:transparent;border:none;border-bottom:1.5px solid rgba(139,94,26,0.55);border-radius:0;padding:7px 2px;font-family:system-ui,sans-serif;font-size:.95rem;color:#2B1A0E;outline:none;box-sizing:border-box}
         .vap-fl input:focus,.vap-fl select:focus{border-bottom-color:#B5421A}
         .vap-fl input::placeholder{color:rgba(139,94,26,0.4)}
         .vap-fl select{appearance:none;cursor:pointer}
         .vap-full{grid-column:1/-1}
-        .vap-sub{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:13px 20px;background:linear-gradient(135deg,#8B3A10,#5A2008);color:#FAF5E0;border:none;border-radius:2px;font-family:'Tiro Devanagari Hindi',Georgia,serif;font-weight:700;font-size:1rem;cursor:pointer;letter-spacing:.08em;box-shadow:0 3px 14px rgba(139,58,16,.35);transition:opacity .18s}
+        .vap-sub{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:13px 20px;background:linear-gradient(135deg,#8B3A10,#5A2008);color:#FAF5E0;border:none;border-radius:2px;font-family:'Tiro Devanagari Hindi',Georgia,serif;font-weight:700;font-size:1rem;cursor:pointer;letter-spacing:.08em;box-shadow:0 3px 14px rgba(139,58,16,.35);transition:opacity .18s;white-space:nowrap}
         .vap-sub:hover{opacity:.88}.vap-sub:disabled{opacity:.55;cursor:not-allowed}
         .vap-sticky{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;background:linear-gradient(135deg,#B5421A,#6B2509);padding:12px 16px;gap:10px;align-items:center;justify-content:space-between;box-shadow:0 -4px 20px rgba(0,0,0,.3)}
         @media(max-width:720px){.vap-sticky{display:flex}.fab{bottom:76px!important}}
@@ -431,8 +438,11 @@ export default function VaranasiAyodhyaPrayagrajPage() {
           </div>
         </div>
 
-        {/* ── Enquiry Form — below hero ── */}
-        <section id="book" style={{ padding:'20px 0 28px' }}>
+        {/* scroll anchor */}
+        <div id="book" />
+
+        {/* ── Enquiry Form — MOBILE (portrait, original torn-paper) ── */}
+        <section className="vap-form-mob" style={{ padding:'20px 0 28px' }}>
           <div className="wrap" style={{ maxWidth:'780px', position:'relative', filter:'drop-shadow(0 4px 22px rgba(90,50,10,0.24))' }}>
             <div style={{ position:'absolute', inset:0, zIndex:0 }} dangerouslySetInnerHTML={{ __html: TORN_PAPER_SVG }} />
             <div style={{ position:'relative', zIndex:1, padding:'clamp(44px,7vw,72px) clamp(60px,12vw,100px) clamp(64px,10vw,88px)' }}>
@@ -446,7 +456,7 @@ export default function VaranasiAyodhyaPrayagrajPage() {
                 </div>
               ) : (
                 <>
-                  <div style={{ textAlign:'center', marginBottom:'32px' }}>
+                  <div style={{ textAlign:'center', marginBottom:'28px' }}>
                     <div style={{ display:'inline-flex', alignItems:'center', gap:'6px', background:'rgba(181,66,26,.12)', border:'1px solid rgba(181,66,26,.25)', borderRadius:'20px', padding:'4px 12px', fontSize:'.72rem', fontWeight:700, color:'#B5421A', marginBottom:'10px' }}>🔥 Popular dates filling fast — limited slots</div>
                     <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.9rem,4vw,2.8rem)', color:'#6B2509', letterSpacing:'-1px', lineHeight:1.08, marginBottom:'12px' }}>Book This Tour</h2>
                     <div style={{ display:'flex', justifyContent:'center', flexWrap:'wrap', gap:'8px 16px', marginBottom:'14px' }}>
@@ -458,25 +468,68 @@ export default function VaranasiAyodhyaPrayagrajPage() {
                   </div>
                   <form onSubmit={handleSubmit} style={{ background:'transparent', border:'none', padding:0 }}>
                     <div className="vap-fg">
-                      <div className="vap-fl"><label htmlFor="vap-name">Full Name *</label><input id="vap-name" type="text" required placeholder="e.g. Ramesh Sharma" autoComplete="name" value={form.name} onChange={e => setF('name', e.target.value)} /></div>
-                      <div className="vap-fl"><label htmlFor="vap-phone">Mobile / WhatsApp *</label><input id="vap-phone" type="tel" required placeholder="+91 98765 43210" autoComplete="tel" value={form.phone} onChange={e => setF('phone', e.target.value)} /></div>
+                      <div className="vap-fl"><label htmlFor="vap-m-name">Full Name *</label><input id="vap-m-name" type="text" required placeholder="e.g. Ramesh Sharma" autoComplete="name" value={form.name} onChange={e => setF('name', e.target.value)} /></div>
+                      <div className="vap-fl"><label htmlFor="vap-m-phone">Mobile / WhatsApp *</label><input id="vap-m-phone" type="tel" required placeholder="+91 98765 43210" autoComplete="tel" value={form.phone} onChange={e => setF('phone', e.target.value)} /></div>
                       <div className="vap-fl">
-                        <label htmlFor="vap-people">No. of Travellers *</label>
-                        <select id="vap-people" required value={form.num_people} onChange={e => setF('num_people', e.target.value)}>
+                        <label htmlFor="vap-m-people">No. of Travellers *</label>
+                        <select id="vap-m-people" required value={form.num_people} onChange={e => setF('num_people', e.target.value)}>
                           <option value="">Select travellers</option>
                           {NUM_PEOPLE.map(n => <option key={n} value={n}>{n} {n === '1' ? 'person' : 'people'}</option>)}
                         </select>
                       </div>
-                      <div className="vap-fl"><label htmlFor="vap-date">Expected Travel Date</label><input id="vap-date" type="date" min={today} value={form.start_date} onChange={e => setF('start_date', e.target.value)} /></div>
-                      <div className="vap-fl"><label htmlFor="vap-note">Special Requirements</label><input id="vap-note" type="text" placeholder="e.g. senior citizens, vegetarian…" value={form.customer_notes} onChange={e => setF('customer_notes', e.target.value)} /></div>
+                      <div className="vap-fl"><label htmlFor="vap-m-date">Expected Travel Date</label><input id="vap-m-date" type="date" min={today} value={form.start_date} onChange={e => setF('start_date', e.target.value)} /></div>
+                      <div className="vap-fl vap-full"><label htmlFor="vap-m-note">Special Requirements</label><input id="vap-m-note" type="text" placeholder="e.g. senior citizens, vegetarian…" value={form.customer_notes} onChange={e => setF('customer_notes', e.target.value)} /></div>
                       {status === 'error' && <div className="vap-full" style={{ background:'#fdf2f2', border:'1px solid #f5c6c6', borderRadius:'6px', padding:'10px 14px', fontSize:'.88rem', color:'#9b2c2c' }}>{errMsg} · <a href={waEnquire} target="_blank" rel="noopener">Message us on WhatsApp</a></div>}
-                      <div className="vap-full" style={{ display:'flex', flexDirection:'column', gap:'10px' }}>
+                      <div className="vap-full">
                         <button type="submit" className="vap-sub" disabled={status === 'submitting'}>{status === 'submitting' ? 'Sending…' : 'Book Now — Send Enquiry'}</button>
                       </div>
                     </div>
                   </form>
                 </>
               )}
+            </div>
+          </div>
+        </section>
+
+        {/* ── Enquiry Form — DESKTOP (landscape, plain card) ── */}
+        <section className="vap-form-desk" style={{ padding:'32px 0 40px' }}>
+          <div className="wrap">
+            <div className="vap-desk-card" style={{ background:'#FAF5E0', backgroundImage:GRAIN, border:'1.5px solid rgba(196,146,37,.4)', borderRadius:'10px', boxShadow:'0 8px 32px rgba(90,50,10,0.18)', padding:'36px 48px 44px' }}>
+                {/* Left — title + trust */}
+                <div className="vap-desk-left">
+                  <div style={{ display:'inline-flex', alignItems:'center', gap:'6px', background:'rgba(181,66,26,.12)', border:'1px solid rgba(181,66,26,.25)', borderRadius:'20px', padding:'3px 11px', fontSize:'.7rem', fontWeight:700, color:'#B5421A', marginBottom:'10px' }}>🔥 Popular dates filling fast</div>
+                  <h2 style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1.4rem,2.2vw,2rem)', color:'#6B2509', letterSpacing:'-0.5px', lineHeight:1.15, margin:'0 0 14px' }}>Book This Tour</h2>
+                  <div style={{ display:'flex', flexDirection:'column', gap:'8px', marginBottom:'18px' }}>
+                    {[['⭐','4.9 Rating'],['⚡','Reply in 2 hrs'],['📍','Varanasi Based'],['✅','Zero Advance']].map(([icon, label]) => (
+                      <span key={label} style={{ display:'flex', alignItems:'center', gap:'6px', fontSize:'.78rem', color:'#5A3F28', fontWeight:600 }}><span>{icon}</span>{label}</span>
+                    ))}
+                  </div>
+                  <GoldRule margin="0" width="40px" />
+                </div>
+                {/* Divider */}
+                <div className="vap-desk-divider" />
+                {/* Right — form */}
+                <div className="vap-desk-right">
+                  <form onSubmit={handleSubmit} style={{ background:'transparent', border:'none', padding:0, width:'100%' }}>
+                    <div className="vap-fg">
+                      <div className="vap-fl"><label htmlFor="vap-d-name">Full Name *</label><input id="vap-d-name" type="text" required placeholder="e.g. Ramesh Sharma" autoComplete="name" value={form.name} onChange={e => setF('name', e.target.value)} /></div>
+                      <div className="vap-fl"><label htmlFor="vap-d-phone">Mobile / WhatsApp *</label><input id="vap-d-phone" type="tel" required placeholder="+91 98765 43210" autoComplete="tel" value={form.phone} onChange={e => setF('phone', e.target.value)} /></div>
+                      <div className="vap-fl">
+                        <label htmlFor="vap-d-people">No. of Travellers *</label>
+                        <select id="vap-d-people" required value={form.num_people} onChange={e => setF('num_people', e.target.value)}>
+                          <option value="">Select travellers</option>
+                          {NUM_PEOPLE.map(n => <option key={n} value={n}>{n} {n === '1' ? 'person' : 'people'}</option>)}
+                        </select>
+                      </div>
+                      <div className="vap-fl"><label htmlFor="vap-d-date">Expected Travel Date</label><input id="vap-d-date" type="date" min={today} value={form.start_date} onChange={e => setF('start_date', e.target.value)} /></div>
+                      <div className="vap-fl vap-full"><label htmlFor="vap-d-note">Special Requirements</label><input id="vap-d-note" type="text" placeholder="e.g. senior citizens, vegetarian…" value={form.customer_notes} onChange={e => setF('customer_notes', e.target.value)} /></div>
+                      {status === 'error' && <div className="vap-full" style={{ background:'#fdf2f2', border:'1px solid #f5c6c6', borderRadius:'6px', padding:'10px 14px', fontSize:'.88rem', color:'#9b2c2c' }}>{errMsg} · <a href={waEnquire} target="_blank" rel="noopener">Message us on WhatsApp</a></div>}
+                      <div className="vap-full">
+                        <button type="submit" className="vap-sub" disabled={status === 'submitting'}>{status === 'submitting' ? 'Sending…' : 'Book Now — Send Enquiry'}</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
             </div>
           </div>
         </section>
@@ -508,7 +561,7 @@ export default function VaranasiAyodhyaPrayagrajPage() {
                               <div style={{ fontFamily:"'Fraunces',Georgia,serif", fontWeight:900, fontSize:'clamp(1rem,2.5vw,1.3rem)', color:'#3A1408', lineHeight:1.2, marginBottom:'4px' }}>{d.title}</div>
                               <div style={{ fontSize:'.75rem', color:'rgba(90,63,40,.65)' }}>{d.activities.length} stops · tap to {isOpen ? 'collapse' : 'expand'}</div>
                             </div>
-                            <div style={{ padding:'0 16px', display:'flex', alignItems:'center', fontSize:'1.1rem', color:'#C49225', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition:'transform .25s' }}>▾</div>
+                            <div style={{ padding:'0 16px', display:'flex', alignItems:'center', fontSize:'2.4rem', color:'#C49225', transform: isOpen ? 'rotate(180deg)' : 'rotate(0)', transition:'transform .25s' }}>▾</div>
                           </div>
                           {isOpen && (
                             <div style={{ padding:'20px 22px' }}>
